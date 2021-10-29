@@ -113,6 +113,23 @@ var app = (function () {
     function children(element) {
         return Array.from(element.childNodes);
     }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    function select_option(select, value) {
+        for (let i = 0; i < select.options.length; i += 1) {
+            const option = select.options[i];
+            if (option.__value === value) {
+                option.selected = true;
+                return;
+            }
+        }
+        select.selectedIndex = -1; // no option should be selected
+    }
+    function select_value(select) {
+        const selected_option = select.querySelector(':checked') || select.options[0];
+        return selected_option && selected_option.__value;
+    }
     function custom_event(type, detail, bubbles = false) {
         const e = document.createEvent('CustomEvent');
         e.initCustomEvent(type, bubbles, false, detail);
@@ -138,6 +155,9 @@ var app = (function () {
     }
     function add_render_callback(fn) {
         render_callbacks.push(fn);
+    }
+    function add_flush_callback(fn) {
+        flush_callbacks.push(fn);
     }
     let flushing = false;
     const seen_callbacks = new Set();
@@ -189,6 +209,19 @@ var app = (function () {
     }
     const outroing = new Set();
     let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
     function transition_in(block, local) {
         if (block && block.i) {
             outroing.delete(block);
@@ -209,6 +242,14 @@ var app = (function () {
                 }
             });
             block.o(local);
+        }
+    }
+
+    function bind(component, name, callback) {
+        const index = component.$$.props[name];
+        if (index !== undefined) {
+            component.$$.bound[index] = callback;
+            callback(component.$$.ctx[index]);
         }
     }
     function create_component(block) {
@@ -426,13 +467,13 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	const default_slot_template = /*#slots*/ ctx[2].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[1], null);
+    	const default_slot_template = /*#slots*/ ctx[3].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
 
     	const block = {
     		c: function create() {
     			label_1 = element("label");
-    			t0 = text(/*label*/ ctx[0]);
+    			t0 = text(/*label*/ ctx[1]);
     			t1 = space();
     			div1 = element("div");
     			select = element("select");
@@ -443,19 +484,20 @@ var app = (function () {
     			path = svg_element("path");
     			attr_dev(label_1, "class", "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2");
     			attr_dev(label_1, "for", "grid-state");
-    			add_location(label_1, file$4, 4, 0, 39);
+    			add_location(label_1, file$4, 5, 0, 62);
     			attr_dev(select, "class", "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500");
-    			add_location(select, file$4, 8, 1, 186);
+    			if (/*value*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[4].call(select));
+    			add_location(select, file$4, 9, 1, 209);
     			attr_dev(path, "d", "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z");
-    			add_location(path, file$4, 13, 90, 616);
+    			add_location(path, file$4, 14, 90, 629);
     			attr_dev(svg, "class", "fill-current h-4 w-4");
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg, "viewBox", "0 0 20 20");
-    			add_location(svg, file$4, 13, 1, 527);
+    			add_location(svg, file$4, 14, 1, 540);
     			attr_dev(div0, "class", "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700");
-    			add_location(div0, file$4, 12, 1, 428);
+    			add_location(div0, file$4, 13, 1, 441);
     			attr_dev(div1, "class", "relative mb-2");
-    			add_location(div1, file$4, 7, 0, 157);
+    			add_location(div1, file$4, 8, 0, 180);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -471,6 +513,7 @@ var app = (function () {
     				default_slot.m(select, null);
     			}
 
+    			select_option(select, /*value*/ ctx[0]);
     			append_dev(div1, t2);
     			append_dev(div1, div0);
     			append_dev(div0, svg);
@@ -478,26 +521,30 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(select, "change", /*change_handler*/ ctx[3], false, false, false);
+    				dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[4]);
     				mounted = true;
     			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (!current || dirty & /*label*/ 1) set_data_dev(t0, /*label*/ ctx[0]);
+    			if (!current || dirty & /*label*/ 2) set_data_dev(t0, /*label*/ ctx[1]);
 
     			if (default_slot) {
-    				if (default_slot.p && (!current || dirty & /*$$scope*/ 2)) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 4)) {
     					update_slot_base(
     						default_slot,
     						default_slot_template,
     						ctx,
-    						/*$$scope*/ ctx[1],
+    						/*$$scope*/ ctx[2],
     						!current
-    						? get_all_dirty_from_scope(/*$$scope*/ ctx[1])
-    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[1], dirty, null),
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[2])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null),
     						null
     					);
     				}
+    			}
+
+    			if (dirty & /*value*/ 1) {
+    				select_option(select, /*value*/ ctx[0]);
     			}
     		},
     		i: function intro(local) {
@@ -534,36 +581,42 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Select', slots, ['default']);
     	let { label } = $$props;
-    	const writable_props = ['label'];
+    	let { value = 0 } = $$props;
+    	const writable_props = ['label', 'value'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Select> was created with unknown prop '${key}'`);
     	});
 
-    	const change_handler = a => alert('XD');
+    	function select_change_handler() {
+    		value = select_value(this);
+    		$$invalidate(0, value);
+    	}
 
     	$$self.$$set = $$props => {
-    		if ('label' in $$props) $$invalidate(0, label = $$props.label);
-    		if ('$$scope' in $$props) $$invalidate(1, $$scope = $$props.$$scope);
+    		if ('label' in $$props) $$invalidate(1, label = $$props.label);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('$$scope' in $$props) $$invalidate(2, $$scope = $$props.$$scope);
     	};
 
-    	$$self.$capture_state = () => ({ label });
+    	$$self.$capture_state = () => ({ label, value });
 
     	$$self.$inject_state = $$props => {
-    		if ('label' in $$props) $$invalidate(0, label = $$props.label);
+    		if ('label' in $$props) $$invalidate(1, label = $$props.label);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [label, $$scope, slots, change_handler];
+    	return [value, label, $$scope, slots, select_change_handler];
     }
 
     class Select extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { label: 0 });
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { label: 1, value: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -575,7 +628,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*label*/ ctx[0] === undefined && !('label' in props)) {
+    		if (/*label*/ ctx[1] === undefined && !('label' in props)) {
     			console.warn("<Select> was created without expected prop 'label'");
     		}
     	}
@@ -587,50 +640,136 @@ var app = (function () {
     	set label(value) {
     		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
+
+    	get value() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
     }
 
     /* src/components/Input.svelte generated by Svelte v3.44.0 */
 
     const file$3 = "src/components/Input.svelte";
 
-    function create_fragment$3(ctx) {
-    	let label_1;
+    // (10:4) {#if unit}
+    function create_if_block$1(ctx) {
+    	let span;
     	let t0;
     	let t1;
-    	let input;
+    	let t2;
 
     	const block = {
     		c: function create() {
-    			label_1 = element("label");
-    			t0 = text(/*label*/ ctx[0]);
+    			span = element("span");
+    			t0 = text("(");
+    			t1 = text(/*unit*/ ctx[2]);
+    			t2 = text(")");
+    			attr_dev(span, "class", "lowercase font-normal");
+    			add_location(span, file$3, 10, 8, 217);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t0);
+    			append_dev(span, t1);
+    			append_dev(span, t2);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*unit*/ 4) set_data_dev(t1, /*unit*/ ctx[2]);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(10:4) {#if unit}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$3(ctx) {
+    	let span;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let input;
+    	let mounted;
+    	let dispose;
+    	let if_block = /*unit*/ ctx[2] && create_if_block$1(ctx);
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			t0 = text(/*label*/ ctx[1]);
     			t1 = space();
+    			if (if_block) if_block.c();
+    			t2 = space();
     			input = element("input");
-    			attr_dev(label_1, "class", "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2");
-    			attr_dev(label_1, "for", "grid-first-name");
-    			add_location(label_1, file$3, 4, 0, 42);
+    			attr_dev(span, "class", "uppercase tracking-wide text-gray-700 text-xs font-bold mb-2");
+    			add_location(span, file$3, 7, 0, 106);
     			attr_dev(input, "class", "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500");
     			attr_dev(input, "type", "text");
-    			attr_dev(input, "placeholder", "****");
-    			add_location(input, file$3, 7, 0, 168);
+    			attr_dev(input, "placeholder", /*hint*/ ctx[3]);
+    			add_location(input, file$3, 13, 0, 287);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, label_1, anchor);
-    			append_dev(label_1, t0);
-    			insert_dev(target, t1, anchor);
+    			insert_dev(target, span, anchor);
+    			append_dev(span, t0);
+    			append_dev(span, t1);
+    			if (if_block) if_block.m(span, null);
+    			insert_dev(target, t2, anchor);
     			insert_dev(target, input, anchor);
+    			set_input_value(input, /*value*/ ctx[0]);
+
+    			if (!mounted) {
+    				dispose = listen_dev(input, "input", /*input_input_handler*/ ctx[4]);
+    				mounted = true;
+    			}
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*label*/ 1) set_data_dev(t0, /*label*/ ctx[0]);
+    			if (dirty & /*label*/ 2) set_data_dev(t0, /*label*/ ctx[1]);
+
+    			if (/*unit*/ ctx[2]) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block$1(ctx);
+    					if_block.c();
+    					if_block.m(span, null);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+
+    			if (dirty & /*hint*/ 8) {
+    				attr_dev(input, "placeholder", /*hint*/ ctx[3]);
+    			}
+
+    			if (dirty & /*value*/ 1 && input.value !== /*value*/ ctx[0]) {
+    				set_input_value(input, /*value*/ ctx[0]);
+    			}
     		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(label_1);
-    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(span);
+    			if (if_block) if_block.d();
+    			if (detaching) detach_dev(t2);
     			if (detaching) detach_dev(input);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -649,33 +788,47 @@ var app = (function () {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Input', slots, []);
     	let { label } = $$props;
-    	const writable_props = ['label'];
+    	let { value } = $$props;
+    	let { unit } = $$props;
+    	let { hint } = $$props;
+    	const writable_props = ['label', 'value', 'unit', 'hint'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Input> was created with unknown prop '${key}'`);
     	});
 
+    	function input_input_handler() {
+    		value = this.value;
+    		$$invalidate(0, value);
+    	}
+
     	$$self.$$set = $$props => {
-    		if ('label' in $$props) $$invalidate(0, label = $$props.label);
+    		if ('label' in $$props) $$invalidate(1, label = $$props.label);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('unit' in $$props) $$invalidate(2, unit = $$props.unit);
+    		if ('hint' in $$props) $$invalidate(3, hint = $$props.hint);
     	};
 
-    	$$self.$capture_state = () => ({ label });
+    	$$self.$capture_state = () => ({ label, value, unit, hint });
 
     	$$self.$inject_state = $$props => {
-    		if ('label' in $$props) $$invalidate(0, label = $$props.label);
+    		if ('label' in $$props) $$invalidate(1, label = $$props.label);
+    		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('unit' in $$props) $$invalidate(2, unit = $$props.unit);
+    		if ('hint' in $$props) $$invalidate(3, hint = $$props.hint);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [label];
+    	return [value, label, unit, hint, input_input_handler];
     }
 
     class Input extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { label: 0 });
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { label: 1, value: 0, unit: 2, hint: 3 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -687,8 +840,20 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*label*/ ctx[0] === undefined && !('label' in props)) {
+    		if (/*label*/ ctx[1] === undefined && !('label' in props)) {
     			console.warn("<Input> was created without expected prop 'label'");
+    		}
+
+    		if (/*value*/ ctx[0] === undefined && !('value' in props)) {
+    			console.warn("<Input> was created without expected prop 'value'");
+    		}
+
+    		if (/*unit*/ ctx[2] === undefined && !('unit' in props)) {
+    			console.warn("<Input> was created without expected prop 'unit'");
+    		}
+
+    		if (/*hint*/ ctx[3] === undefined && !('hint' in props)) {
+    			console.warn("<Input> was created without expected prop 'hint'");
     		}
     	}
 
@@ -699,13 +864,37 @@ var app = (function () {
     	set label(value) {
     		throw new Error("<Input>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
+
+    	get value() {
+    		throw new Error("<Input>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<Input>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get unit() {
+    		throw new Error("<Input>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set unit(value) {
+    		throw new Error("<Input>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get hint() {
+    		throw new Error("<Input>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set hint(value) {
+    		throw new Error("<Input>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
     }
 
     /* src/InputForm.svelte generated by Svelte v3.44.0 */
     const file$2 = "src/InputForm.svelte";
 
-    // (7:1) <Select label="Magnet type">
-    function create_default_slot(ctx) {
+    // (11:1) <Select label="Magnet Type" bind:value={type}>
+    function create_default_slot_1(ctx) {
     	let option0;
     	let t1;
     	let option1;
@@ -722,15 +911,428 @@ var app = (function () {
     			t3 = space();
     			option2 = element("option");
     			option2.textContent = "Cylinder";
-    			option0.__value = 1;
+    			option0.__value = 0;
     			option0.value = option0.__value;
-    			add_location(option0, file$2, 7, 2, 181);
-    			option1.__value = 0;
+    			add_location(option0, file$2, 11, 2, 278);
+    			option1.__value = 1;
     			option1.value = option1.__value;
-    			add_location(option1, file$2, 8, 2, 216);
+    			add_location(option1, file$2, 12, 2, 313);
     			option2.__value = 2;
     			option2.value = option2.__value;
-    			add_location(option2, file$2, 9, 2, 250);
+    			add_location(option2, file$2, 13, 2, 347);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option0, anchor);
+    			insert_dev(target, t1, anchor);
+    			insert_dev(target, option1, anchor);
+    			insert_dev(target, t3, anchor);
+    			insert_dev(target, option2, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option0);
+    			if (detaching) detach_dev(t1);
+    			if (detaching) detach_dev(option1);
+    			if (detaching) detach_dev(t3);
+    			if (detaching) detach_dev(option2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(11:1) <Select label=\\\"Magnet Type\\\" bind:value={type}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (24:21) 
+    function create_if_block_2(ctx) {
+    	let input0;
+    	let updating_value;
+    	let t;
+    	let input1;
+    	let updating_value_1;
+    	let current;
+
+    	function input0_value_binding_2(value) {
+    		/*input0_value_binding_2*/ ctx[15](value);
+    	}
+
+    	let input0_props = { label: "Radius", unit: "mm", hint: "5" };
+
+    	if (/*radius*/ ctx[4] !== void 0) {
+    		input0_props.value = /*radius*/ ctx[4];
+    	}
+
+    	input0 = new Input({ props: input0_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input0, 'value', input0_value_binding_2));
+
+    	function input1_value_binding_2(value) {
+    		/*input1_value_binding_2*/ ctx[16](value);
+    	}
+
+    	let input1_props = { label: "Height", unit: "mm", hint: "10" };
+
+    	if (/*height*/ ctx[2] !== void 0) {
+    		input1_props.value = /*height*/ ctx[2];
+    	}
+
+    	input1 = new Input({ props: input1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input1, 'value', input1_value_binding_2));
+
+    	const block = {
+    		c: function create() {
+    			create_component(input0.$$.fragment);
+    			t = space();
+    			create_component(input1.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(input0, target, anchor);
+    			insert_dev(target, t, anchor);
+    			mount_component(input1, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const input0_changes = {};
+
+    			if (!updating_value && dirty & /*radius*/ 16) {
+    				updating_value = true;
+    				input0_changes.value = /*radius*/ ctx[4];
+    				add_flush_callback(() => updating_value = false);
+    			}
+
+    			input0.$set(input0_changes);
+    			const input1_changes = {};
+
+    			if (!updating_value_1 && dirty & /*height*/ 4) {
+    				updating_value_1 = true;
+    				input1_changes.value = /*height*/ ctx[2];
+    				add_flush_callback(() => updating_value_1 = false);
+    			}
+
+    			input1.$set(input1_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(input0.$$.fragment, local);
+    			transition_in(input1.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(input0.$$.fragment, local);
+    			transition_out(input1.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(input0, detaching);
+    			if (detaching) detach_dev(t);
+    			destroy_component(input1, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(24:21) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (20:21) 
+    function create_if_block_1(ctx) {
+    	let input0;
+    	let updating_value;
+    	let t0;
+    	let input1;
+    	let updating_value_1;
+    	let t1;
+    	let input2;
+    	let updating_value_2;
+    	let current;
+
+    	function input0_value_binding_1(value) {
+    		/*input0_value_binding_1*/ ctx[12](value);
+    	}
+
+    	let input0_props = { label: "Height", unit: "mm", hint: "10" };
+
+    	if (/*height*/ ctx[2] !== void 0) {
+    		input0_props.value = /*height*/ ctx[2];
+    	}
+
+    	input0 = new Input({ props: input0_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input0, 'value', input0_value_binding_1));
+
+    	function input1_value_binding_1(value) {
+    		/*input1_value_binding_1*/ ctx[13](value);
+    	}
+
+    	let input1_props = { label: "Radius", unit: "mm", hint: "5" };
+
+    	if (/*radius*/ ctx[4] !== void 0) {
+    		input1_props.value = /*radius*/ ctx[4];
+    	}
+
+    	input1 = new Input({ props: input1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input1, 'value', input1_value_binding_1));
+
+    	function input2_value_binding_1(value) {
+    		/*input2_value_binding_1*/ ctx[14](value);
+    	}
+
+    	let input2_props = {
+    		label: "Inner Radius",
+    		unit: "mm",
+    		hint: "3"
+    	};
+
+    	if (/*inner*/ ctx[5] !== void 0) {
+    		input2_props.value = /*inner*/ ctx[5];
+    	}
+
+    	input2 = new Input({ props: input2_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input2, 'value', input2_value_binding_1));
+
+    	const block = {
+    		c: function create() {
+    			create_component(input0.$$.fragment);
+    			t0 = space();
+    			create_component(input1.$$.fragment);
+    			t1 = space();
+    			create_component(input2.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(input0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(input1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(input2, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const input0_changes = {};
+
+    			if (!updating_value && dirty & /*height*/ 4) {
+    				updating_value = true;
+    				input0_changes.value = /*height*/ ctx[2];
+    				add_flush_callback(() => updating_value = false);
+    			}
+
+    			input0.$set(input0_changes);
+    			const input1_changes = {};
+
+    			if (!updating_value_1 && dirty & /*radius*/ 16) {
+    				updating_value_1 = true;
+    				input1_changes.value = /*radius*/ ctx[4];
+    				add_flush_callback(() => updating_value_1 = false);
+    			}
+
+    			input1.$set(input1_changes);
+    			const input2_changes = {};
+
+    			if (!updating_value_2 && dirty & /*inner*/ 32) {
+    				updating_value_2 = true;
+    				input2_changes.value = /*inner*/ ctx[5];
+    				add_flush_callback(() => updating_value_2 = false);
+    			}
+
+    			input2.$set(input2_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(input0.$$.fragment, local);
+    			transition_in(input1.$$.fragment, local);
+    			transition_in(input2.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(input0.$$.fragment, local);
+    			transition_out(input1.$$.fragment, local);
+    			transition_out(input2.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(input0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(input1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(input2, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(20:21) ",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (16:1) {#if type == 0}
+    function create_if_block(ctx) {
+    	let input0;
+    	let updating_value;
+    	let t0;
+    	let input1;
+    	let updating_value_1;
+    	let t1;
+    	let input2;
+    	let updating_value_2;
+    	let current;
+
+    	function input0_value_binding(value) {
+    		/*input0_value_binding*/ ctx[9](value);
+    	}
+
+    	let input0_props = { label: "Height", unit: "mm", hint: "10" };
+
+    	if (/*height*/ ctx[2] !== void 0) {
+    		input0_props.value = /*height*/ ctx[2];
+    	}
+
+    	input0 = new Input({ props: input0_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input0, 'value', input0_value_binding));
+
+    	function input1_value_binding(value) {
+    		/*input1_value_binding*/ ctx[10](value);
+    	}
+
+    	let input1_props = { label: "Width", unit: "mm", hint: "10" };
+
+    	if (/*width*/ ctx[1] !== void 0) {
+    		input1_props.value = /*width*/ ctx[1];
+    	}
+
+    	input1 = new Input({ props: input1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input1, 'value', input1_value_binding));
+
+    	function input2_value_binding(value) {
+    		/*input2_value_binding*/ ctx[11](value);
+    	}
+
+    	let input2_props = { label: "Depth", unit: "mm", hint: "10" };
+
+    	if (/*depth*/ ctx[3] !== void 0) {
+    		input2_props.value = /*depth*/ ctx[3];
+    	}
+
+    	input2 = new Input({ props: input2_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input2, 'value', input2_value_binding));
+
+    	const block = {
+    		c: function create() {
+    			create_component(input0.$$.fragment);
+    			t0 = space();
+    			create_component(input1.$$.fragment);
+    			t1 = space();
+    			create_component(input2.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(input0, target, anchor);
+    			insert_dev(target, t0, anchor);
+    			mount_component(input1, target, anchor);
+    			insert_dev(target, t1, anchor);
+    			mount_component(input2, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const input0_changes = {};
+
+    			if (!updating_value && dirty & /*height*/ 4) {
+    				updating_value = true;
+    				input0_changes.value = /*height*/ ctx[2];
+    				add_flush_callback(() => updating_value = false);
+    			}
+
+    			input0.$set(input0_changes);
+    			const input1_changes = {};
+
+    			if (!updating_value_1 && dirty & /*width*/ 2) {
+    				updating_value_1 = true;
+    				input1_changes.value = /*width*/ ctx[1];
+    				add_flush_callback(() => updating_value_1 = false);
+    			}
+
+    			input1.$set(input1_changes);
+    			const input2_changes = {};
+
+    			if (!updating_value_2 && dirty & /*depth*/ 8) {
+    				updating_value_2 = true;
+    				input2_changes.value = /*depth*/ ctx[3];
+    				add_flush_callback(() => updating_value_2 = false);
+    			}
+
+    			input2.$set(input2_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(input0.$$.fragment, local);
+    			transition_in(input1.$$.fragment, local);
+    			transition_in(input2.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(input0.$$.fragment, local);
+    			transition_out(input1.$$.fragment, local);
+    			transition_out(input2.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(input0, detaching);
+    			if (detaching) detach_dev(t0);
+    			destroy_component(input1, detaching);
+    			if (detaching) detach_dev(t1);
+    			destroy_component(input2, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(16:1) {#if type == 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (31:2) <Select label="File Type" bind:value={fileType}>
+    function create_default_slot(ctx) {
+    	let option0;
+    	let t1;
+    	let option1;
+    	let t3;
+    	let option2;
+
+    	const block = {
+    		c: function create() {
+    			option0 = element("option");
+    			option0.textContent = "SVG";
+    			t1 = space();
+    			option1 = element("option");
+    			option1.textContent = "JPG";
+    			t3 = space();
+    			option2 = element("option");
+    			option2.textContent = "PNG";
+    			option0.__value = 0;
+    			option0.value = option0.__value;
+    			add_location(option0, file$2, 31, 3, 1123);
+    			option1.__value = 1;
+    			option1.value = option1.__value;
+    			add_location(option1, file$2, 32, 3, 1157);
+    			option2.__value = 2;
+    			option2.value = option2.__value;
+    			add_location(option2, file$2, 33, 3, 1191);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -752,7 +1354,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(7:1) <Select label=\\\"Magnet type\\\">",
+    		source: "(31:2) <Select label=\\\"File Type\\\" bind:value={fileType}>",
     		ctx
     	});
 
@@ -761,105 +1363,235 @@ var app = (function () {
 
     function create_fragment$2(ctx) {
     	let form;
-    	let select;
+    	let select0;
+    	let updating_value;
     	let t0;
-    	let input0;
+    	let current_block_type_index;
+    	let if_block;
     	let t1;
-    	let input1;
+    	let div0;
+    	let input;
+    	let updating_value_1;
     	let t2;
-    	let div;
+    	let select1;
+    	let updating_value_2;
+    	let t3;
+    	let div1;
     	let button0;
-    	let t4;
+    	let t5;
     	let button1;
     	let current;
 
-    	select = new Select({
-    			props: {
-    				label: "Magnet type",
-    				$$slots: { default: [create_default_slot] },
-    				$$scope: { ctx }
-    			},
-    			$$inline: true
-    		});
+    	function select0_value_binding(value) {
+    		/*select0_value_binding*/ ctx[8](value);
+    	}
 
-    	input0 = new Input({
-    			props: { label: "Width" },
-    			$$inline: true
-    		});
+    	let select0_props = {
+    		label: "Magnet Type",
+    		$$slots: { default: [create_default_slot_1] },
+    		$$scope: { ctx }
+    	};
 
-    	input1 = new Input({
-    			props: { label: "Height" },
-    			$$inline: true
-    		});
+    	if (/*type*/ ctx[0] !== void 0) {
+    		select0_props.value = /*type*/ ctx[0];
+    	}
+
+    	select0 = new Select({ props: select0_props, $$inline: true });
+    	binding_callbacks.push(() => bind(select0, 'value', select0_value_binding));
+    	const if_block_creators = [create_if_block, create_if_block_1, create_if_block_2];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (/*type*/ ctx[0] == 0) return 0;
+    		if (/*type*/ ctx[0] == 1) return 1;
+    		if (/*type*/ ctx[0] == 2) return 2;
+    		return -1;
+    	}
+
+    	if (~(current_block_type_index = select_block_type(ctx))) {
+    		if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    	}
+
+    	function input_value_binding(value) {
+    		/*input_value_binding*/ ctx[17](value);
+    	}
+
+    	let input_props = { label: "File Name" };
+
+    	if (/*fileName*/ ctx[6] !== void 0) {
+    		input_props.value = /*fileName*/ ctx[6];
+    	}
+
+    	input = new Input({ props: input_props, $$inline: true });
+    	binding_callbacks.push(() => bind(input, 'value', input_value_binding));
+
+    	function select1_value_binding(value) {
+    		/*select1_value_binding*/ ctx[18](value);
+    	}
+
+    	let select1_props = {
+    		label: "File Type",
+    		$$slots: { default: [create_default_slot] },
+    		$$scope: { ctx }
+    	};
+
+    	if (/*fileType*/ ctx[7] !== void 0) {
+    		select1_props.value = /*fileType*/ ctx[7];
+    	}
+
+    	select1 = new Select({ props: select1_props, $$inline: true });
+    	binding_callbacks.push(() => bind(select1, 'value', select1_value_binding));
 
     	const block = {
     		c: function create() {
     			form = element("form");
-    			create_component(select.$$.fragment);
+    			create_component(select0.$$.fragment);
     			t0 = space();
-    			create_component(input0.$$.fragment);
+    			if (if_block) if_block.c();
     			t1 = space();
-    			create_component(input1.$$.fragment);
+    			div0 = element("div");
+    			create_component(input.$$.fragment);
     			t2 = space();
-    			div = element("div");
+    			create_component(select1.$$.fragment);
+    			t3 = space();
+    			div1 = element("div");
     			button0 = element("button");
-    			button0.textContent = "Preview";
-    			t4 = space();
+    			button0.textContent = "Export";
+    			t5 = space();
     			button1 = element("button");
-    			button1.textContent = "Export";
+    			button1.textContent = "Preview";
+    			attr_dev(div0, "class", "flex");
+    			add_location(div0, file$2, 28, 1, 998);
     			attr_dev(button0, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button0, file$2, 15, 2, 384);
+    			add_location(button0, file$2, 38, 2, 1297);
     			attr_dev(button1, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button1, file$2, 18, 2, 546);
-    			attr_dev(div, "class", "flex items-center");
-    			add_location(div, file$2, 14, 1, 350);
+    			add_location(button1, file$2, 41, 2, 1458);
+    			attr_dev(div1, "class", "flex justify-center space-x-2 border");
+    			add_location(div1, file$2, 37, 1, 1244);
     			attr_dev(form, "class", "w-full min-w-sm");
-    			add_location(form, file$2, 5, 0, 118);
+    			add_location(form, file$2, 9, 0, 197);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, form, anchor);
-    			mount_component(select, form, null);
+    			mount_component(select0, form, null);
     			append_dev(form, t0);
-    			mount_component(input0, form, null);
+
+    			if (~current_block_type_index) {
+    				if_blocks[current_block_type_index].m(form, null);
+    			}
+
     			append_dev(form, t1);
-    			mount_component(input1, form, null);
-    			append_dev(form, t2);
-    			append_dev(form, div);
-    			append_dev(div, button0);
-    			append_dev(div, t4);
-    			append_dev(div, button1);
+    			append_dev(form, div0);
+    			mount_component(input, div0, null);
+    			append_dev(div0, t2);
+    			mount_component(select1, div0, null);
+    			append_dev(form, t3);
+    			append_dev(form, div1);
+    			append_dev(div1, button0);
+    			append_dev(div1, t5);
+    			append_dev(div1, button1);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
-    			const select_changes = {};
+    			const select0_changes = {};
 
-    			if (dirty & /*$$scope*/ 1) {
-    				select_changes.$$scope = { dirty, ctx };
+    			if (dirty & /*$$scope*/ 524288) {
+    				select0_changes.$$scope = { dirty, ctx };
     			}
 
-    			select.$set(select_changes);
+    			if (!updating_value && dirty & /*type*/ 1) {
+    				updating_value = true;
+    				select0_changes.value = /*type*/ ctx[0];
+    				add_flush_callback(() => updating_value = false);
+    			}
+
+    			select0.$set(select0_changes);
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if (~current_block_type_index) {
+    					if_blocks[current_block_type_index].p(ctx, dirty);
+    				}
+    			} else {
+    				if (if_block) {
+    					group_outros();
+
+    					transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    						if_blocks[previous_block_index] = null;
+    					});
+
+    					check_outros();
+    				}
+
+    				if (~current_block_type_index) {
+    					if_block = if_blocks[current_block_type_index];
+
+    					if (!if_block) {
+    						if_block = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    						if_block.c();
+    					} else {
+    						if_block.p(ctx, dirty);
+    					}
+
+    					transition_in(if_block, 1);
+    					if_block.m(form, t1);
+    				} else {
+    					if_block = null;
+    				}
+    			}
+
+    			const input_changes = {};
+
+    			if (!updating_value_1 && dirty & /*fileName*/ 64) {
+    				updating_value_1 = true;
+    				input_changes.value = /*fileName*/ ctx[6];
+    				add_flush_callback(() => updating_value_1 = false);
+    			}
+
+    			input.$set(input_changes);
+    			const select1_changes = {};
+
+    			if (dirty & /*$$scope*/ 524288) {
+    				select1_changes.$$scope = { dirty, ctx };
+    			}
+
+    			if (!updating_value_2 && dirty & /*fileType*/ 128) {
+    				updating_value_2 = true;
+    				select1_changes.value = /*fileType*/ ctx[7];
+    				add_flush_callback(() => updating_value_2 = false);
+    			}
+
+    			select1.$set(select1_changes);
     		},
     		i: function intro(local) {
     			if (current) return;
-    			transition_in(select.$$.fragment, local);
-    			transition_in(input0.$$.fragment, local);
-    			transition_in(input1.$$.fragment, local);
+    			transition_in(select0.$$.fragment, local);
+    			transition_in(if_block);
+    			transition_in(input.$$.fragment, local);
+    			transition_in(select1.$$.fragment, local);
     			current = true;
     		},
     		o: function outro(local) {
-    			transition_out(select.$$.fragment, local);
-    			transition_out(input0.$$.fragment, local);
-    			transition_out(input1.$$.fragment, local);
+    			transition_out(select0.$$.fragment, local);
+    			transition_out(if_block);
+    			transition_out(input.$$.fragment, local);
+    			transition_out(select1.$$.fragment, local);
     			current = false;
     		},
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(form);
-    			destroy_component(select);
-    			destroy_component(input0);
-    			destroy_component(input1);
+    			destroy_component(select0);
+
+    			if (~current_block_type_index) {
+    				if_blocks[current_block_type_index].d();
+    			}
+
+    			destroy_component(input);
+    			destroy_component(select1);
     		}
     	};
 
@@ -877,14 +1609,119 @@ var app = (function () {
     function instance$2($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('InputForm', slots, []);
+    	let type;
+    	let width, height, depth, radius, inner;
+    	let fileName, fileType;
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<InputForm> was created with unknown prop '${key}'`);
     	});
 
-    	$$self.$capture_state = () => ({ Select, Input });
-    	return [];
+    	function select0_value_binding(value) {
+    		type = value;
+    		$$invalidate(0, type);
+    	}
+
+    	function input0_value_binding(value) {
+    		height = value;
+    		$$invalidate(2, height);
+    	}
+
+    	function input1_value_binding(value) {
+    		width = value;
+    		$$invalidate(1, width);
+    	}
+
+    	function input2_value_binding(value) {
+    		depth = value;
+    		$$invalidate(3, depth);
+    	}
+
+    	function input0_value_binding_1(value) {
+    		height = value;
+    		$$invalidate(2, height);
+    	}
+
+    	function input1_value_binding_1(value) {
+    		radius = value;
+    		$$invalidate(4, radius);
+    	}
+
+    	function input2_value_binding_1(value) {
+    		inner = value;
+    		$$invalidate(5, inner);
+    	}
+
+    	function input0_value_binding_2(value) {
+    		radius = value;
+    		$$invalidate(4, radius);
+    	}
+
+    	function input1_value_binding_2(value) {
+    		height = value;
+    		$$invalidate(2, height);
+    	}
+
+    	function input_value_binding(value) {
+    		fileName = value;
+    		$$invalidate(6, fileName);
+    	}
+
+    	function select1_value_binding(value) {
+    		fileType = value;
+    		$$invalidate(7, fileType);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		Select,
+    		Input,
+    		type,
+    		width,
+    		height,
+    		depth,
+    		radius,
+    		inner,
+    		fileName,
+    		fileType
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ('type' in $$props) $$invalidate(0, type = $$props.type);
+    		if ('width' in $$props) $$invalidate(1, width = $$props.width);
+    		if ('height' in $$props) $$invalidate(2, height = $$props.height);
+    		if ('depth' in $$props) $$invalidate(3, depth = $$props.depth);
+    		if ('radius' in $$props) $$invalidate(4, radius = $$props.radius);
+    		if ('inner' in $$props) $$invalidate(5, inner = $$props.inner);
+    		if ('fileName' in $$props) $$invalidate(6, fileName = $$props.fileName);
+    		if ('fileType' in $$props) $$invalidate(7, fileType = $$props.fileType);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		type,
+    		width,
+    		height,
+    		depth,
+    		radius,
+    		inner,
+    		fileName,
+    		fileType,
+    		select0_value_binding,
+    		input0_value_binding,
+    		input1_value_binding,
+    		input2_value_binding,
+    		input0_value_binding_1,
+    		input1_value_binding_1,
+    		input2_value_binding_1,
+    		input0_value_binding_2,
+    		input1_value_binding_2,
+    		input_value_binding,
+    		select1_value_binding
+    	];
     }
 
     class InputForm extends SvelteComponentDev {
