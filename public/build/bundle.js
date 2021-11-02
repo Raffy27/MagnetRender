@@ -668,7 +668,7 @@ var app = (function () {
     			t1 = text(/*unit*/ ctx[2]);
     			t2 = text(")");
     			attr_dev(span, "class", "lowercase font-normal");
-    			add_location(span, file$3, 10, 8, 217);
+    			add_location(span, file$3, 10, 8, 227);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, span, anchor);
@@ -714,11 +714,11 @@ var app = (function () {
     			t2 = space();
     			input = element("input");
     			attr_dev(span, "class", "uppercase tracking-wide text-gray-700 text-xs font-bold mb-2");
-    			add_location(span, file$3, 7, 0, 106);
+    			add_location(span, file$3, 7, 0, 116);
     			attr_dev(input, "class", "appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500");
     			attr_dev(input, "type", "text");
     			attr_dev(input, "placeholder", /*hint*/ ctx[3]);
-    			add_location(input, file$3, 13, 0, 287);
+    			add_location(input, file$3, 13, 0, 297);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -789,8 +789,8 @@ var app = (function () {
     	validate_slots('Input', slots, []);
     	let { label } = $$props;
     	let { value } = $$props;
-    	let { unit } = $$props;
-    	let { hint } = $$props;
+    	let { unit = '' } = $$props;
+    	let { hint = '' } = $$props;
     	const writable_props = ['label', 'value', 'unit', 'hint'];
 
     	Object.keys($$props).forEach(key => {
@@ -846,14 +846,6 @@ var app = (function () {
 
     		if (/*value*/ ctx[0] === undefined && !('value' in props)) {
     			console.warn("<Input> was created without expected prop 'value'");
-    		}
-
-    		if (/*unit*/ ctx[2] === undefined && !('unit' in props)) {
-    			console.warn("<Input> was created without expected prop 'unit'");
-    		}
-
-    		if (/*hint*/ ctx[3] === undefined && !('hint' in props)) {
-    			console.warn("<Input> was created without expected prop 'hint'");
     		}
     	}
 
@@ -1306,7 +1298,7 @@ var app = (function () {
     	return block;
     }
 
-    // (31:2) <Select label="File Type" bind:value={fileType}>
+    // (34:3) <Select label="File Type" bind:value={fileType}>
     function create_default_slot(ctx) {
     	let option0;
     	let t1;
@@ -1326,13 +1318,13 @@ var app = (function () {
     			option2.textContent = "PNG";
     			option0.__value = 0;
     			option0.value = option0.__value;
-    			add_location(option0, file$2, 31, 3, 1123);
+    			add_location(option0, file$2, 34, 4, 1230);
     			option1.__value = 1;
     			option1.value = option1.__value;
-    			add_location(option1, file$2, 32, 3, 1157);
+    			add_location(option1, file$2, 35, 4, 1265);
     			option2.__value = 2;
     			option2.value = option2.__value;
-    			add_location(option2, file$2, 33, 3, 1191);
+    			add_location(option2, file$2, 36, 4, 1300);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -1354,7 +1346,7 @@ var app = (function () {
     		block,
     		id: create_default_slot.name,
     		type: "slot",
-    		source: "(31:2) <Select label=\\\"File Type\\\" bind:value={fileType}>",
+    		source: "(34:3) <Select label=\\\"File Type\\\" bind:value={fileType}>",
     		ctx
     	});
 
@@ -1369,14 +1361,16 @@ var app = (function () {
     	let current_block_type_index;
     	let if_block;
     	let t1;
+    	let div2;
     	let div0;
     	let input;
     	let updating_value_1;
     	let t2;
+    	let div1;
     	let select1;
     	let updating_value_2;
     	let t3;
-    	let div1;
+    	let div3;
     	let button0;
     	let t5;
     	let button1;
@@ -1449,25 +1443,31 @@ var app = (function () {
     			t0 = space();
     			if (if_block) if_block.c();
     			t1 = space();
+    			div2 = element("div");
     			div0 = element("div");
     			create_component(input.$$.fragment);
     			t2 = space();
+    			div1 = element("div");
     			create_component(select1.$$.fragment);
     			t3 = space();
-    			div1 = element("div");
+    			div3 = element("div");
     			button0 = element("button");
     			button0.textContent = "Export";
     			t5 = space();
     			button1 = element("button");
     			button1.textContent = "Preview";
-    			attr_dev(div0, "class", "flex");
-    			add_location(div0, file$2, 28, 1, 998);
+    			attr_dev(div0, "class", "w-full md:w-2/3 px-2");
+    			add_location(div0, file$2, 29, 2, 1040);
+    			attr_dev(div1, "class", "w-full md:w-1/3 px-2");
+    			add_location(div1, file$2, 32, 2, 1139);
+    			attr_dev(div2, "class", "flex flex-wrap -mx-2 mb-2");
+    			add_location(div2, file$2, 28, 1, 998);
     			attr_dev(button0, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button0, file$2, 38, 2, 1297);
+    			add_location(button0, file$2, 42, 2, 1414);
     			attr_dev(button1, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button1, file$2, 41, 2, 1458);
-    			attr_dev(div1, "class", "flex justify-center space-x-2 border");
-    			add_location(div1, file$2, 37, 1, 1244);
+    			add_location(button1, file$2, 45, 2, 1575);
+    			attr_dev(div3, "class", "flex justify-center space-x-2 mb-2");
+    			add_location(div3, file$2, 41, 1, 1363);
     			attr_dev(form, "class", "w-full min-w-sm");
     			add_location(form, file$2, 9, 0, 197);
     		},
@@ -1484,15 +1484,17 @@ var app = (function () {
     			}
 
     			append_dev(form, t1);
-    			append_dev(form, div0);
+    			append_dev(form, div2);
+    			append_dev(div2, div0);
     			mount_component(input, div0, null);
-    			append_dev(div0, t2);
-    			mount_component(select1, div0, null);
+    			append_dev(div2, t2);
+    			append_dev(div2, div1);
+    			mount_component(select1, div1, null);
     			append_dev(form, t3);
-    			append_dev(form, div1);
-    			append_dev(div1, button0);
-    			append_dev(div1, t5);
-    			append_dev(div1, button1);
+    			append_dev(form, div3);
+    			append_dev(div3, button0);
+    			append_dev(div3, t5);
+    			append_dev(div3, button1);
     			current = true;
     		},
     		p: function update(ctx, [dirty]) {
@@ -1842,7 +1844,7 @@ var app = (function () {
     			attr_dev(div0, "class", "flex flex-col flex-wrap space-y-6 md:w-1/2");
     			add_location(div0, file, 176289, 2, 4039610);
     			attr_dev(div1, "id", "right");
-    			attr_dev(div1, "class", "md:w-1/2");
+    			attr_dev(div1, "class", "md:w-1/2 pl-2");
     			add_location(div1, file, 176293, 2, 4039735);
     			attr_dev(div2, "class", "container flex flex-col md:flex-row flex-wrap md:flex-nowrap");
     			add_location(div2, file, 176288, 1, 4039533);

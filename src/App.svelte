@@ -17,7 +17,7 @@
 			<h1>{name} v{version}</h1>
 			<InputForm />
 		</div>
-		<div id="right" class="md:w-1/2">
+		<div id="right" class="md:w-1/2 pl-2">
 			<Preview />
 		</div>
 	</div>

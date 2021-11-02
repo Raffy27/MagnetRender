@@ -26,16 +26,20 @@
 		<Input label="Height" unit="mm" hint="10" bind:value={height} />
 	{/if}
 
-	<div class="flex">
-		<Input label="File Name" bind:value={fileName} />
-		<Select label="File Type" bind:value={fileType}>
-			<option value={0}>SVG</option>
-			<option value={1}>JPG</option>
-			<option value={2}>PNG</option>
-		</Select>
+	<div class="flex flex-wrap -mx-2 mb-2">
+		<div class="w-full md:w-2/3 px-2">
+			<Input label="File Name" bind:value={fileName} />
+		</div>
+		<div class="w-full md:w-1/3 px-2">
+			<Select label="File Type" bind:value={fileType}>
+				<option value={0}>SVG</option>
+				<option value={1}>JPG</option>
+				<option value={2}>PNG</option>
+			</Select>
+		</div>
 	</div>
 
-	<div class="flex justify-center space-x-2 border">
+	<div class="flex justify-center space-x-2 mb-2">
 		<button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded">
 			Export
 		</button>

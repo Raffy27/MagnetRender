@@ -1,8 +1,8 @@
 <script>
     export let label;
     export let value;
-    export let unit;
-    export let hint;
+    export let unit = '';
+    export let hint = '';
 </script>
 
 <span class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
