@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg>
+<svg viewBox="0 0 500 400" width="600" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        :root {
+            --line-color: brown;
+        }
+
+        .border {
+            stroke-width: 2;
+            stroke: black;
+        }
+
+        .arrow-marker {
+            fill: #999;
+        }
+
+        .arrow-dimension-line {
+            fill: none;
+            stroke-width: 0.75;
+            stroke: #999;
+        }
+
+        .arrow,
+        .arrow-inverted-start,
+        .arrow-inverted-end {
+            fill: none;
+            stroke-width: 1.5;
+            stroke: #999;
+        }
+
+        .arrow {
+            marker-start: url(#arrow-start);
+            marker-end: url(#arrow-end);
+        }
+
+        .arrow-inverted-start {
+            marker-end: url(#arrow-inverted-start);
+        }
+
+        .arrow-inverted-end {
+            marker-start: url(#arrow-inverted-end);
+        }
+    </style>
+    <defs>
+        <mask id="mask-hole">
+            <rect width="100%" height="100%" fill="white" />
+            <ellipse cx="204.75" cy="139.69" rx="77.9" ry="34.276" fill="black" />
+        </mask>
+        <clipPath id="clip-hole">
+            <ellipse cx="204.75" cy="139.69" rx="77.9" ry="34.276" />
+        </clipPath>
+        <mask id="mask-hole-bottom">
+            <rect width="100%" height="100%" fill="white" />
+            <ellipse cx="204.75" cy="264.33" rx="77.9" ry="34.276" fill="black" />
+        </mask>
+        <mask id="mask-hole-south-pole">
+            <rect width="100%" height="100%" fill="white" />
+            <ellipse cx="204.75" cy="202.01" rx="77.9" ry="34.276" fill="black" />
+        </mask>
+        <clipPath id="magnet-clip">
+            <path d="M10 139.69a194.75 85.69 0 0 1 389.5 0 v124.64 a194.75 85.69 0 0 1 -389.5 0 z" />
+        </clipPath>
+        <clipPath id="north-clip">
+            <path d="M10 139.69a194.75 85.69 0 0 1 389.5 0 v62.32 a194.75 85.69 0 0 1 -389.5 0 z" />
+        </clipPath>
+        <marker id="arrow-start" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667" refY="2.5">
+            <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
+        </marker>
+        <marker id="arrow-end" orient="auto" markerWidth="10" markerHeight="5" refX="3.3333333333333" refY="2.5">
+            <path d="M0 0V5L10 2.5Z" class="arrow-marker" />
+        </marker>
+        <marker id="arrow-inverted-start" orient="auto" markerWidth="10" markerHeight="5" refX="3.3333333333333"
+            refY="2.5">
+            <path d="M0 0V5L10 2.5Z" class="arrow-marker" />
+        </marker>
+        <marker id="arrow-inverted-end" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667"
+            refY="2.5">
+            <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
+        </marker>
+    </defs>
+    <g mask="url(#mask-hole)">
+        <rect x="10" y="54" width="389.5" height="296.02" style="clip-path:url(#magnet-clip);" fill="#36987D" />
+        <rect x="10" y="54" width="389.5" height="296.02" style="clip-path:url(#north-clip);" fill="#CB5959" />
+    </g>
+    <rect x="126.85" y="105.414" width="155.8" height="158.916" fill="#356479" clip-path="url(#clip-hole)"
+        mask="url(#mask-hole-bottom)" />
+    <rect x="126.85" y="105.414" width="155.8" height="96.596" fill="#9D4D4D" clip-path="url(#clip-hole)"
+        mask="url(#mask-hole-south-pole)" />
+    <path d="M126.85 58.153817739847v-23.153817739847" class="arrow-dimension-line" />
+    <path d="M282.65 58.153817739847v-23.153817739847" class="arrow-dimension-line" />
+    <path d="M136.85 40h135.8" class="arrow" />
+    <text x="204.75" y="34" font-size="21" font-family="Arial, Helvetica, sans-serif"
+        style="text-anchor: middle;fill:#999;">6 mm</text>
+    <path d="M402.5 139.69h16" class="arrow-dimension-line" />
+    <path d="M402.5 264.33h16" class="arrow-dimension-line" />
+    <path d="M413.5 149.69v104.64" class="arrow" />
+    <text x="419.5" y="209.51" font-size="21" font-family="Arial, Helvetica, sans-serif"
+        style="fill:#999;text-anchor:left;">6 mm</text>
+    <path d="M10 282.17476066667v86.845239333333" class="arrow-dimension-line" />
+    <path d="M399.5 282.17476066667v86.845239333333" class="arrow-dimension-line" />
+    <path d="M20 364.02h369.5" class="arrow" />
+    <text x="204.75" y="385.02" font-size="21" font-family="Arial, Helvetica, sans-serif"
+        style="fill:#999;text-anchor:middle;">15 mm</text>
+    <ellipse cx="204.75" cy="139.69" rx="194.75" ry="85.69" class="border" fill="none" />
+    <path d="M10 264.33a194.75 85.69 0 0 0 389.5 0" class="border" fill="none" />
+    <path d="M10 139.69v124.64" class="border" />
+    <path d="M399.5 139.69v124.64" class="border" />
+    <path d="M126.85 264.33a77.9 34.276 0 0 1 155.8 0" class="border" fill="none" clip-path="url(#clip-hole)" />
+    <ellipse cx="204.75" cy="139.69" rx="77.9" ry="34.276" class="border" fill="none" />
+</svg>

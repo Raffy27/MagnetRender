@@ -1,11 +1,6 @@
-<script>
-    export let rp;
-    let top = 73;
-</script>
-
-<div class="my-12"></div>
-<div class="w-full h-full">
-<svg viewBox="0 0 500 401" preserveAspectRatio="none" width="600" xmlns="http://www.w3.org/2000/svg">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg>
+<svg viewBox="0 0 500 191" width="600" xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;
@@ -59,17 +54,17 @@
             <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
         </marker>
         <clipPath id="north-clip">
-            <path d={`M10 ${top}L${top} 10H399.5V42.770697937175L${rp.dim.width} 104.56371856542H10Z`}
+            <path d="M10 71.793020628247L71.793020628247 10H399.5V42.770697937175L337.70697937175 104.56371856542H10Z"
                 fill="#CB5959" />
         </clipPath>
     </defs>
-    <path d={`M10 ${top}L${top} 10H399.5V75.541395874351L${rp.dim.width} ${rp.dim.height}H10Z`}
+    <path d="M10 71.793020628247L71.793020628247 10H399.5V75.541395874351L337.70697937175 137.3344165026H10Z"
         fill="#36987D" />
-    <path d={`M10 ${top}L${top} 10H399.5V75.541395874351L${rp.dim.width} ${rp.dim.height}H10Z`}
+    <path d="M10 71.793020628247L71.793020628247 10H399.5V75.541395874351L337.70697937175 137.3344165026H10Z"
         fill="#CB5959" clip-path="url(#north-clip)" />
     <path d="M10 140.3344165026v16" class="arrow-dimension-line" />
-    <path d={`M${rp.dim.width} 140.3344165026v16`} class="arrow-dimension-line" />
-    <path d={`M20 151.3344165026h${rp.dim.width - 30}`} class="arrow" />
+    <path d="M337.70697937175 140.3344165026v16" class="arrow-dimension-line" />
+    <path d="M20 151.3344165026h307.70697937175" class="arrow" />
     <text x="173.85348968588" y="172.3344165026" font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:middle;">10 mm</text>
     <path d="M402.5 10h16" class="arrow-dimension-line" />
@@ -82,9 +77,8 @@
     <path d="M354.67754212023 140.16284362734L402.32842712475 92.511958622828" class="arrow" />
     <text x="382.74562530961" y="135.58004181221" font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:left;">5 mm</text>
-    <path d={`M10 ${top}H${rp.dim.width}V${rp.dim.height}H10Z`} fill="none" class="border" />
-    <path d={`M10 ${top}L${top} 10H399.5V75.541395874351L${rp.dim.width} ${rp.dim.height}`} fill="none"
+    <path d="M10 71.793020628247H337.70697937175V137.3344165026H10Z" fill="none" class="border" />
+    <path d="M10 71.793020628247L71.793020628247 10H399.5V75.541395874351L337.70697937175 137.3344165026" fill="none"
         class="border" />
-    <path d={`M${rp.dim.width} ${top}L399.5 10`} class="border" />
+    <path d="M337.70697937175 71.793020628247L399.5 10" class="border" />
 </svg>
-</div>
