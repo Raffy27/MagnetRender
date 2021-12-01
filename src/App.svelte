@@ -10,21 +10,26 @@
 	export let name;
 	export let version;
 
-	let rp = {
-		type: 0,
+	let renderParams = {
+		type: 2,
 
 		dim: {
-			width: 150,
-			height: 100,
+			top: 10,
+			left: 10,
+			width: 300,
+			height: 300,
 		},
 
-		fileName: null,
-		fileType: null
+		fileName: '',
+		fileType: ''
 	};
 
 	function render(){
+		for(let k in renderParams.dim){
+			renderParams.dim[k] = Number(renderParams.dim[k]);
+		}
 		console.log('Render params = ');
-		console.log(rp);
+		console.log(renderParams);
 	}
 </script>
 
@@ -32,10 +37,10 @@
 	<div class="container flex flex-col md:flex-row flex-wrap md:flex-nowrap">
 		<div id="left" class="flex flex-col flex-wrap space-y-6 md:w-1/2">
 			<h1>{name} v{version}</h1>
-			<InputForm bind:rp={rp} on:render={render} />
+			<InputForm bind:rp={renderParams} on:render={render} />
 		</div>
 		<div id="right" class="md:w-1/2 pl-2">
-			<Preview bind:rp={rp} />
+			<Preview bind:renderParams={renderParams} />
 		</div>
 	</div>
 </main>

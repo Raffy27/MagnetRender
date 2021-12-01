@@ -1,90 +1,91 @@
 <script>
-    export let rp;
-    let top = 73;
+    export let renderParams;
+    $: ({ top, left, width, height } = renderParams.dim);
+    let rad_y = 30;
 </script>
 
 <div class="my-12"></div>
 <div class="w-full h-full">
-<svg viewBox="0 0 500 401" preserveAspectRatio="none" width="600" xmlns="http://www.w3.org/2000/svg">
-    <style>
-        .arrow-marker {
-            fill: #999;
-        }
-
-        .arrow-dimension-line {
-            fill: none;
-            stroke-width: 0.75;
-            stroke: #999;
-        }
-
-        .arrow,
-        .arrow-inverted-start,
-        .arrow-inverted-end {
-            fill: none;
-            stroke-width: 1.5;
-            stroke: #999;
-        }
-
-        .arrow {
-            marker-start: url(#arrow-start);
-            marker-end: url(#arrow-end);
-        }
-
-        .arrow-inverted-start {
-            marker-end: url(#arrow-inverted-start);
-        }
-
-        .arrow-inverted-end {
-            marker-start: url(#arrow-inverted-end);
-        }
-
-        .border {
-            stroke-width: 2;
-            stroke: black;
-        }
-    </style>
-    <defs>
-        <marker id="arrow-start" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667" refY="2.5">
-            <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
-        </marker>
-        <marker id="arrow-end" orient="auto" markerWidth="10" markerHeight="5" refX="3.3333333333333" refY="2.5">
-            <path d="M0 0V5L10 2.5Z" class="arrow-marker" />
-        </marker>
-        <marker id="arrow-inverted-start" orient="auto" markerWidth="10" markerHeight="5" refX="3.3333333333333"
-            refY="2.5">
-            <path d="M0 0V5L10 2.5Z" class="arrow-marker" />
-        </marker>
-        <marker id="arrow-inverted-end" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667"
-            refY="2.5">
-            <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
-        </marker>
-        <clipPath id="north-clip">
-            <path d={`M10 ${top}L${top} 10H399.5V42.770697937175L${rp.dim.width} 104.56371856542H10Z`}
-                fill="#CB5959" />
-        </clipPath>
-    </defs>
-    <path d={`M10 ${top}L${top} 10H399.5V75.541395874351L${rp.dim.width} ${rp.dim.height}H10Z`}
-        fill="#36987D" />
-    <path d={`M10 ${top}L${top} 10H399.5V75.541395874351L${rp.dim.width} ${rp.dim.height}H10Z`}
-        fill="#CB5959" clip-path="url(#north-clip)" />
-    <path d="M10 140.3344165026v16" class="arrow-dimension-line" />
-    <path d={`M${rp.dim.width} 140.3344165026v16`} class="arrow-dimension-line" />
-    <path d={`M20 151.3344165026h${rp.dim.width - 30}`} class="arrow" />
-    <text x="173.85348968588" y="172.3344165026" font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:middle;">10 mm</text>
-    <path d="M402.5 10h16" class="arrow-dimension-line" />
-    <path d="M402.5 75.541395874351h16" class="arrow-dimension-line" />
-    <path d="M413.5 20v45.541395874351" class="arrow" />
-    <text x="419.5" y="50.270697937175" font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:left;">2 mm</text>
-    <path d="M339.82829971531 139.45573684616L351.1420082143 150.76944534514" class="arrow-dimension-line" />
-    <path d="M401.62132034356 77.66271621791L412.93502884254 88.976424716895" class="arrow-dimension-line" />
-    <path d="M354.67754212023 140.16284362734L402.32842712475 92.511958622828" class="arrow" />
-    <text x="382.74562530961" y="135.58004181221" font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:left;">5 mm</text>
-    <path d={`M10 ${top}H${rp.dim.width}V${rp.dim.height}H10Z`} fill="none" class="border" />
-    <path d={`M10 ${top}L${top} 10H399.5V75.541395874351L${rp.dim.width} ${rp.dim.height}`} fill="none"
-        class="border" />
-    <path d={`M${rp.dim.width} ${top}L399.5 10`} class="border" />
-</svg>
+    <svg viewBox="0 0 462 500" width="600" xmlns="http://www.w3.org/2000/svg">
+        <style>
+            .arrow-marker {
+                fill: #999;
+            }
+    
+            .arrow-dimension-line {
+                fill: none;
+                stroke-width: 0.75;
+                stroke: #999;
+            }
+    
+            .arrow,
+            .arrow-inverted-start,
+            .arrow-inverted-end {
+                fill: none;
+                stroke-width: 1.5;
+                stroke: #999;
+            }
+    
+            .arrow {
+                marker-start: url(#arrow-start);
+                marker-end: url(#arrow-end);
+            }
+    
+            .arrow-inverted-start {
+                marker-end: url(#arrow-inverted-start);
+            }
+    
+            .arrow-inverted-end {
+                marker-start: url(#arrow-inverted-end);
+            }
+    
+            .border {
+                stroke-width: 2;
+                stroke: black;
+            }
+        </style>
+        <defs>
+            <clipPath id="magnet-clip">
+                <path
+                    d="M10 87.354838709677a175.8064516129 77.354838709677 0 0 1 351.61290322581 0 v281.29032258065 a175.8064516129 77.354838709677 0 0 1 -351.61290322581 0 z" />
+            </clipPath>
+            <clipPath id="north-clip">
+                <path
+                    d="M10 87.354838709677a175.8064516129 77.354838709677 0 0 1 351.61290322581 0 v140.64516129032 a175.8064516129 77.354838709677 0 0 1 -351.61290322581 0 z" />
+            </clipPath>
+            <marker id="arrow-start" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667" refY="2.5">
+                <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
+            </marker>
+            <marker id="arrow-end" orient="auto" markerWidth="10" markerHeight="5" refX="3.3333333333333" refY="2.5">
+                <path d="M0 0V5L10 2.5Z" class="arrow-marker" />
+            </marker>
+            <marker id="arrow-inverted-start" orient="auto" markerWidth="10" markerHeight="5" refX="3.3333333333333"
+                refY="2.5">
+                <path d="M0 0V5L10 2.5Z" class="arrow-marker" />
+            </marker>
+            <marker id="arrow-inverted-end" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667"
+                refY="2.5">
+                <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
+            </marker>
+        </defs>
+        <g>
+            <rect x="10" y="10" width="351.61290322581" height="436" style="clip-path:url(#magnet-clip);fill:#36987D" />
+            <rect x="10" y="10" width="351.61290322581" height="436" style="clip-path:url(#north-clip);fill:#CB5959" />
+        </g>
+        <path d={`M${left+width+3} ${top+rad_y}h16`} class="arrow-dimension-line" />
+        <path d={`M${left+width+3} ${top+rad_y+height}h16`} class="arrow-dimension-line" />
+        <path d={`M${left+width+14} ${top+rad_y+10}v${height-2*10}`} class="arrow" />
+        <text x={left+width+20} y={top+rad_y+height/2-10} font-size="21" font-family="Arial, Helvetica, sans-serif"
+            style="fill:#999;text-anchor:left;">{height} mm</text>
+        <path d={`M${left} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
+        <path d={`M${left+width} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
+        <path d={`M${left+10} ${top+rad_y+height+rad_y+7}h${width-2*10}`} class="arrow" />
+        <text x={left+width/2} y={top+rad_y+height+rad_y+30} font-size="21" font-family="Arial, Helvetica, sans-serif"
+            style="fill:#999;text-anchor:middle;">{width} mm</text>
+        <ellipse cx={left+width/2} cy={top+rad_y} rx={width/2} ry={rad_y} class="border"
+            fill="none" />
+        <path d={`M${left} ${top+rad_y+height}a${width/2} ${rad_y} 0 0 0 ${width} 0`} class="border" fill="none" />
+        <path d={`M${left} ${top+rad_y}v${height}`} class="border" />
+        <path d={`M${left+width} ${top+rad_y}v${height}`} class="border" />
+    </svg>
 </div>

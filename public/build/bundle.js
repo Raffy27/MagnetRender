@@ -990,8 +990,8 @@ var app = (function () {
 
     	let input0_props = { label: "Radius", unit: "mm", hint: "5" };
 
-    	if (/*rp*/ ctx[0].dim.radius !== void 0) {
-    		input0_props.value = /*rp*/ ctx[0].dim.radius;
+    	if (/*rp*/ ctx[0].dim.width !== void 0) {
+    		input0_props.value = /*rp*/ ctx[0].dim.width;
     	}
 
     	input0 = new Input({ props: input0_props, $$inline: true });
@@ -1027,7 +1027,7 @@ var app = (function () {
 
     			if (!updating_value && dirty & /*rp*/ 1) {
     				updating_value = true;
-    				input0_changes.value = /*rp*/ ctx[0].dim.radius;
+    				input0_changes.value = /*rp*/ ctx[0].dim.width;
     				add_flush_callback(() => updating_value = false);
     			}
 
@@ -1353,13 +1353,13 @@ var app = (function () {
     			option2.textContent = "PNG";
     			option0.__value = 0;
     			option0.value = option0.__value;
-    			add_location(option0, file$2, 35, 4, 1335);
+    			add_location(option0, file$2, 35, 4, 1334);
     			option1.__value = 1;
     			option1.value = option1.__value;
-    			add_location(option1, file$2, 36, 4, 1370);
+    			add_location(option1, file$2, 36, 4, 1369);
     			option2.__value = 2;
     			option2.value = option2.__value;
-    			add_location(option2, file$2, 37, 4, 1405);
+    			add_location(option2, file$2, 37, 4, 1404);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -1494,17 +1494,17 @@ var app = (function () {
     			button1 = element("button");
     			button1.textContent = "Preview";
     			attr_dev(div0, "class", "w-full md:w-2/3 px-2");
-    			add_location(div0, file$2, 30, 2, 1139);
+    			add_location(div0, file$2, 30, 2, 1138);
     			attr_dev(div1, "class", "w-full md:w-1/3 px-2");
-    			add_location(div1, file$2, 33, 2, 1241);
+    			add_location(div1, file$2, 33, 2, 1240);
     			attr_dev(div2, "class", "flex flex-wrap -mx-2 mb-2");
-    			add_location(div2, file$2, 29, 1, 1097);
+    			add_location(div2, file$2, 29, 1, 1096);
     			attr_dev(button0, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button0, file$2, 43, 2, 1519);
+    			add_location(button0, file$2, 43, 2, 1518);
     			attr_dev(button1, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button1, file$2, 46, 2, 1680);
+    			add_location(button1, file$2, 46, 2, 1679);
     			attr_dev(div3, "class", "flex justify-center space-x-2 mb-2");
-    			add_location(div3, file$2, 42, 1, 1468);
+    			add_location(div3, file$2, 42, 1, 1467);
     			attr_dev(form, "class", "w-full min-w-sm");
     			add_location(form, file$2, 10, 0, 228);
     		},
@@ -1713,8 +1713,8 @@ var app = (function () {
     	}
 
     	function input0_value_binding_2(value) {
-    		if ($$self.$$.not_equal(rp.dim.radius, value)) {
-    			rp.dim.radius = value;
+    		if ($$self.$$.not_equal(rp.dim.width, value)) {
+    			rp.dim.width = value;
     			$$invalidate(0, rp);
     		}
     	}
@@ -1821,44 +1821,53 @@ var app = (function () {
     	let style;
     	let t1;
     	let defs;
-    	let marker0;
+    	let clipPath0;
     	let path0;
-    	let marker1;
+    	let clipPath1;
     	let path1;
-    	let marker2;
+    	let marker0;
     	let path2;
-    	let marker3;
+    	let marker1;
     	let path3;
-    	let clipPath;
+    	let marker2;
     	let path4;
-    	let path4_d_value;
+    	let marker3;
     	let path5;
-    	let path5_d_value;
+    	let g;
+    	let rect0;
+    	let rect1;
     	let path6;
     	let path6_d_value;
     	let path7;
+    	let path7_d_value;
     	let path8;
     	let path8_d_value;
-    	let path9;
-    	let path9_d_value;
     	let text0;
     	let t2;
-    	let path10;
-    	let path11;
-    	let path12;
-    	let text1;
     	let t3;
-    	let path13;
-    	let path14;
-    	let path15;
-    	let text2;
+    	let text0_x_value;
+    	let text0_y_value;
+    	let path9;
+    	let path9_d_value;
+    	let path10;
+    	let path10_d_value;
+    	let path11;
+    	let path11_d_value;
+    	let text1;
     	let t4;
-    	let path16;
-    	let path16_d_value;
-    	let path17;
-    	let path17_d_value;
-    	let path18;
-    	let path18_d_value;
+    	let t5;
+    	let text1_x_value;
+    	let text1_y_value;
+    	let ellipse;
+    	let ellipse_cx_value;
+    	let ellipse_cy_value;
+    	let ellipse_rx_value;
+    	let path12;
+    	let path12_d_value;
+    	let path13;
+    	let path13_d_value;
+    	let path14;
+    	let path14_d_value;
 
     	const block = {
     		c: function create() {
@@ -1867,160 +1876,161 @@ var app = (function () {
     			div1 = element("div");
     			svg = svg_element("svg");
     			style = svg_element("style");
-    			t1 = text(".arrow-marker {\n  fill: #999;\n}\n\n.arrow-dimension-line {\n  fill: none;\n  stroke-width: 0.75;\n  stroke: #999;\n}\n\n.arrow,\n        .arrow-inverted-start,\n        .arrow-inverted-end {\n  fill: none;\n  stroke-width: 1.5;\n  stroke: #999;\n}\n\n.arrow {\n  marker-start: url(#arrow-start);\n  marker-end: url(#arrow-end);\n}\n\n.arrow-inverted-start {\n  marker-end: url(#arrow-inverted-start);\n}\n\n.arrow-inverted-end {\n  marker-start: url(#arrow-inverted-end);\n}\n\n.border {\n  stroke-width: 2;\n  stroke: black;\n}\n");
+    			t1 = text(".arrow-marker {\n  fill: #999;\n}\n\n.arrow-dimension-line {\n  fill: none;\n  stroke-width: 0.75;\n  stroke: #999;\n}\n\n.arrow,\n            .arrow-inverted-start,\n            .arrow-inverted-end {\n  fill: none;\n  stroke-width: 1.5;\n  stroke: #999;\n}\n\n.arrow {\n  marker-start: url(#arrow-start);\n  marker-end: url(#arrow-end);\n}\n\n.arrow-inverted-start {\n  marker-end: url(#arrow-inverted-start);\n}\n\n.arrow-inverted-end {\n  marker-start: url(#arrow-inverted-end);\n}\n\n.border {\n  stroke-width: 2;\n  stroke: black;\n}\n");
     			defs = svg_element("defs");
-    			marker0 = svg_element("marker");
+    			clipPath0 = svg_element("clipPath");
     			path0 = svg_element("path");
-    			marker1 = svg_element("marker");
+    			clipPath1 = svg_element("clipPath");
     			path1 = svg_element("path");
-    			marker2 = svg_element("marker");
+    			marker0 = svg_element("marker");
     			path2 = svg_element("path");
-    			marker3 = svg_element("marker");
+    			marker1 = svg_element("marker");
     			path3 = svg_element("path");
-    			clipPath = svg_element("clipPath");
+    			marker2 = svg_element("marker");
     			path4 = svg_element("path");
+    			marker3 = svg_element("marker");
     			path5 = svg_element("path");
+    			g = svg_element("g");
+    			rect0 = svg_element("rect");
+    			rect1 = svg_element("rect");
     			path6 = svg_element("path");
     			path7 = svg_element("path");
     			path8 = svg_element("path");
-    			path9 = svg_element("path");
     			text0 = svg_element("text");
-    			t2 = text("10 mm");
+    			t2 = text(/*height*/ ctx[0]);
+    			t3 = text(" mm");
+    			path9 = svg_element("path");
     			path10 = svg_element("path");
     			path11 = svg_element("path");
-    			path12 = svg_element("path");
     			text1 = svg_element("text");
-    			t3 = text("2 mm");
+    			t4 = text(/*width*/ ctx[1]);
+    			t5 = text(" mm");
+    			ellipse = svg_element("ellipse");
+    			path12 = svg_element("path");
     			path13 = svg_element("path");
     			path14 = svg_element("path");
-    			path15 = svg_element("path");
-    			text2 = svg_element("text");
-    			t4 = text("5 mm");
-    			path16 = svg_element("path");
-    			path17 = svg_element("path");
-    			path18 = svg_element("path");
     			attr_dev(div0, "class", "my-12");
-    			add_location(div0, file$1, 5, 0, 57);
-    			add_location(style, file$1, 8, 4, 217);
-    			attr_dev(path0, "d", "M10 0V5L0 2.5Z");
-    			attr_dev(path0, "class", "arrow-marker");
-    			add_location(path0, file$1, 46, 12, 869);
+    			add_location(div0, file$1, 6, 0, 127);
+    			add_location(style, file$1, 9, 8, 268);
+    			attr_dev(path0, "d", "M10 87.354838709677a175.8064516129 77.354838709677 0 0 1 351.61290322581 0 v281.29032258065 a175.8064516129 77.354838709677 0 0 1 -351.61290322581 0 z");
+    			add_location(path0, file$1, 47, 16, 860);
+    			attr_dev(clipPath0, "id", "magnet-clip");
+    			add_location(clipPath0, file$1, 46, 12, 816);
+    			attr_dev(path1, "d", "M10 87.354838709677a175.8064516129 77.354838709677 0 0 1 351.61290322581 0 v140.64516129032 a175.8064516129 77.354838709677 0 0 1 -351.61290322581 0 z");
+    			add_location(path1, file$1, 51, 16, 1123);
+    			attr_dev(clipPath1, "id", "north-clip");
+    			add_location(clipPath1, file$1, 50, 12, 1080);
+    			attr_dev(path2, "d", "M10 0V5L0 2.5Z");
+    			attr_dev(path2, "class", "arrow-marker");
+    			add_location(path2, file$1, 55, 16, 1467);
     			attr_dev(marker0, "id", "arrow-start");
     			attr_dev(marker0, "orient", "auto");
     			attr_dev(marker0, "markerWidth", "10");
     			attr_dev(marker0, "markerHeight", "5");
     			attr_dev(marker0, "refX", "6.6666666666667");
     			attr_dev(marker0, "refY", "2.5");
-    			add_location(marker0, file$1, 45, 8, 749);
-    			attr_dev(path1, "d", "M0 0V5L10 2.5Z");
-    			attr_dev(path1, "class", "arrow-marker");
-    			add_location(path1, file$1, 49, 12, 1062);
+    			add_location(marker0, file$1, 54, 12, 1343);
+    			attr_dev(path3, "d", "M0 0V5L10 2.5Z");
+    			attr_dev(path3, "class", "arrow-marker");
+    			add_location(path3, file$1, 58, 16, 1672);
     			attr_dev(marker1, "id", "arrow-end");
     			attr_dev(marker1, "orient", "auto");
     			attr_dev(marker1, "markerWidth", "10");
     			attr_dev(marker1, "markerHeight", "5");
     			attr_dev(marker1, "refX", "3.3333333333333");
     			attr_dev(marker1, "refY", "2.5");
-    			add_location(marker1, file$1, 48, 8, 944);
-    			attr_dev(path2, "d", "M0 0V5L10 2.5Z");
-    			attr_dev(path2, "class", "arrow-marker");
-    			add_location(path2, file$1, 53, 12, 1278);
+    			add_location(marker1, file$1, 57, 12, 1550);
+    			attr_dev(path4, "d", "M0 0V5L10 2.5Z");
+    			attr_dev(path4, "class", "arrow-marker");
+    			add_location(path4, file$1, 62, 16, 1904);
     			attr_dev(marker2, "id", "arrow-inverted-start");
     			attr_dev(marker2, "orient", "auto");
     			attr_dev(marker2, "markerWidth", "10");
     			attr_dev(marker2, "markerHeight", "5");
     			attr_dev(marker2, "refX", "3.3333333333333");
     			attr_dev(marker2, "refY", "2.5");
-    			add_location(marker2, file$1, 51, 8, 1137);
-    			attr_dev(path3, "d", "M10 0V5L0 2.5Z");
-    			attr_dev(path3, "class", "arrow-marker");
-    			add_location(path3, file$1, 57, 12, 1492);
+    			add_location(marker2, file$1, 60, 12, 1755);
+    			attr_dev(path5, "d", "M10 0V5L0 2.5Z");
+    			attr_dev(path5, "class", "arrow-marker");
+    			add_location(path5, file$1, 66, 16, 2134);
     			attr_dev(marker3, "id", "arrow-inverted-end");
     			attr_dev(marker3, "orient", "auto");
     			attr_dev(marker3, "markerWidth", "10");
     			attr_dev(marker3, "markerHeight", "5");
     			attr_dev(marker3, "refX", "6.6666666666667");
     			attr_dev(marker3, "refY", "2.5");
-    			add_location(marker3, file$1, 55, 8, 1353);
-    			attr_dev(path4, "d", path4_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V42.770697937175L${/*rp*/ ctx[0].dim.width} 104.56371856542H10Z`);
-    			attr_dev(path4, "fill", "#CB5959");
-    			add_location(path4, file$1, 60, 12, 1606);
-    			attr_dev(clipPath, "id", "north-clip");
-    			add_location(clipPath, file$1, 59, 8, 1567);
-    			add_location(defs, file$1, 44, 4, 734);
-    			attr_dev(path5, "d", path5_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V75.541395874351L${/*rp*/ ctx[0].dim.width} ${/*rp*/ ctx[0].dim.height}H10Z`);
-    			attr_dev(path5, "fill", "#36987D");
-    			add_location(path5, file$1, 64, 4, 1767);
-    			attr_dev(path6, "d", path6_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V75.541395874351L${/*rp*/ ctx[0].dim.width} ${/*rp*/ ctx[0].dim.height}H10Z`);
-    			attr_dev(path6, "fill", "#CB5959");
-    			attr_dev(path6, "clip-path", "url(#north-clip)");
-    			add_location(path6, file$1, 66, 4, 1889);
-    			attr_dev(path7, "d", "M10 140.3344165026v16");
+    			add_location(marker3, file$1, 64, 12, 1987);
+    			add_location(defs, file$1, 45, 8, 797);
+    			attr_dev(rect0, "x", "10");
+    			attr_dev(rect0, "y", "10");
+    			attr_dev(rect0, "width", "351.61290322581");
+    			attr_dev(rect0, "height", "436");
+    			set_style(rect0, "clip-path", "url(#magnet-clip)");
+    			set_style(rect0, "fill", "#36987D");
+    			add_location(rect0, file$1, 70, 12, 2245);
+    			attr_dev(rect1, "x", "10");
+    			attr_dev(rect1, "y", "10");
+    			attr_dev(rect1, "width", "351.61290322581");
+    			attr_dev(rect1, "height", "436");
+    			set_style(rect1, "clip-path", "url(#north-clip)");
+    			set_style(rect1, "fill", "#CB5959");
+    			add_location(rect1, file$1, 71, 12, 2366);
+    			add_location(g, file$1, 69, 8, 2229);
+    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4]}h16`);
+    			attr_dev(path6, "class", "arrow-dimension-line");
+    			add_location(path6, file$1, 73, 8, 2495);
+    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0]}h16`);
     			attr_dev(path7, "class", "arrow-dimension-line");
-    			add_location(path7, file$1, 68, 4, 2040);
-    			attr_dev(path8, "d", path8_d_value = `M${/*rp*/ ctx[0].dim.width} 140.3344165026v16`);
-    			attr_dev(path8, "class", "arrow-dimension-line");
-    			add_location(path8, file$1, 69, 4, 2108);
-    			attr_dev(path9, "d", path9_d_value = `M20 151.3344165026h${/*rp*/ ctx[0].dim.width - 30}`);
-    			attr_dev(path9, "class", "arrow");
-    			add_location(path9, file$1, 70, 4, 2191);
-    			attr_dev(text0, "x", "173.85348968588");
-    			attr_dev(text0, "y", "172.3344165026");
+    			add_location(path7, file$1, 74, 8, 2580);
+    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1] + 14} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + 10}v${/*height*/ ctx[0] - 2 * 10}`);
+    			attr_dev(path8, "class", "arrow");
+    			add_location(path8, file$1, 75, 8, 2672);
+    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[2] + /*width*/ ctx[1] + 20);
+    			attr_dev(text0, "y", text0_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] / 2 - 10);
     			attr_dev(text0, "font-size", "21");
     			attr_dev(text0, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text0, "fill", "#999");
-    			set_style(text0, "text-anchor", "middle");
-    			add_location(text0, file$1, 71, 4, 2264);
-    			attr_dev(path10, "d", "M402.5 10h16");
+    			set_style(text0, "text-anchor", "left");
+    			add_location(text0, file$1, 76, 8, 2758);
+    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + 3}v${/*rad_y*/ ctx[4] + 7}`);
+    			attr_dev(path9, "class", "arrow-dimension-line");
+    			add_location(path9, file$1, 78, 8, 2941);
+    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + 3}v${/*rad_y*/ ctx[4] + 7}`);
     			attr_dev(path10, "class", "arrow-dimension-line");
-    			add_location(path10, file$1, 73, 4, 2430);
-    			attr_dev(path11, "d", "M402.5 75.541395874351h16");
-    			attr_dev(path11, "class", "arrow-dimension-line");
-    			add_location(path11, file$1, 74, 4, 2489);
-    			attr_dev(path12, "d", "M413.5 20v45.541395874351");
-    			attr_dev(path12, "class", "arrow");
-    			add_location(path12, file$1, 75, 4, 2561);
-    			attr_dev(text1, "x", "419.5");
-    			attr_dev(text1, "y", "50.270697937175");
+    			add_location(path10, file$1, 79, 8, 3035);
+    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[2] + 10} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + /*rad_y*/ ctx[4] + 7}h${/*width*/ ctx[1] - 2 * 10}`);
+    			attr_dev(path11, "class", "arrow");
+    			add_location(path11, file$1, 80, 8, 3135);
+    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[2] + /*width*/ ctx[1] / 2);
+    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + /*rad_y*/ ctx[4] + 30);
     			attr_dev(text1, "font-size", "21");
     			attr_dev(text1, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text1, "fill", "#999");
-    			set_style(text1, "text-anchor", "left");
-    			add_location(text1, file$1, 76, 4, 2618);
-    			attr_dev(path13, "d", "M339.82829971531 139.45573684616L351.1420082143 150.76944534514");
-    			attr_dev(path13, "class", "arrow-dimension-line");
-    			add_location(path13, file$1, 78, 4, 2772);
-    			attr_dev(path14, "d", "M401.62132034356 77.66271621791L412.93502884254 88.976424716895");
-    			attr_dev(path14, "class", "arrow-dimension-line");
-    			add_location(path14, file$1, 79, 4, 2882);
-    			attr_dev(path15, "d", "M354.67754212023 140.16284362734L402.32842712475 92.511958622828");
-    			attr_dev(path15, "class", "arrow");
-    			add_location(path15, file$1, 80, 4, 2992);
-    			attr_dev(text2, "x", "382.74562530961");
-    			attr_dev(text2, "y", "135.58004181221");
-    			attr_dev(text2, "font-size", "21");
-    			attr_dev(text2, "font-family", "Arial, Helvetica, sans-serif");
-    			set_style(text2, "fill", "#999");
-    			set_style(text2, "text-anchor", "left");
-    			add_location(text2, file$1, 81, 4, 3088);
-    			attr_dev(path16, "d", path16_d_value = `M10 ${/*top*/ ctx[1]}H${/*rp*/ ctx[0].dim.width}V${/*rp*/ ctx[0].dim.height}H10Z`);
-    			attr_dev(path16, "fill", "none");
-    			attr_dev(path16, "class", "border");
-    			add_location(path16, file$1, 83, 4, 3252);
-    			attr_dev(path17, "d", path17_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V75.541395874351L${/*rp*/ ctx[0].dim.width} ${/*rp*/ ctx[0].dim.height}`);
-    			attr_dev(path17, "fill", "none");
-    			attr_dev(path17, "class", "border");
-    			add_location(path17, file$1, 84, 4, 3346);
-    			attr_dev(path18, "d", path18_d_value = `M${/*rp*/ ctx[0].dim.width} ${/*top*/ ctx[1]}L399.5 10`);
-    			attr_dev(path18, "class", "border");
-    			add_location(path18, file$1, 86, 4, 3476);
-    			attr_dev(svg, "viewBox", "0 0 500 401");
-    			attr_dev(svg, "preserveAspectRatio", "none");
+    			set_style(text1, "text-anchor", "middle");
+    			add_location(text1, file$1, 81, 8, 3226);
+    			attr_dev(ellipse, "cx", ellipse_cx_value = /*left*/ ctx[2] + /*width*/ ctx[1] / 2);
+    			attr_dev(ellipse, "cy", ellipse_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[4]);
+    			attr_dev(ellipse, "rx", ellipse_rx_value = /*width*/ ctx[1] / 2);
+    			attr_dev(ellipse, "ry", /*rad_y*/ ctx[4]);
+    			attr_dev(ellipse, "class", "border");
+    			attr_dev(ellipse, "fill", "none");
+    			add_location(ellipse, file$1, 83, 8, 3413);
+    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[4]} 0 0 0 ${/*width*/ ctx[1]} 0`);
+    			attr_dev(path12, "class", "border");
+    			attr_dev(path12, "fill", "none");
+    			add_location(path12, file$1, 85, 8, 3529);
+    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4]}v${/*height*/ ctx[0]}`);
+    			attr_dev(path13, "class", "border");
+    			add_location(path13, file$1, 86, 8, 3645);
+    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4]}v${/*height*/ ctx[0]}`);
+    			attr_dev(path14, "class", "border");
+    			add_location(path14, file$1, 87, 8, 3715);
+    			attr_dev(svg, "viewBox", "0 0 462 500");
     			attr_dev(svg, "width", "600");
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
-    			add_location(svg, file$1, 7, 0, 111);
+    			add_location(svg, file$1, 8, 4, 185);
     			attr_dev(div1, "class", "w-full h-full");
-    			add_location(div1, file$1, 6, 0, 83);
+    			add_location(div1, file$1, 7, 0, 153);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2033,68 +2043,105 @@ var app = (function () {
     			append_dev(svg, style);
     			append_dev(style, t1);
     			append_dev(svg, defs);
+    			append_dev(defs, clipPath0);
+    			append_dev(clipPath0, path0);
+    			append_dev(defs, clipPath1);
+    			append_dev(clipPath1, path1);
     			append_dev(defs, marker0);
-    			append_dev(marker0, path0);
+    			append_dev(marker0, path2);
     			append_dev(defs, marker1);
-    			append_dev(marker1, path1);
+    			append_dev(marker1, path3);
     			append_dev(defs, marker2);
-    			append_dev(marker2, path2);
+    			append_dev(marker2, path4);
     			append_dev(defs, marker3);
-    			append_dev(marker3, path3);
-    			append_dev(defs, clipPath);
-    			append_dev(clipPath, path4);
-    			append_dev(svg, path5);
+    			append_dev(marker3, path5);
+    			append_dev(svg, g);
+    			append_dev(g, rect0);
+    			append_dev(g, rect1);
     			append_dev(svg, path6);
     			append_dev(svg, path7);
     			append_dev(svg, path8);
-    			append_dev(svg, path9);
     			append_dev(svg, text0);
     			append_dev(text0, t2);
+    			append_dev(text0, t3);
+    			append_dev(svg, path9);
     			append_dev(svg, path10);
     			append_dev(svg, path11);
-    			append_dev(svg, path12);
     			append_dev(svg, text1);
-    			append_dev(text1, t3);
+    			append_dev(text1, t4);
+    			append_dev(text1, t5);
+    			append_dev(svg, ellipse);
+    			append_dev(svg, path12);
     			append_dev(svg, path13);
     			append_dev(svg, path14);
-    			append_dev(svg, path15);
-    			append_dev(svg, text2);
-    			append_dev(text2, t4);
-    			append_dev(svg, path16);
-    			append_dev(svg, path17);
-    			append_dev(svg, path18);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*rp*/ 1 && path4_d_value !== (path4_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V42.770697937175L${/*rp*/ ctx[0].dim.width} 104.56371856542H10Z`)) {
-    				attr_dev(path4, "d", path4_d_value);
-    			}
-
-    			if (dirty & /*rp*/ 1 && path5_d_value !== (path5_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V75.541395874351L${/*rp*/ ctx[0].dim.width} ${/*rp*/ ctx[0].dim.height}H10Z`)) {
-    				attr_dev(path5, "d", path5_d_value);
-    			}
-
-    			if (dirty & /*rp*/ 1 && path6_d_value !== (path6_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V75.541395874351L${/*rp*/ ctx[0].dim.width} ${/*rp*/ ctx[0].dim.height}H10Z`)) {
+    			if (dirty & /*left, width, top*/ 14 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4]}h16`)) {
     				attr_dev(path6, "d", path6_d_value);
     			}
 
-    			if (dirty & /*rp*/ 1 && path8_d_value !== (path8_d_value = `M${/*rp*/ ctx[0].dim.width} 140.3344165026v16`)) {
+    			if (dirty & /*left, width, top, height*/ 15 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0]}h16`)) {
+    				attr_dev(path7, "d", path7_d_value);
+    			}
+
+    			if (dirty & /*left, width, top, height*/ 15 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1] + 14} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + 10}v${/*height*/ ctx[0] - 2 * 10}`)) {
     				attr_dev(path8, "d", path8_d_value);
     			}
 
-    			if (dirty & /*rp*/ 1 && path9_d_value !== (path9_d_value = `M20 151.3344165026h${/*rp*/ ctx[0].dim.width - 30}`)) {
+    			if (dirty & /*height*/ 1) set_data_dev(t2, /*height*/ ctx[0]);
+
+    			if (dirty & /*left, width*/ 6 && text0_x_value !== (text0_x_value = /*left*/ ctx[2] + /*width*/ ctx[1] + 20)) {
+    				attr_dev(text0, "x", text0_x_value);
+    			}
+
+    			if (dirty & /*top, height*/ 9 && text0_y_value !== (text0_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] / 2 - 10)) {
+    				attr_dev(text0, "y", text0_y_value);
+    			}
+
+    			if (dirty & /*left, top, height*/ 13 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + 3}v${/*rad_y*/ ctx[4] + 7}`)) {
     				attr_dev(path9, "d", path9_d_value);
     			}
 
-    			if (dirty & /*rp*/ 1 && path16_d_value !== (path16_d_value = `M10 ${/*top*/ ctx[1]}H${/*rp*/ ctx[0].dim.width}V${/*rp*/ ctx[0].dim.height}H10Z`)) {
-    				attr_dev(path16, "d", path16_d_value);
+    			if (dirty & /*left, width, top, height*/ 15 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + 3}v${/*rad_y*/ ctx[4] + 7}`)) {
+    				attr_dev(path10, "d", path10_d_value);
     			}
 
-    			if (dirty & /*rp*/ 1 && path17_d_value !== (path17_d_value = `M10 ${/*top*/ ctx[1]}L${/*top*/ ctx[1]} 10H399.5V75.541395874351L${/*rp*/ ctx[0].dim.width} ${/*rp*/ ctx[0].dim.height}`)) {
-    				attr_dev(path17, "d", path17_d_value);
+    			if (dirty & /*left, top, height, width*/ 15 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[2] + 10} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + /*rad_y*/ ctx[4] + 7}h${/*width*/ ctx[1] - 2 * 10}`)) {
+    				attr_dev(path11, "d", path11_d_value);
     			}
 
-    			if (dirty & /*rp*/ 1 && path18_d_value !== (path18_d_value = `M${/*rp*/ ctx[0].dim.width} ${/*top*/ ctx[1]}L399.5 10`)) {
-    				attr_dev(path18, "d", path18_d_value);
+    			if (dirty & /*width*/ 2) set_data_dev(t4, /*width*/ ctx[1]);
+
+    			if (dirty & /*left, width*/ 6 && text1_x_value !== (text1_x_value = /*left*/ ctx[2] + /*width*/ ctx[1] / 2)) {
+    				attr_dev(text1, "x", text1_x_value);
+    			}
+
+    			if (dirty & /*top, height*/ 9 && text1_y_value !== (text1_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0] + /*rad_y*/ ctx[4] + 30)) {
+    				attr_dev(text1, "y", text1_y_value);
+    			}
+
+    			if (dirty & /*left, width*/ 6 && ellipse_cx_value !== (ellipse_cx_value = /*left*/ ctx[2] + /*width*/ ctx[1] / 2)) {
+    				attr_dev(ellipse, "cx", ellipse_cx_value);
+    			}
+
+    			if (dirty & /*top*/ 8 && ellipse_cy_value !== (ellipse_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[4])) {
+    				attr_dev(ellipse, "cy", ellipse_cy_value);
+    			}
+
+    			if (dirty & /*width*/ 2 && ellipse_rx_value !== (ellipse_rx_value = /*width*/ ctx[1] / 2)) {
+    				attr_dev(ellipse, "rx", ellipse_rx_value);
+    			}
+
+    			if (dirty & /*left, top, height, width*/ 15 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4] + /*height*/ ctx[0]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[4]} 0 0 0 ${/*width*/ ctx[1]} 0`)) {
+    				attr_dev(path12, "d", path12_d_value);
+    			}
+
+    			if (dirty & /*left, top, height*/ 13 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4]}v${/*height*/ ctx[0]}`)) {
+    				attr_dev(path13, "d", path13_d_value);
+    			}
+
+    			if (dirty & /*left, width, top, height*/ 15 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[2] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[4]}v${/*height*/ ctx[0]}`)) {
+    				attr_dev(path14, "d", path14_d_value);
     			}
     		},
     		i: noop,
@@ -2118,38 +2165,59 @@ var app = (function () {
     }
 
     function instance$1($$self, $$props, $$invalidate) {
+    	let top;
+    	let left;
+    	let width;
+    	let height;
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots('Preview', slots, []);
-    	let { rp } = $$props;
-    	let top = 73;
-    	const writable_props = ['rp'];
+    	let { renderParams } = $$props;
+    	let rad_y = 30;
+    	const writable_props = ['renderParams'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Preview> was created with unknown prop '${key}'`);
     	});
 
     	$$self.$$set = $$props => {
-    		if ('rp' in $$props) $$invalidate(0, rp = $$props.rp);
+    		if ('renderParams' in $$props) $$invalidate(5, renderParams = $$props.renderParams);
     	};
 
-    	$$self.$capture_state = () => ({ rp, top });
+    	$$self.$capture_state = () => ({
+    		renderParams,
+    		rad_y,
+    		height,
+    		width,
+    		left,
+    		top
+    	});
 
     	$$self.$inject_state = $$props => {
-    		if ('rp' in $$props) $$invalidate(0, rp = $$props.rp);
-    		if ('top' in $$props) $$invalidate(1, top = $$props.top);
+    		if ('renderParams' in $$props) $$invalidate(5, renderParams = $$props.renderParams);
+    		if ('rad_y' in $$props) $$invalidate(4, rad_y = $$props.rad_y);
+    		if ('height' in $$props) $$invalidate(0, height = $$props.height);
+    		if ('width' in $$props) $$invalidate(1, width = $$props.width);
+    		if ('left' in $$props) $$invalidate(2, left = $$props.left);
+    		if ('top' in $$props) $$invalidate(3, top = $$props.top);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [rp, top];
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*renderParams*/ 32) {
+    			$$invalidate(3, { top, left, width, height } = renderParams.dim, top, ($$invalidate(2, left), $$invalidate(5, renderParams)), ($$invalidate(1, width), $$invalidate(5, renderParams)), ($$invalidate(0, height), $$invalidate(5, renderParams)));
+    		}
+    	};
+
+    	return [height, width, left, top, rad_y, renderParams];
     }
 
     class Preview extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { rp: 0 });
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, { renderParams: 5 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2161,16 +2229,16 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*rp*/ ctx[0] === undefined && !('rp' in props)) {
-    			console.warn("<Preview> was created without expected prop 'rp'");
+    		if (/*renderParams*/ ctx[5] === undefined && !('renderParams' in props)) {
+    			console.warn("<Preview> was created without expected prop 'renderParams'");
     		}
     	}
 
-    	get rp() {
+    	get renderParams() {
     		throw new Error("<Preview>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
 
-    	set rp(value) {
+    	set renderParams(value) {
     		throw new Error("<Preview>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -2194,7 +2262,7 @@ var app = (function () {
     	let t4;
     	let div1;
     	let preview;
-    	let updating_rp_1;
+    	let updating_renderParams;
     	let current;
 
     	function inputform_rp_binding(value) {
@@ -2203,26 +2271,26 @@ var app = (function () {
 
     	let inputform_props = {};
 
-    	if (/*rp*/ ctx[2] !== void 0) {
-    		inputform_props.rp = /*rp*/ ctx[2];
+    	if (/*renderParams*/ ctx[2] !== void 0) {
+    		inputform_props.rp = /*renderParams*/ ctx[2];
     	}
 
     	inputform = new InputForm({ props: inputform_props, $$inline: true });
     	binding_callbacks.push(() => bind(inputform, 'rp', inputform_rp_binding));
     	inputform.$on("render", /*render*/ ctx[3]);
 
-    	function preview_rp_binding(value) {
-    		/*preview_rp_binding*/ ctx[5](value);
+    	function preview_renderParams_binding(value) {
+    		/*preview_renderParams_binding*/ ctx[5](value);
     	}
 
     	let preview_props = {};
 
-    	if (/*rp*/ ctx[2] !== void 0) {
-    		preview_props.rp = /*rp*/ ctx[2];
+    	if (/*renderParams*/ ctx[2] !== void 0) {
+    		preview_props.renderParams = /*renderParams*/ ctx[2];
     	}
 
     	preview = new Preview({ props: preview_props, $$inline: true });
-    	binding_callbacks.push(() => bind(preview, 'rp', preview_rp_binding));
+    	binding_callbacks.push(() => bind(preview, 'renderParams', preview_renderParams_binding));
 
     	const block = {
     		c: function create() {
@@ -2238,17 +2306,17 @@ var app = (function () {
     			t4 = space();
     			div1 = element("div");
     			create_component(preview.$$.fragment);
-    			add_location(h1, file, 176307, 3, 4039868);
+    			add_location(h1, file, 176312, 3, 4040001);
     			attr_dev(div0, "id", "left");
     			attr_dev(div0, "class", "flex flex-col flex-wrap space-y-6 md:w-1/2");
-    			add_location(div0, file, 176306, 2, 4039798);
+    			add_location(div0, file, 176311, 2, 4039931);
     			attr_dev(div1, "id", "right");
     			attr_dev(div1, "class", "md:w-1/2 pl-2");
-    			add_location(div1, file, 176310, 2, 4039955);
+    			add_location(div1, file, 176315, 2, 4040098);
     			attr_dev(div2, "class", "container flex flex-col md:flex-row flex-wrap md:flex-nowrap");
-    			add_location(div2, file, 176305, 1, 4039721);
+    			add_location(div2, file, 176310, 1, 4039854);
     			attr_dev(main, "class", "h-full");
-    			add_location(main, file, 176304, 0, 4039698);
+    			add_location(main, file, 176309, 0, 4039831);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2273,19 +2341,19 @@ var app = (function () {
     			if (!current || dirty & /*version*/ 2) set_data_dev(t2, /*version*/ ctx[1]);
     			const inputform_changes = {};
 
-    			if (!updating_rp && dirty & /*rp*/ 4) {
+    			if (!updating_rp && dirty & /*renderParams*/ 4) {
     				updating_rp = true;
-    				inputform_changes.rp = /*rp*/ ctx[2];
+    				inputform_changes.rp = /*renderParams*/ ctx[2];
     				add_flush_callback(() => updating_rp = false);
     			}
 
     			inputform.$set(inputform_changes);
     			const preview_changes = {};
 
-    			if (!updating_rp_1 && dirty & /*rp*/ 4) {
-    				updating_rp_1 = true;
-    				preview_changes.rp = /*rp*/ ctx[2];
-    				add_flush_callback(() => updating_rp_1 = false);
+    			if (!updating_renderParams && dirty & /*renderParams*/ 4) {
+    				updating_renderParams = true;
+    				preview_changes.renderParams = /*renderParams*/ ctx[2];
+    				add_flush_callback(() => updating_renderParams = false);
     			}
 
     			preview.$set(preview_changes);
@@ -2325,16 +2393,25 @@ var app = (function () {
     	let { name } = $$props;
     	let { version } = $$props;
 
-    	let rp = {
-    		type: 0,
-    		dim: { width: 150, height: 100 },
-    		fileName: null,
-    		fileType: null
+    	let renderParams = {
+    		type: 2,
+    		dim: {
+    			top: 10,
+    			left: 10,
+    			width: 300,
+    			height: 300
+    		},
+    		fileName: '',
+    		fileType: ''
     	};
 
     	function render() {
+    		for (let k in renderParams.dim) {
+    			$$invalidate(2, renderParams.dim[k] = Number(renderParams.dim[k]), renderParams);
+    		}
+
     		console.log('Render params = ');
-    		console.log(rp);
+    		console.log(renderParams);
     	}
 
     	const writable_props = ['name', 'version'];
@@ -2344,13 +2421,13 @@ var app = (function () {
     	});
 
     	function inputform_rp_binding(value) {
-    		rp = value;
-    		$$invalidate(2, rp);
+    		renderParams = value;
+    		$$invalidate(2, renderParams);
     	}
 
-    	function preview_rp_binding(value) {
-    		rp = value;
-    		$$invalidate(2, rp);
+    	function preview_renderParams_binding(value) {
+    		renderParams = value;
+    		$$invalidate(2, renderParams);
     	}
 
     	$$self.$$set = $$props => {
@@ -2363,21 +2440,28 @@ var app = (function () {
     		Preview,
     		name,
     		version,
-    		rp,
+    		renderParams,
     		render
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('name' in $$props) $$invalidate(0, name = $$props.name);
     		if ('version' in $$props) $$invalidate(1, version = $$props.version);
-    		if ('rp' in $$props) $$invalidate(2, rp = $$props.rp);
+    		if ('renderParams' in $$props) $$invalidate(2, renderParams = $$props.renderParams);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [name, version, rp, render, inputform_rp_binding, preview_rp_binding];
+    	return [
+    		name,
+    		version,
+    		renderParams,
+    		render,
+    		inputform_rp_binding,
+    		preview_renderParams_binding
+    	];
     }
 
     class App extends SvelteComponentDev {
