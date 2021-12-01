@@ -2,6 +2,7 @@
 	import Select from './components/Select.svelte';
 	import Input from './components/Input.svelte';
 	import NumInput from './components/NumInput.svelte';
+	import RangeInput from './components/RangeInput.svelte';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -27,6 +28,24 @@
 		<NumInput label="Width" unit="mm" hint="300" bind:value={rp.dim.width} />
 		<NumInput label="Height" unit="mm" hint="300" bind:value={rp.dim.height} />
 	{/if}
+
+	<div class="flex flex-wrap -mx-2">
+		<div class="w-full md:w-1/2 px-2">
+			<RangeInput label="Perspective" bind:value={rp.perspective} min="0.001" max="0.3" step="0.001" />
+		</div>
+		<div class="w-full md:w-1/2 px-2">
+			<RangeInput label="Scale" bind:value={rp.scale} min="0.001" max="5" step="0.001" />
+		</div>
+	</div>
+
+	<div class="flex flex-wrap -mx-2 mb-2">
+		<div class="w-full md:w-1/2 px-2">
+			<NumInput label="Left margin" unit="px" hint="10" bind:value={rp.dim.left} />
+		</div>
+		<div class="w-full md:w-1/2 px-2">
+			<NumInput label="Top Margin" unit="px" hint="10" bind:value={rp.dim.top} />
+		</div>
+	</div>
 
 	<div class="flex flex-wrap -mx-2 mb-2">
 		<div class="w-full md:w-2/3 px-2">

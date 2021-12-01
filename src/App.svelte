@@ -19,6 +19,8 @@
 			width: 300,
 			height: 300,
 		},
+		perspective: 0.001,
+		scale: 1,
 
 		fileName: '',
 		fileType: ''
@@ -33,7 +35,9 @@
 <main class="h-full">
 	<div class="container flex flex-col md:flex-row flex-wrap md:flex-nowrap">
 		<div id="left" class="flex flex-col flex-wrap space-y-6 md:w-1/2">
-			<h1>{name} v{version}</h1>
+			<div class="container text-center">
+				<h1>{name} v{version}</h1>
+			</div>
 			<InputForm bind:rp={renderParams} on:render={render} />
 		</div>
 		<div id="right" class="md:w-1/2 pl-2">

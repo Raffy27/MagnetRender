@@ -1,5 +1,5 @@
 <script>
-    export let label, unit, value = 0, hint;
+    export let label, unit = null, hint = null, value = 0;
 </script>
 
 <span class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">

@@ -2,7 +2,8 @@
     export let renderParams;
     $: ({ top, left, width, height } = renderParams.dim);
     let rad_y;
-    $: rad_y = width * 0.23;
+    $: renderParams.perspective = 0.23;
+    $: rad_y = width * renderParams.perspective;
 </script>
 
 <div class="my-12"></div>
