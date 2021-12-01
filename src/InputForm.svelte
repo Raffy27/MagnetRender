@@ -23,8 +23,8 @@
 		<Input label="Radius" unit="mm" hint="5" bind:value={rp.dim.radius} />
 		<Input label="Inner Radius" unit="mm" hint="3" bind:value={rp.dim.inner} />
 	{:else if rp.type == 2}
-		<Input label="Radius" unit="mm" hint="5" bind:value={rp.dim.width} />
-		<Input label="Height" unit="mm" hint="10" bind:value={rp.dim.height} />
+		<Input label="Width" unit="mm" hint="300" bind:value={rp.dim.width} />
+		<Input label="Height" unit="mm" hint="300" bind:value={rp.dim.height} />
 	{/if}
 
 	<div class="flex flex-wrap -mx-2 mb-2">

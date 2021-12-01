@@ -1,7 +1,8 @@
 <script>
     export let renderParams;
     $: ({ top, left, width, height } = renderParams.dim);
-    let rad_y = 30;
+    let rad_y;
+    $: rad_y = width * 0.23;
 </script>
 
 <div class="my-12"></div>
@@ -47,11 +48,11 @@
         <defs>
             <clipPath id="magnet-clip">
                 <path
-                    d="M10 87.354838709677a175.8064516129 77.354838709677 0 0 1 351.61290322581 0 v281.29032258065 a175.8064516129 77.354838709677 0 0 1 -351.61290322581 0 z" />
+                    d={`M${left} ${top+rad_y}a${width/2} ${rad_y} 0 0 1 ${width} 0 v${height} a${width/2} ${rad_y} 0 0 1 ${-width} 0 z`} />
             </clipPath>
             <clipPath id="north-clip">
                 <path
-                    d="M10 87.354838709677a175.8064516129 77.354838709677 0 0 1 351.61290322581 0 v140.64516129032 a175.8064516129 77.354838709677 0 0 1 -351.61290322581 0 z" />
+                    d={`M${left} ${top+rad_y}a${width/2} ${rad_y} 0 0 1 ${width} 0 v${height/2} a${width/2} ${rad_y} 0 0 1 ${-width} 0 z`} />
             </clipPath>
             <marker id="arrow-start" orient="auto" markerWidth="10" markerHeight="5" refX="6.6666666666667" refY="2.5">
                 <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
@@ -69,8 +70,8 @@
             </marker>
         </defs>
         <g>
-            <rect x="10" y="10" width="351.61290322581" height="436" style="clip-path:url(#magnet-clip);fill:#36987D" />
-            <rect x="10" y="10" width="351.61290322581" height="436" style="clip-path:url(#north-clip);fill:#CB5959" />
+            <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#magnet-clip);fill:#36987D" />
+            <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#north-clip);fill:#CB5959" />
         </g>
         <path d={`M${left+width+3} ${top+rad_y}h16`} class="arrow-dimension-line" />
         <path d={`M${left+width+3} ${top+rad_y+height}h16`} class="arrow-dimension-line" />
