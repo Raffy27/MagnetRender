@@ -1,5 +1,5 @@
 <script>
-    export let label, unit = null, hint = null, value;
+    export let label, unit, value = 0, hint;
 </script>
 
 <span class="uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
@@ -9,4 +9,4 @@
     {/if}
 </span>
 <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-    bind:value={value} type="text" placeholder={hint || null}>
+    bind:value={value} type="number" placeholder={hint || null}>

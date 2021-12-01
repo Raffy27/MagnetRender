@@ -1,6 +1,7 @@
 <script>
 	import Select from './components/Select.svelte';
 	import Input from './components/Input.svelte';
+	import NumInput from './components/NumInput.svelte';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -15,16 +16,16 @@
 		<option value={2}>Cylinder</option>
 	</Select>
 	{#if rp.type == 0}
-		<Input label="Height" unit="mm" hint="10" bind:value={rp.dim.height} />
-		<Input label="Width" unit="mm" hint="10" bind:value={rp.dim.width} />
-		<Input label="Depth" unit="mm" hint="10" bind:value={rp.dim.depth} />
+		<NumInput label="Height" unit="mm" hint="10" bind:value={rp.dim.height} />
+		<NumInput label="Width" unit="mm" hint="10" bind:value={rp.dim.width} />
+		<NumInput label="Depth" unit="mm" hint="10" bind:value={rp.dim.depth} />
 	{:else if rp.type == 1}
-		<Input label="Height" unit="mm" hint="10" bind:value={rp.dim.height} />
-		<Input label="Radius" unit="mm" hint="5" bind:value={rp.dim.radius} />
-		<Input label="Inner Radius" unit="mm" hint="3" bind:value={rp.dim.inner} />
+		<NumInput label="Height" unit="mm" hint="10" bind:value={rp.dim.height} />
+		<NumInput label="Radius" unit="mm" hint="5" bind:value={rp.dim.radius} />
+		<NumInput label="Inner Radius" unit="mm" hint="3" bind:value={rp.dim.inner} />
 	{:else if rp.type == 2}
-		<Input label="Width" unit="mm" hint="300" bind:value={rp.dim.width} />
-		<Input label="Height" unit="mm" hint="300" bind:value={rp.dim.height} />
+		<NumInput label="Width" unit="mm" hint="300" bind:value={rp.dim.width} />
+		<NumInput label="Height" unit="mm" hint="300" bind:value={rp.dim.height} />
 	{/if}
 
 	<div class="flex flex-wrap -mx-2 mb-2">

@@ -25,9 +25,6 @@
 	};
 
 	function render(){
-		for(let k in renderParams.dim){
-			renderParams.dim[k] = Number(renderParams.dim[k]);
-		}
 		console.log('Render params = ');
 		console.log(renderParams);
 	}
