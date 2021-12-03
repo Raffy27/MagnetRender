@@ -21,9 +21,9 @@
 		<NumInput label="Width" unit="mm" hint="10" bind:value={rp.dim.width} />
 		<NumInput label="Depth" unit="mm" hint="10" bind:value={rp.dim.depth} />
 	{:else if rp.type == 1}
+		<NumInput label="Width" unit="mm" hint="5" bind:value={rp.dim.width} />
 		<NumInput label="Height" unit="mm" hint="10" bind:value={rp.dim.height} />
-		<NumInput label="Radius" unit="mm" hint="5" bind:value={rp.dim.radius} />
-		<NumInput label="Inner Radius" unit="mm" hint="3" bind:value={rp.dim.inner} />
+		<NumInput label="Inner Radius" unit="mm" hint="3" bind:value={rp.dim.radius} />
 	{:else if rp.type == 2}
 		<NumInput label="Width" unit="mm" hint="300" bind:value={rp.dim.width} />
 		<NumInput label="Height" unit="mm" hint="300" bind:value={rp.dim.height} />
