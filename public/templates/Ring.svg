@@ -106,7 +106,6 @@
     <path d="M10 264.33a194.75 85.69 0 0 0 389.5 0" class="border" fill="none" />
     <path d="M10 139.69v124.64" class="border" />
     <path d="M399.5 139.69v124.64" class="border" />
-    <path d="M126.85 105.414v158.9" class="border" />
     <path d="M126.85 264.33a77.9 34.276 0 0 1 155.8 0" class="border" fill="none" clip-path="url(#clip-hole)" />
     <ellipse cx="204.75" cy="139.69" rx="77.9" ry="34.276" class="border" fill="none" />
 </svg>

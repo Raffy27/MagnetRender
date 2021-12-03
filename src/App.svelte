@@ -14,11 +14,11 @@
 		type: 1,
 
 		dim: {
-			top: 10,
-			left: 10,
-			width: 356,
-			height: 84,
-			radius: 100,
+			top: 30,
+			left: 30,
+			width: 389.5,
+			height: 124.64,
+			radius: 77.9,
 		},
 		perspective: 0.001,
 		scale: 1,

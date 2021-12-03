@@ -65,7 +65,7 @@
         </mask>
         <mask id="mask-hole-south-pole">
             <rect width="100%" height="100%" fill="white" />
-            <ellipse cx={left+width/2} cy="202.01" rx={radius} ry={inner_y} fill="black" />
+            <ellipse cx={left+width/2} cy={top+rad_y+height/2} rx={radius} ry={inner_y} fill="black" />
         </mask>
         <clipPath id="magnet-clip">
             <path d={`M${left} ${top+rad_y}a${width/2} ${rad_y} 0 0 1 ${width} 0 v${height} a${width/2} ${rad_y} 0 0 1 ${-width} 0 z`} />
@@ -96,6 +96,7 @@
         mask="url(#mask-hole-bottom)" />
     <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height="96.596" fill="#9D4D4D" clip-path="url(#clip-hole)"
         mask="url(#mask-hole-south-pole)" />
+    <!-- Arrows -->
     <path d={`M${left+width/2-radius} 58.153817739847v-23.153817739847`} class="arrow-dimension-line" />
     <path d={`M${left+width/2+radius} 58.153817739847v-23.153817739847`} class="arrow-dimension-line" />
     <path d={`M${left+width/2-radius+10} 40h${2*radius-2*10}`} class="arrow" />
@@ -113,7 +114,7 @@
         style="fill:#999;text-anchor:middle;">{width} mm</text>
     <ellipse cx={left+width/2} cy={top+rad_y} rx={width/2} ry={rad_y} class="border"
         fill="none" />
-        <path d={`M${left} ${top+rad_y+height}a${width/2} ${rad_y} 0 0 0 ${width} 0`} class="border" fill="none" />
+    <path d={`M${left} ${top+rad_y+height}a${width/2} ${rad_y} 0 0 0 ${width} 0`} class="border" fill="none" />
     <path d={`M${left} ${top+rad_y}v${height}`} class="border" />
     <path d={`M${left+width} ${top+rad_y}v${height}`} class="border" />
     <path d={`M${left+width/2-radius} ${top+rad_y-inner_y}a${radius} ${inner_y} 0 0 1 ${2*radius} 0`} class="border" fill="none" clip-path="url(#clip-hole)" />
