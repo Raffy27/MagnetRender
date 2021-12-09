@@ -1,10 +1,9 @@
 <script>
     export let renderParams;
-    $: ({ top, left, width, height, radius } = renderParams.dim);
+    $: ({ top, left, width, height, depth } = renderParams.dim);
 
-    let rad_y, inner_y;
-    $: rad_y = width * renderParams.perspective;
-    $: inner_y = rad_y * 2 * radius / width;
+    let top_height;
+    $: top_height = top + height;
 </script>
 
 <div class="my-12"></div>
@@ -86,8 +85,8 @@
         <path d="M354.67754212023 140.16284362734L402.32842712475 92.511958622828" class="arrow" />
         <text x="382.74562530961" y="135.58004181221" font-size="21" font-family="Arial, Helvetica, sans-serif"
             style="fill:#999;text-anchor:left;">5 mm</text>
-        <path d="M10 71.793020628247H337.70697937175V137.3344165026H10Z" fill="none" class="border" />
-        <path d="M10 71.793020628247L71.793020628247 10H399.5V75.541395874351L337.70697937175 137.3344165026" fill="none"
+        <path d={`M${left} ${top_height}H${left+width}V${top_height+height}H${left}Z`} fill="none" class="border" />
+        <path d={`M${left} ${top_height}L71.793020628247 ${top}H399.5V75.541395874351L337.70697937175 137.3344165026`} fill="none"
             class="border" />
         <path d="M337.70697937175 71.793020628247L399.5 10" class="border" />
     </svg>

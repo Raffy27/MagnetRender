@@ -11,14 +11,14 @@
 	export let version;
 
 	let renderParams = {
-		type: 1,
+		type: 0,
 
 		dim: {
-			top: 30,
-			left: 30,
-			width: 337,
-			height: 137,
-			depth: 150,
+			top: 10,
+			left: 10,
+			width: 330,
+			height: 60,
+			depth: 60,
 			radius: 77.9,
 		},
 		perspective: 0.001,
