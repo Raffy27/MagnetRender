@@ -3378,19 +3378,19 @@ var app = (function () {
     			t4 = space();
     			div2 = element("div");
     			create_component(preview.$$.fragment);
-    			add_location(h1, file, 176313, 4, 4040005);
+    			add_location(h1, file, 176314, 4, 4040015);
     			attr_dev(div0, "class", "container text-center");
-    			add_location(div0, file, 176312, 3, 4039965);
+    			add_location(div0, file, 176313, 3, 4039975);
     			attr_dev(div1, "id", "left");
     			attr_dev(div1, "class", "flex flex-col flex-wrap space-y-6 md:w-1/2");
-    			add_location(div1, file, 176311, 2, 4039895);
+    			add_location(div1, file, 176312, 2, 4039905);
     			attr_dev(div2, "id", "right");
     			attr_dev(div2, "class", "md:w-1/2 pl-2");
-    			add_location(div2, file, 176317, 2, 4040112);
+    			add_location(div2, file, 176318, 2, 4040122);
     			attr_dev(div3, "class", "container flex flex-col md:flex-row flex-wrap md:flex-nowrap");
-    			add_location(div3, file, 176310, 1, 4039818);
+    			add_location(div3, file, 176311, 1, 4039828);
     			attr_dev(main, "class", "h-full");
-    			add_location(main, file, 176309, 0, 4039795);
+    			add_location(main, file, 176310, 0, 4039805);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -3473,8 +3473,9 @@ var app = (function () {
     		dim: {
     			top: 30,
     			left: 30,
-    			width: 389.5,
-    			height: 124.64,
+    			width: 337,
+    			height: 137,
+    			depth: 150,
     			radius: 77.9
     		},
     		perspective: 0.001,
