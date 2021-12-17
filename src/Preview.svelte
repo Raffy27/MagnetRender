@@ -2,8 +2,9 @@
     export let renderParams;
     $: ({ top, left, width, height, depth } = renderParams.dim);
 
-    let top_height;
-    $: top_height = top + height;
+    let top_height, alpha_cpl;
+    $: top_height = (top + depth / Math.sqrt(2)) * (renderParams.perspective + 0.3) * 2;
+    //$: alpha_cpl = 
 </script>
 
 <div class="my-12"></div>
@@ -62,32 +63,32 @@
                 <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
             </marker>
             <clipPath id="north-clip">
-                <path d="M10 71.793020628247L71.793020628247 10H399.5V42.770697937175L337.70697937175 104.56371856542H10Z"
+                <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height/2}L${left+width} ${top_height+height/2}H${left}Z`} />
                     fill="#CB5959" />
             </clipPath>
         </defs>
-        <path d="M10 71.793020628247L71.793020628247 10H399.5V75.541395874351L337.70697937175 137.3344165026H10Z"
+        <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
             fill="#36987D" />
-        <path d="M10 71.793020628247L71.793020628247 10H399.5V75.541395874351L337.70697937175 137.3344165026H10Z"
+        <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
             fill="#CB5959" clip-path="url(#north-clip)" />
-        <path d="M10 140.3344165026v16" class="arrow-dimension-line" />
-        <path d="M337.70697937175 140.3344165026v16" class="arrow-dimension-line" />
-        <path d="M20 151.3344165026h307.70697937175" class="arrow" />
-        <text x="173.85348968588" y="172.3344165026" font-size="21" font-family="Arial, Helvetica, sans-serif"
-            style="fill:#999;text-anchor:middle;">10 mm</text>
-        <path d="M402.5 10h16" class="arrow-dimension-line" />
-        <path d="M402.5 75.541395874351h16" class="arrow-dimension-line" />
-        <path d="M413.5 20v45.541395874351" class="arrow" />
-        <text x="419.5" y="50.270697937175" font-size="21" font-family="Arial, Helvetica, sans-serif"
-            style="fill:#999;text-anchor:left;">2 mm</text>
+        <path d={`M${left} ${top_height+height+3}v16`} class="arrow-dimension-line" />
+        <path d={`M${left+width} ${top_height+height+3}v16`} class="arrow-dimension-line" />
+        <path d={`M${left+10} ${top_height+height+14}h${width-2*10}`} class="arrow" />
+        <text x={left+width/2} y={top_height+height+34} font-size="21" font-family="Arial, Helvetica, sans-serif"
+            style="fill:#999;text-anchor:middle;">{width} mm</text>
+        <path d={`M${left+height+width+3} ${top}h16`} class="arrow-dimension-line" />
+        <path d={`M${left+height+width+3} ${top+height}h16`} class="arrow-dimension-line" />
+        <path d={`M${left+height+width+14} ${top+10}v${height-2*10}`} class="arrow" />
+        <text x={left+height+width+24} y={top+height/2+10} font-size="21" font-family="Arial, Helvetica, sans-serif"
+            style="fill:#999;text-anchor:left;">{height} mm</text>
         <path d="M339.82829971531 139.45573684616L351.1420082143 150.76944534514" class="arrow-dimension-line" />
         <path d="M401.62132034356 77.66271621791L412.93502884254 88.976424716895" class="arrow-dimension-line" />
         <path d="M354.67754212023 140.16284362734L402.32842712475 92.511958622828" class="arrow" />
         <text x="382.74562530961" y="135.58004181221" font-size="21" font-family="Arial, Helvetica, sans-serif"
-            style="fill:#999;text-anchor:left;">5 mm</text>
+            style="fill:#999;text-anchor:left;">{depth} mm</text>
         <path d={`M${left} ${top_height}H${left+width}V${top_height+height}H${left}Z`} fill="none" class="border" />
-        <path d={`M${left} ${top_height}L71.793020628247 ${top}H399.5V75.541395874351L337.70697937175 137.3344165026`} fill="none"
+        <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height}L${left+width} ${top_height+height}`} fill="none"
             class="border" />
-        <path d="M337.70697937175 71.793020628247L399.5 10" class="border" />
+        <path d={`M${left+width} ${top_height}L${left+height+width} 10`} class="border" />
     </svg>
 </div>
