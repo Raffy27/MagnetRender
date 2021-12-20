@@ -2,9 +2,11 @@
     export let renderParams;
     $: ({ top, left, width, height, depth } = renderParams.dim);
 
-    let top_height, alpha_cpl;
-    $: top_height = (top + depth / Math.sqrt(2)) * (renderParams.perspective + 0.3) * 2;
-    //$: alpha_cpl = 
+    let top_height, top_width, alpha;
+    $: alpha = renderParams.perspective * Math.PI/2 /0.3;
+    $: if(alpha < Math.PI/12) alpha = Math.PI/12;
+    $: top_height = depth * Math.sin(alpha);
+    $: top_width = depth * Math.cos(alpha);
 </script>
 
 <div class="my-12"></div>
@@ -63,13 +65,13 @@
                 <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
             </marker>
             <clipPath id="north-clip">
-                <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height/2}L${left+width} ${top_height+height/2}H${left}Z`} />
+                <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height/2}L${left+width} ${top_height+height/2}H${left}Z`} />
                     fill="#CB5959" />
             </clipPath>
         </defs>
-        <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
+        <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
             fill="#36987D" />
-        <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
+        <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
             fill="#CB5959" clip-path="url(#north-clip)" />
         <path d={`M${left} ${top_height+height+3}v16`} class="arrow-dimension-line" />
         <path d={`M${left+width} ${top_height+height+3}v16`} class="arrow-dimension-line" />
@@ -87,8 +89,8 @@
         <text x="382.74562530961" y="135.58004181221" font-size="21" font-family="Arial, Helvetica, sans-serif"
             style="fill:#999;text-anchor:left;">{depth} mm</text>
         <path d={`M${left} ${top_height}H${left+width}V${top_height+height}H${left}Z`} fill="none" class="border" />
-        <path d={`M${left} ${top_height}L${top+height} ${top}H${left+height+width}V${top+height}L${left+width} ${top_height+height}`} fill="none"
+        <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}`} fill="none"
             class="border" />
-        <path d={`M${left+width} ${top_height}L${left+height+width} 10`} class="border" />
+        <path d={`M${left+width} ${top_height}L${left+top_width+width} ${top}`} class="border" />
     </svg>
 </div>
