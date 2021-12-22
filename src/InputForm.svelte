@@ -34,7 +34,7 @@
 			<RangeInput label="Perspective" bind:value={rp.perspective} min="0.001" max="0.3" step="0.001" />
 		</div>
 		<div class="w-full md:w-1/2 px-2">
-			<RangeInput label="Scale" bind:value={rp.scale} min="0.001" max="5" step="0.001" />
+			<RangeInput label="Scale" bind:value={rp.scale} min="0.001" max="2" step="0.001" />
 		</div>
 	</div>
 
@@ -65,8 +65,8 @@
 			Export
 		</button>
 		<button class="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-			on:click|preventDefault={() => dispatch('render')}>
-			Preview
+			on:click|preventDefault={() => dispatch('save')}>
+			Save Preset
 		</button>
   	</div>
 </form>
