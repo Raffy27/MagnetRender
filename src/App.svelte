@@ -16,9 +16,9 @@
 		dim: {
 			top: 10,
 			left: 10,
-			width: 330,
+			width: 60,
 			height: 60,
-			depth: 60,
+			depth: 120,
 			radius: 77.9,
 		},
 		perspective: 0.001,
