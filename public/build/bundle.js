@@ -2577,6 +2577,7 @@ var app = (function () {
     	let path17_d_value;
     	let path18;
     	let path18_d_value;
+    	let svg_viewBox_value;
 
     	const block = {
     		c: function create() {
@@ -2600,139 +2601,138 @@ var app = (function () {
     			path8 = svg_element("path");
     			path9 = svg_element("path");
     			text0 = svg_element("text");
-    			t1 = text(/*width*/ ctx[7]);
+    			t1 = text(/*width*/ ctx[8]);
     			t2 = text(" mm");
     			path10 = svg_element("path");
     			path11 = svg_element("path");
     			path12 = svg_element("path");
     			text1 = svg_element("text");
-    			t3 = text(/*height*/ ctx[6]);
+    			t3 = text(/*height*/ ctx[7]);
     			t4 = text(" mm");
     			path13 = svg_element("path");
     			path14 = svg_element("path");
     			path15 = svg_element("path");
     			text2 = svg_element("text");
-    			t5 = text(/*depth*/ ctx[1]);
+    			t5 = text(/*depth*/ ctx[2]);
     			t6 = text(" mm");
     			path16 = svg_element("path");
     			path17 = svg_element("path");
     			path18 = svg_element("path");
-    			add_location(style, file$4, 14, 4, 513);
+    			add_location(style, file$4, 14, 4, 547);
     			attr_dev(path0, "d", "M10 0V5L0 2.5Z");
     			attr_dev(path0, "class", "arrow-marker");
-    			add_location(path0, file$4, 52, 12, 1165);
+    			add_location(path0, file$4, 52, 12, 1199);
     			attr_dev(marker0, "id", "arrow-start");
     			attr_dev(marker0, "orient", "auto");
     			attr_dev(marker0, "markerWidth", "10");
     			attr_dev(marker0, "markerHeight", "5");
     			attr_dev(marker0, "refX", "6.6666666666667");
     			attr_dev(marker0, "refY", "2.5");
-    			add_location(marker0, file$4, 51, 8, 1045);
+    			add_location(marker0, file$4, 51, 8, 1079);
     			attr_dev(path1, "d", "M0 0V5L10 2.5Z");
     			attr_dev(path1, "class", "arrow-marker");
-    			add_location(path1, file$4, 55, 12, 1358);
+    			add_location(path1, file$4, 55, 12, 1392);
     			attr_dev(marker1, "id", "arrow-end");
     			attr_dev(marker1, "orient", "auto");
     			attr_dev(marker1, "markerWidth", "10");
     			attr_dev(marker1, "markerHeight", "5");
     			attr_dev(marker1, "refX", "3.3333333333333");
     			attr_dev(marker1, "refY", "2.5");
-    			add_location(marker1, file$4, 54, 8, 1240);
+    			add_location(marker1, file$4, 54, 8, 1274);
     			attr_dev(path2, "d", "M0 0V5L10 2.5Z");
     			attr_dev(path2, "class", "arrow-marker");
-    			add_location(path2, file$4, 59, 12, 1574);
+    			add_location(path2, file$4, 59, 12, 1608);
     			attr_dev(marker2, "id", "arrow-inverted-start");
     			attr_dev(marker2, "orient", "auto");
     			attr_dev(marker2, "markerWidth", "10");
     			attr_dev(marker2, "markerHeight", "5");
     			attr_dev(marker2, "refX", "3.3333333333333");
     			attr_dev(marker2, "refY", "2.5");
-    			add_location(marker2, file$4, 57, 8, 1433);
+    			add_location(marker2, file$4, 57, 8, 1467);
     			attr_dev(path3, "d", "M10 0V5L0 2.5Z");
     			attr_dev(path3, "class", "arrow-marker");
-    			add_location(path3, file$4, 63, 12, 1788);
+    			add_location(path3, file$4, 63, 12, 1822);
     			attr_dev(marker3, "id", "arrow-inverted-end");
     			attr_dev(marker3, "orient", "auto");
     			attr_dev(marker3, "markerWidth", "10");
     			attr_dev(marker3, "markerHeight", "5");
     			attr_dev(marker3, "refX", "6.6666666666667");
     			attr_dev(marker3, "refY", "2.5");
-    			add_location(marker3, file$4, 61, 8, 1649);
-    			attr_dev(path4, "d", path4_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6] / 2}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] / 2}H${/*left*/ ctx[8]}Z`);
+    			add_location(marker3, file$4, 61, 8, 1683);
+    			attr_dev(path4, "d", path4_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7] / 2}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] / 2}H${/*left*/ ctx[9]}Z`);
     			attr_dev(path4, "fill", "#CB5959");
-    			add_location(path4, file$4, 66, 12, 1902);
+    			add_location(path4, file$4, 66, 12, 1936);
     			attr_dev(clipPath, "id", "north-clip");
-    			add_location(clipPath, file$4, 65, 8, 1863);
-    			add_location(defs, file$4, 50, 4, 1030);
-    			attr_dev(path5, "d", path5_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6]}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6]}H${/*left*/ ctx[8]}Z`);
+    			add_location(clipPath, file$4, 65, 8, 1897);
+    			add_location(defs, file$4, 50, 4, 1064);
+    			attr_dev(path5, "d", path5_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7]}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7]}H${/*left*/ ctx[9]}Z`);
     			attr_dev(path5, "fill", "#36987D");
-    			add_location(path5, file$4, 70, 4, 2118);
-    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6]}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6]}H${/*left*/ ctx[8]}Z`);
+    			add_location(path5, file$4, 70, 4, 2152);
+    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7]}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7]}H${/*left*/ ctx[9]}Z`);
     			attr_dev(path6, "fill", "#CB5959");
     			attr_dev(path6, "clip-path", "url(#north-clip)");
-    			add_location(path6, file$4, 72, 4, 2290);
-    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 3}v16`);
+    			add_location(path6, file$4, 72, 4, 2324);
+    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 3}v16`);
     			attr_dev(path7, "class", "arrow-dimension-line");
-    			add_location(path7, file$4, 74, 4, 2491);
-    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 3}v16`);
+    			add_location(path7, file$4, 74, 4, 2525);
+    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 3}v16`);
     			attr_dev(path8, "class", "arrow-dimension-line");
-    			add_location(path8, file$4, 75, 4, 2574);
-    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[8] + 10} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 14}h${/*width*/ ctx[7] - 2 * 10}`);
+    			add_location(path8, file$4, 75, 4, 2608);
+    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[9] + 10} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 14}h${/*width*/ ctx[8] - 2 * 10}`);
     			attr_dev(path9, "class", "arrow");
-    			add_location(path9, file$4, 76, 4, 2663);
-    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[8] + /*width*/ ctx[7] / 2);
-    			attr_dev(text0, "y", text0_y_value = /*top_height*/ ctx[2] + /*height*/ ctx[6] + 34);
+    			add_location(path9, file$4, 76, 4, 2697);
+    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[9] + /*width*/ ctx[8] / 2);
+    			attr_dev(text0, "y", text0_y_value = /*top_height*/ ctx[3] + /*height*/ ctx[7] + 34);
     			attr_dev(text0, "font-size", "21");
     			attr_dev(text0, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text0, "fill", "#999");
     			set_style(text0, "text-anchor", "middle");
-    			add_location(text0, file$4, 77, 4, 2746);
-    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 3} ${/*top*/ ctx[9]}h16`);
+    			add_location(text0, file$4, 77, 4, 2780);
+    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 3} ${/*top*/ ctx[10]}h16`);
     			attr_dev(path10, "class", "arrow-dimension-line");
-    			add_location(path10, file$4, 79, 4, 2920);
-    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 3} ${/*top*/ ctx[9] + /*height*/ ctx[6]}h16`);
+    			add_location(path10, file$4, 79, 4, 2954);
+    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 3} ${/*top*/ ctx[10] + /*height*/ ctx[7]}h16`);
     			attr_dev(path11, "class", "arrow-dimension-line");
-    			add_location(path11, file$4, 80, 4, 3005);
-    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 14} ${/*top*/ ctx[9] + 10}v${/*height*/ ctx[6] - 2 * 10}`);
+    			add_location(path11, file$4, 80, 4, 3039);
+    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 14} ${/*top*/ ctx[10] + 10}v${/*height*/ ctx[7] - 2 * 10}`);
     			attr_dev(path12, "class", "arrow");
-    			add_location(path12, file$4, 81, 4, 3097);
-    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 24);
-    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[9] + /*height*/ ctx[6] / 2 + 10);
+    			add_location(path12, file$4, 81, 4, 3131);
+    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 24);
+    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[10] + /*height*/ ctx[7] / 2 + 10);
     			attr_dev(text1, "font-size", "21");
     			attr_dev(text1, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text1, "fill", "#999");
     			set_style(text1, "text-anchor", "left");
-    			add_location(text1, file$4, 82, 4, 3183);
-    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7] + 3} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 3}l${/*ll_w*/ ctx[5]} ${/*ll_h*/ ctx[4]}`);
+    			add_location(text1, file$4, 82, 4, 3217);
+    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8] + 3} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 3}l${/*ll_w*/ ctx[6]} ${/*ll_h*/ ctx[5]}`);
     			attr_dev(path13, "class", "arrow-dimension-line");
-    			add_location(path13, file$4, 84, 4, 3362);
-    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 3} ${/*top*/ ctx[9] + /*height*/ ctx[6] + 3}l${/*ll_w*/ ctx[5]} ${/*ll_h*/ ctx[4]}`);
+    			add_location(path13, file$4, 84, 4, 3396);
+    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 3} ${/*top*/ ctx[10] + /*height*/ ctx[7] + 3}l${/*ll_w*/ ctx[6]} ${/*ll_h*/ ctx[5]}`);
     			attr_dev(path14, "class", "arrow-dimension-line");
-    			add_location(path14, file$4, 85, 4, 3466);
-    			attr_dev(path15, "d", path15_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7] + /*ll_w*/ ctx[5] / 2 + 3 + Math.cos(/*alpha*/ ctx[0]) * 10} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + /*ll_h*/ ctx[4] / 2 + 3 - Math.sin(/*alpha*/ ctx[0]) * 10}L${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + /*ll_w*/ ctx[5] / 2 + 3 - Math.cos(/*alpha*/ ctx[0]) * 10} ${/*top*/ ctx[9] + /*height*/ ctx[6] + /*ll_h*/ ctx[4] / 2 + 3 + Math.sin(/*alpha*/ ctx[0]) * 10}`);
+    			add_location(path14, file$4, 85, 4, 3500);
+    			attr_dev(path15, "d", path15_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8] + /*ll_w*/ ctx[6] / 2 + 3 + Math.cos(/*alpha*/ ctx[1]) * 10} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + /*ll_h*/ ctx[5] / 2 + 3 - Math.sin(/*alpha*/ ctx[1]) * 10}L${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + /*ll_w*/ ctx[6] / 2 + 3 - Math.cos(/*alpha*/ ctx[1]) * 10} ${/*top*/ ctx[10] + /*height*/ ctx[7] + /*ll_h*/ ctx[5] / 2 + 3 + Math.sin(/*alpha*/ ctx[1]) * 10}`);
     			attr_dev(path15, "class", "arrow");
-    			add_location(path15, file$4, 86, 4, 3573);
-    			attr_dev(text2, "x", text2_x_value = /*left*/ ctx[8] + /*width*/ ctx[7] + /*top_width*/ ctx[3] / 2);
-    			attr_dev(text2, "y", text2_y_value = /*top*/ ctx[9] + /*height*/ ctx[6] + /*top_height*/ ctx[2] / 2 + 21);
+    			add_location(path15, file$4, 86, 4, 3607);
+    			attr_dev(text2, "x", text2_x_value = /*left*/ ctx[9] + /*width*/ ctx[8] + /*top_width*/ ctx[4] / 2);
+    			attr_dev(text2, "y", text2_y_value = /*top*/ ctx[10] + /*height*/ ctx[7] + /*top_height*/ ctx[3] / 2 + 21);
     			attr_dev(text2, "font-size", "21");
     			attr_dev(text2, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text2, "fill", "#999");
     			set_style(text2, "text-anchor", "left");
-    			attr_dev(text2, "transform", "translate(10, 10)");
-    			add_location(text2, file$4, 87, 4, 3791);
-    			attr_dev(path16, "d", path16_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}H${/*left*/ ctx[8] + /*width*/ ctx[7]}V${/*top_height*/ ctx[2] + /*height*/ ctx[6]}H${/*left*/ ctx[8]}Z`);
+    			attr_dev(text2, "transform", "translate(15, 15)");
+    			add_location(text2, file$4, 87, 4, 3825);
+    			attr_dev(path16, "d", path16_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}H${/*left*/ ctx[9] + /*width*/ ctx[8]}V${/*top_height*/ ctx[3] + /*height*/ ctx[7]}H${/*left*/ ctx[9]}Z`);
     			attr_dev(path16, "fill", "none");
     			attr_dev(path16, "class", "border");
-    			add_location(path16, file$4, 89, 4, 4009);
-    			attr_dev(path17, "d", path17_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6]}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6]}`);
+    			add_location(path16, file$4, 89, 4, 4043);
+    			attr_dev(path17, "d", path17_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7]}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7]}`);
     			attr_dev(path17, "fill", "none");
     			attr_dev(path17, "class", "border");
-    			add_location(path17, file$4, 90, 4, 4122);
-    			attr_dev(path18, "d", path18_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]} ${/*top*/ ctx[9]}`);
+    			add_location(path17, file$4, 90, 4, 4156);
+    			attr_dev(path18, "d", path18_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]} ${/*top*/ ctx[10]}`);
     			attr_dev(path18, "class", "border");
-    			add_location(path18, file$4, 92, 4, 4297);
-    			attr_dev(svg, "viewBox", "0 0 500 191");
-    			attr_dev(svg, "width", "600");
+    			add_location(path18, file$4, 92, 4, 4331);
+    			attr_dev(svg, "viewBox", svg_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[0].scale} ${640 / /*renderParams*/ ctx[0].scale}`);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			add_location(svg, file$4, 13, 0, 434);
     		},
@@ -2779,94 +2779,98 @@ var app = (function () {
     			append_dev(svg, path18);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*left, top_height, top_width, top, width, height*/ 972 && path4_d_value !== (path4_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6] / 2}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] / 2}H${/*left*/ ctx[8]}Z`)) {
+    			if (dirty & /*left, top_height, top_width, top, width, height*/ 1944 && path4_d_value !== (path4_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7] / 2}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] / 2}H${/*left*/ ctx[9]}Z`)) {
     				attr_dev(path4, "d", path4_d_value);
     			}
 
-    			if (dirty & /*left, top_height, top_width, top, width, height*/ 972 && path5_d_value !== (path5_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6]}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6]}H${/*left*/ ctx[8]}Z`)) {
+    			if (dirty & /*left, top_height, top_width, top, width, height*/ 1944 && path5_d_value !== (path5_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7]}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7]}H${/*left*/ ctx[9]}Z`)) {
     				attr_dev(path5, "d", path5_d_value);
     			}
 
-    			if (dirty & /*left, top_height, top_width, top, width, height*/ 972 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6]}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6]}H${/*left*/ ctx[8]}Z`)) {
+    			if (dirty & /*left, top_height, top_width, top, width, height*/ 1944 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7]}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7]}H${/*left*/ ctx[9]}Z`)) {
     				attr_dev(path6, "d", path6_d_value);
     			}
 
-    			if (dirty & /*left, top_height, height*/ 324 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 3}v16`)) {
+    			if (dirty & /*left, top_height, height*/ 648 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 3}v16`)) {
     				attr_dev(path7, "d", path7_d_value);
     			}
 
-    			if (dirty & /*left, width, top_height, height*/ 452 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 3}v16`)) {
+    			if (dirty & /*left, width, top_height, height*/ 904 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 3}v16`)) {
     				attr_dev(path8, "d", path8_d_value);
     			}
 
-    			if (dirty & /*left, top_height, height, width*/ 452 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[8] + 10} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 14}h${/*width*/ ctx[7] - 2 * 10}`)) {
+    			if (dirty & /*left, top_height, height, width*/ 904 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[9] + 10} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 14}h${/*width*/ ctx[8] - 2 * 10}`)) {
     				attr_dev(path9, "d", path9_d_value);
     			}
 
-    			if (dirty & /*width*/ 128) set_data_dev(t1, /*width*/ ctx[7]);
+    			if (dirty & /*width*/ 256) set_data_dev(t1, /*width*/ ctx[8]);
 
-    			if (dirty & /*left, width*/ 384 && text0_x_value !== (text0_x_value = /*left*/ ctx[8] + /*width*/ ctx[7] / 2)) {
+    			if (dirty & /*left, width*/ 768 && text0_x_value !== (text0_x_value = /*left*/ ctx[9] + /*width*/ ctx[8] / 2)) {
     				attr_dev(text0, "x", text0_x_value);
     			}
 
-    			if (dirty & /*top_height, height*/ 68 && text0_y_value !== (text0_y_value = /*top_height*/ ctx[2] + /*height*/ ctx[6] + 34)) {
+    			if (dirty & /*top_height, height*/ 136 && text0_y_value !== (text0_y_value = /*top_height*/ ctx[3] + /*height*/ ctx[7] + 34)) {
     				attr_dev(text0, "y", text0_y_value);
     			}
 
-    			if (dirty & /*left, top_width, width, top*/ 904 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 3} ${/*top*/ ctx[9]}h16`)) {
+    			if (dirty & /*left, top_width, width, top*/ 1808 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 3} ${/*top*/ ctx[10]}h16`)) {
     				attr_dev(path10, "d", path10_d_value);
     			}
 
-    			if (dirty & /*left, top_width, width, top, height*/ 968 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 3} ${/*top*/ ctx[9] + /*height*/ ctx[6]}h16`)) {
+    			if (dirty & /*left, top_width, width, top, height*/ 1936 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 3} ${/*top*/ ctx[10] + /*height*/ ctx[7]}h16`)) {
     				attr_dev(path11, "d", path11_d_value);
     			}
 
-    			if (dirty & /*left, top_width, width, top, height*/ 968 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 14} ${/*top*/ ctx[9] + 10}v${/*height*/ ctx[6] - 2 * 10}`)) {
+    			if (dirty & /*left, top_width, width, top, height*/ 1936 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 14} ${/*top*/ ctx[10] + 10}v${/*height*/ ctx[7] - 2 * 10}`)) {
     				attr_dev(path12, "d", path12_d_value);
     			}
 
-    			if (dirty & /*height*/ 64) set_data_dev(t3, /*height*/ ctx[6]);
+    			if (dirty & /*height*/ 128) set_data_dev(t3, /*height*/ ctx[7]);
 
-    			if (dirty & /*left, top_width, width*/ 392 && text1_x_value !== (text1_x_value = /*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 24)) {
+    			if (dirty & /*left, top_width, width*/ 784 && text1_x_value !== (text1_x_value = /*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 24)) {
     				attr_dev(text1, "x", text1_x_value);
     			}
 
-    			if (dirty & /*top, height*/ 576 && text1_y_value !== (text1_y_value = /*top*/ ctx[9] + /*height*/ ctx[6] / 2 + 10)) {
+    			if (dirty & /*top, height*/ 1152 && text1_y_value !== (text1_y_value = /*top*/ ctx[10] + /*height*/ ctx[7] / 2 + 10)) {
     				attr_dev(text1, "y", text1_y_value);
     			}
 
-    			if (dirty & /*left, width, top_height, height, ll_w, ll_h*/ 500 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7] + 3} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + 3}l${/*ll_w*/ ctx[5]} ${/*ll_h*/ ctx[4]}`)) {
+    			if (dirty & /*left, width, top_height, height, ll_w, ll_h*/ 1000 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8] + 3} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + 3}l${/*ll_w*/ ctx[6]} ${/*ll_h*/ ctx[5]}`)) {
     				attr_dev(path13, "d", path13_d_value);
     			}
 
-    			if (dirty & /*left, top_width, width, top, height, ll_w, ll_h*/ 1016 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + 3} ${/*top*/ ctx[9] + /*height*/ ctx[6] + 3}l${/*ll_w*/ ctx[5]} ${/*ll_h*/ ctx[4]}`)) {
+    			if (dirty & /*left, top_width, width, top, height, ll_w, ll_h*/ 2032 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + 3} ${/*top*/ ctx[10] + /*height*/ ctx[7] + 3}l${/*ll_w*/ ctx[6]} ${/*ll_h*/ ctx[5]}`)) {
     				attr_dev(path14, "d", path14_d_value);
     			}
 
-    			if (dirty & /*left, width, ll_w, alpha, top_height, height, ll_h, top_width, top*/ 1021 && path15_d_value !== (path15_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7] + /*ll_w*/ ctx[5] / 2 + 3 + Math.cos(/*alpha*/ ctx[0]) * 10} ${/*top_height*/ ctx[2] + /*height*/ ctx[6] + /*ll_h*/ ctx[4] / 2 + 3 - Math.sin(/*alpha*/ ctx[0]) * 10}L${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7] + /*ll_w*/ ctx[5] / 2 + 3 - Math.cos(/*alpha*/ ctx[0]) * 10} ${/*top*/ ctx[9] + /*height*/ ctx[6] + /*ll_h*/ ctx[4] / 2 + 3 + Math.sin(/*alpha*/ ctx[0]) * 10}`)) {
+    			if (dirty & /*left, width, ll_w, alpha, top_height, height, ll_h, top_width, top*/ 2042 && path15_d_value !== (path15_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8] + /*ll_w*/ ctx[6] / 2 + 3 + Math.cos(/*alpha*/ ctx[1]) * 10} ${/*top_height*/ ctx[3] + /*height*/ ctx[7] + /*ll_h*/ ctx[5] / 2 + 3 - Math.sin(/*alpha*/ ctx[1]) * 10}L${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8] + /*ll_w*/ ctx[6] / 2 + 3 - Math.cos(/*alpha*/ ctx[1]) * 10} ${/*top*/ ctx[10] + /*height*/ ctx[7] + /*ll_h*/ ctx[5] / 2 + 3 + Math.sin(/*alpha*/ ctx[1]) * 10}`)) {
     				attr_dev(path15, "d", path15_d_value);
     			}
 
-    			if (dirty & /*depth*/ 2) set_data_dev(t5, /*depth*/ ctx[1]);
+    			if (dirty & /*depth*/ 4) set_data_dev(t5, /*depth*/ ctx[2]);
 
-    			if (dirty & /*left, width, top_width*/ 392 && text2_x_value !== (text2_x_value = /*left*/ ctx[8] + /*width*/ ctx[7] + /*top_width*/ ctx[3] / 2)) {
+    			if (dirty & /*left, width, top_width*/ 784 && text2_x_value !== (text2_x_value = /*left*/ ctx[9] + /*width*/ ctx[8] + /*top_width*/ ctx[4] / 2)) {
     				attr_dev(text2, "x", text2_x_value);
     			}
 
-    			if (dirty & /*top, height, top_height*/ 580 && text2_y_value !== (text2_y_value = /*top*/ ctx[9] + /*height*/ ctx[6] + /*top_height*/ ctx[2] / 2 + 21)) {
+    			if (dirty & /*top, height, top_height*/ 1160 && text2_y_value !== (text2_y_value = /*top*/ ctx[10] + /*height*/ ctx[7] + /*top_height*/ ctx[3] / 2 + 21)) {
     				attr_dev(text2, "y", text2_y_value);
     			}
 
-    			if (dirty & /*left, top_height, width, height*/ 452 && path16_d_value !== (path16_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}H${/*left*/ ctx[8] + /*width*/ ctx[7]}V${/*top_height*/ ctx[2] + /*height*/ ctx[6]}H${/*left*/ ctx[8]}Z`)) {
+    			if (dirty & /*left, top_height, width, height*/ 904 && path16_d_value !== (path16_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}H${/*left*/ ctx[9] + /*width*/ ctx[8]}V${/*top_height*/ ctx[3] + /*height*/ ctx[7]}H${/*left*/ ctx[9]}Z`)) {
     				attr_dev(path16, "d", path16_d_value);
     			}
 
-    			if (dirty & /*left, top_height, top_width, top, width, height*/ 972 && path17_d_value !== (path17_d_value = `M${/*left*/ ctx[8]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3]} ${/*top*/ ctx[9]}H${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]}V${/*top*/ ctx[9] + /*height*/ ctx[6]}L${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2] + /*height*/ ctx[6]}`)) {
+    			if (dirty & /*left, top_height, top_width, top, width, height*/ 1944 && path17_d_value !== (path17_d_value = `M${/*left*/ ctx[9]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4]} ${/*top*/ ctx[10]}H${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]}V${/*top*/ ctx[10] + /*height*/ ctx[7]}L${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3] + /*height*/ ctx[7]}`)) {
     				attr_dev(path17, "d", path17_d_value);
     			}
 
-    			if (dirty & /*left, width, top_height, top_width, top*/ 908 && path18_d_value !== (path18_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[7]} ${/*top_height*/ ctx[2]}L${/*left*/ ctx[8] + /*top_width*/ ctx[3] + /*width*/ ctx[7]} ${/*top*/ ctx[9]}`)) {
+    			if (dirty & /*left, width, top_height, top_width, top*/ 1816 && path18_d_value !== (path18_d_value = `M${/*left*/ ctx[9] + /*width*/ ctx[8]} ${/*top_height*/ ctx[3]}L${/*left*/ ctx[9] + /*top_width*/ ctx[4] + /*width*/ ctx[8]} ${/*top*/ ctx[10]}`)) {
     				attr_dev(path18, "d", path18_d_value);
+    			}
+
+    			if (dirty & /*renderParams*/ 1 && svg_viewBox_value !== (svg_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[0].scale} ${640 / /*renderParams*/ ctx[0].scale}`)) {
+    				attr_dev(svg, "viewBox", svg_viewBox_value);
     			}
     		},
     		i: noop,
@@ -2904,7 +2908,7 @@ var app = (function () {
     	});
 
     	$$self.$$set = $$props => {
-    		if ('renderParams' in $$props) $$invalidate(10, renderParams = $$props.renderParams);
+    		if ('renderParams' in $$props) $$invalidate(0, renderParams = $$props.renderParams);
     	};
 
     	$$self.$capture_state = () => ({
@@ -2922,17 +2926,17 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('renderParams' in $$props) $$invalidate(10, renderParams = $$props.renderParams);
-    		if ('alpha' in $$props) $$invalidate(0, alpha = $$props.alpha);
-    		if ('top_height' in $$props) $$invalidate(2, top_height = $$props.top_height);
-    		if ('top_width' in $$props) $$invalidate(3, top_width = $$props.top_width);
-    		if ('ll_h' in $$props) $$invalidate(4, ll_h = $$props.ll_h);
-    		if ('ll_w' in $$props) $$invalidate(5, ll_w = $$props.ll_w);
-    		if ('depth' in $$props) $$invalidate(1, depth = $$props.depth);
-    		if ('height' in $$props) $$invalidate(6, height = $$props.height);
-    		if ('width' in $$props) $$invalidate(7, width = $$props.width);
-    		if ('left' in $$props) $$invalidate(8, left = $$props.left);
-    		if ('top' in $$props) $$invalidate(9, top = $$props.top);
+    		if ('renderParams' in $$props) $$invalidate(0, renderParams = $$props.renderParams);
+    		if ('alpha' in $$props) $$invalidate(1, alpha = $$props.alpha);
+    		if ('top_height' in $$props) $$invalidate(3, top_height = $$props.top_height);
+    		if ('top_width' in $$props) $$invalidate(4, top_width = $$props.top_width);
+    		if ('ll_h' in $$props) $$invalidate(5, ll_h = $$props.ll_h);
+    		if ('ll_w' in $$props) $$invalidate(6, ll_w = $$props.ll_w);
+    		if ('depth' in $$props) $$invalidate(2, depth = $$props.depth);
+    		if ('height' in $$props) $$invalidate(7, height = $$props.height);
+    		if ('width' in $$props) $$invalidate(8, width = $$props.width);
+    		if ('left' in $$props) $$invalidate(9, left = $$props.left);
+    		if ('top' in $$props) $$invalidate(10, top = $$props.top);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -2940,36 +2944,37 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*renderParams*/ 1024) {
-    			$$invalidate(9, { top, left, width, height, depth } = renderParams.dim, top, ($$invalidate(8, left), $$invalidate(10, renderParams)), ($$invalidate(7, width), $$invalidate(10, renderParams)), ($$invalidate(6, height), $$invalidate(10, renderParams)), ($$invalidate(1, depth), $$invalidate(10, renderParams)));
+    		if ($$self.$$.dirty & /*renderParams*/ 1) {
+    			$$invalidate(10, { top, left, width, height, depth } = renderParams.dim, top, ($$invalidate(9, left), $$invalidate(0, renderParams)), ($$invalidate(8, width), $$invalidate(0, renderParams)), ($$invalidate(7, height), $$invalidate(0, renderParams)), ($$invalidate(2, depth), $$invalidate(0, renderParams)));
     		}
 
-    		if ($$self.$$.dirty & /*renderParams*/ 1024) {
-    			$$invalidate(0, alpha = renderParams.perspective * Math.PI / 2 / 0.3);
+    		if ($$self.$$.dirty & /*renderParams*/ 1) {
+    			$$invalidate(1, alpha = renderParams.perspective * Math.PI / 2 / 0.3);
     		}
 
-    		if ($$self.$$.dirty & /*alpha*/ 1) {
-    			if (alpha < Math.PI / 12) $$invalidate(0, alpha = Math.PI / 12);
+    		if ($$self.$$.dirty & /*alpha*/ 2) {
+    			if (alpha < Math.PI / 12) $$invalidate(1, alpha = Math.PI / 12);
     		}
 
-    		if ($$self.$$.dirty & /*depth, alpha*/ 3) {
-    			$$invalidate(2, top_height = depth * Math.sin(alpha));
+    		if ($$self.$$.dirty & /*depth, alpha*/ 6) {
+    			$$invalidate(3, top_height = depth * Math.sin(alpha));
     		}
 
-    		if ($$self.$$.dirty & /*depth, alpha*/ 3) {
-    			$$invalidate(3, top_width = depth * Math.cos(alpha));
+    		if ($$self.$$.dirty & /*depth, alpha*/ 6) {
+    			$$invalidate(4, top_width = depth * Math.cos(alpha));
     		}
 
-    		if ($$self.$$.dirty & /*alpha*/ 1) {
-    			$$invalidate(4, ll_h = 16 * Math.cos(alpha));
+    		if ($$self.$$.dirty & /*alpha*/ 2) {
+    			$$invalidate(5, ll_h = 16 * Math.cos(alpha));
     		}
 
-    		if ($$self.$$.dirty & /*alpha*/ 1) {
-    			$$invalidate(5, ll_w = 16 * Math.sin(alpha));
+    		if ($$self.$$.dirty & /*alpha*/ 2) {
+    			$$invalidate(6, ll_w = 16 * Math.sin(alpha));
     		}
     	};
 
     	return [
+    		renderParams,
     		alpha,
     		depth,
     		top_height,
@@ -2979,15 +2984,14 @@ var app = (function () {
     		height,
     		width,
     		left,
-    		top,
-    		renderParams
+    		top
     	];
     }
 
     class Prism extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { renderParams: 10 });
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, { renderParams: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -2999,7 +3003,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*renderParams*/ ctx[10] === undefined && !('renderParams' in props)) {
+    		if (/*renderParams*/ ctx[0] === undefined && !('renderParams' in props)) {
     			console.warn("<Prism> was created without expected prop 'renderParams'");
     		}
     	}
@@ -3062,7 +3066,7 @@ var app = (function () {
     	let path8;
     	let path8_d_value;
     	let text0;
-    	let t1_value = 2 * /*radius*/ ctx[2] + "";
+    	let t1_value = 2 * /*radius*/ ctx[3] + "";
     	let t1;
     	let t2;
     	let text0_x_value;
@@ -3118,6 +3122,7 @@ var app = (function () {
     	let ellipse5;
     	let ellipse5_cx_value;
     	let ellipse5_cy_value;
+    	let svg_viewBox_value;
 
     	const block = {
     		c: function create() {
@@ -3163,13 +3168,13 @@ var app = (function () {
     			path10 = svg_element("path");
     			path11 = svg_element("path");
     			text1 = svg_element("text");
-    			t3 = text(/*height*/ ctx[6]);
+    			t3 = text(/*height*/ ctx[7]);
     			t4 = text(" mm");
     			path12 = svg_element("path");
     			path13 = svg_element("path");
     			path14 = svg_element("path");
     			text2 = svg_element("text");
-    			t5 = text(/*width*/ ctx[1]);
+    			t5 = text(/*width*/ ctx[2]);
     			t6 = text(" mm");
     			ellipse4 = svg_element("ellipse");
     			path15 = svg_element("path");
@@ -3177,210 +3182,209 @@ var app = (function () {
     			path17 = svg_element("path");
     			path18 = svg_element("path");
     			ellipse5 = svg_element("ellipse");
-    			add_location(style, file$3, 15, 4, 406);
+    			add_location(style, file$3, 15, 4, 440);
     			attr_dev(rect0, "width", "100%");
     			attr_dev(rect0, "height", "100%");
     			attr_dev(rect0, "fill", "white");
-    			add_location(rect0, file$3, 57, 12, 1006);
-    			attr_dev(ellipse0, "cx", ellipse0_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse0, "cy", ellipse0_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0]);
-    			attr_dev(ellipse0, "rx", /*radius*/ ctx[2]);
-    			attr_dev(ellipse0, "ry", /*inner_y*/ ctx[5]);
+    			add_location(rect0, file$3, 57, 12, 1040);
+    			attr_dev(ellipse0, "cx", ellipse0_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse0, "cy", ellipse0_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1]);
+    			attr_dev(ellipse0, "rx", /*radius*/ ctx[3]);
+    			attr_dev(ellipse0, "ry", /*inner_y*/ ctx[6]);
     			attr_dev(ellipse0, "fill", "black");
-    			add_location(ellipse0, file$3, 58, 12, 1067);
+    			add_location(ellipse0, file$3, 58, 12, 1101);
     			attr_dev(mask0, "id", "mask-hole");
-    			add_location(mask0, file$3, 56, 8, 972);
-    			attr_dev(ellipse1, "cx", ellipse1_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse1, "cy", ellipse1_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0]);
-    			attr_dev(ellipse1, "rx", /*radius*/ ctx[2]);
-    			attr_dev(ellipse1, "ry", /*inner_y*/ ctx[5]);
-    			add_location(ellipse1, file$3, 61, 12, 1212);
+    			add_location(mask0, file$3, 56, 8, 1006);
+    			attr_dev(ellipse1, "cx", ellipse1_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse1, "cy", ellipse1_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1]);
+    			attr_dev(ellipse1, "rx", /*radius*/ ctx[3]);
+    			attr_dev(ellipse1, "ry", /*inner_y*/ ctx[6]);
+    			add_location(ellipse1, file$3, 61, 12, 1246);
     			attr_dev(clipPath0, "id", "clip-hole");
-    			add_location(clipPath0, file$3, 60, 8, 1174);
+    			add_location(clipPath0, file$3, 60, 8, 1208);
     			attr_dev(rect1, "width", "100%");
     			attr_dev(rect1, "height", "100%");
     			attr_dev(rect1, "fill", "white");
-    			add_location(rect1, file$3, 64, 12, 1351);
-    			attr_dev(ellipse2, "cx", ellipse2_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse2, "cy", ellipse2_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5]);
-    			attr_dev(ellipse2, "rx", /*radius*/ ctx[2]);
-    			attr_dev(ellipse2, "ry", /*inner_y*/ ctx[5]);
+    			add_location(rect1, file$3, 64, 12, 1385);
+    			attr_dev(ellipse2, "cx", ellipse2_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse2, "cy", ellipse2_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6]);
+    			attr_dev(ellipse2, "rx", /*radius*/ ctx[3]);
+    			attr_dev(ellipse2, "ry", /*inner_y*/ ctx[6]);
     			attr_dev(ellipse2, "fill", "black");
-    			add_location(ellipse2, file$3, 65, 12, 1412);
+    			add_location(ellipse2, file$3, 65, 12, 1446);
     			attr_dev(mask1, "id", "mask-hole-bottom");
-    			add_location(mask1, file$3, 63, 8, 1310);
+    			add_location(mask1, file$3, 63, 8, 1344);
     			attr_dev(rect2, "width", "100%");
     			attr_dev(rect2, "height", "100%");
     			attr_dev(rect2, "fill", "white");
-    			add_location(rect2, file$3, 68, 12, 1572);
-    			attr_dev(ellipse3, "cx", ellipse3_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse3, "cy", ellipse3_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] / 2);
-    			attr_dev(ellipse3, "rx", /*radius*/ ctx[2]);
-    			attr_dev(ellipse3, "ry", /*inner_y*/ ctx[5]);
+    			add_location(rect2, file$3, 68, 12, 1606);
+    			attr_dev(ellipse3, "cx", ellipse3_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse3, "cy", ellipse3_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] / 2);
+    			attr_dev(ellipse3, "rx", /*radius*/ ctx[3]);
+    			attr_dev(ellipse3, "ry", /*inner_y*/ ctx[6]);
     			attr_dev(ellipse3, "fill", "black");
-    			add_location(ellipse3, file$3, 69, 12, 1633);
+    			add_location(ellipse3, file$3, 69, 12, 1667);
     			attr_dev(mask2, "id", "mask-hole-south-pole");
-    			add_location(mask2, file$3, 67, 8, 1527);
-    			attr_dev(path0, "d", path0_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[6]} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`);
-    			add_location(path0, file$3, 72, 12, 1789);
+    			add_location(mask2, file$3, 67, 8, 1561);
+    			attr_dev(path0, "d", path0_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[2]} 0 v${/*height*/ ctx[7]} a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[2]} 0 z`);
+    			add_location(path0, file$3, 72, 12, 1823);
     			attr_dev(clipPath1, "id", "magnet-clip");
-    			add_location(clipPath1, file$3, 71, 8, 1749);
-    			attr_dev(path1, "d", path1_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[6] / 2} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`);
-    			add_location(path1, file$3, 75, 12, 1982);
+    			add_location(clipPath1, file$3, 71, 8, 1783);
+    			attr_dev(path1, "d", path1_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[2]} 0 v${/*height*/ ctx[7] / 2} a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[2]} 0 z`);
+    			add_location(path1, file$3, 75, 12, 2016);
     			attr_dev(clipPath2, "id", "north-clip");
-    			add_location(clipPath2, file$3, 74, 8, 1943);
+    			add_location(clipPath2, file$3, 74, 8, 1977);
     			attr_dev(path2, "d", "M10 0V5L0 2.5Z");
     			attr_dev(path2, "class", "arrow-marker");
-    			add_location(path2, file$3, 78, 12, 2258);
+    			add_location(path2, file$3, 78, 12, 2292);
     			attr_dev(marker0, "id", "arrow-start");
     			attr_dev(marker0, "orient", "auto");
     			attr_dev(marker0, "markerWidth", "10");
     			attr_dev(marker0, "markerHeight", "5");
     			attr_dev(marker0, "refX", "6.6666666666667");
     			attr_dev(marker0, "refY", "2.5");
-    			add_location(marker0, file$3, 77, 8, 2138);
+    			add_location(marker0, file$3, 77, 8, 2172);
     			attr_dev(path3, "d", "M0 0V5L10 2.5Z");
     			attr_dev(path3, "class", "arrow-marker");
-    			add_location(path3, file$3, 81, 12, 2451);
+    			add_location(path3, file$3, 81, 12, 2485);
     			attr_dev(marker1, "id", "arrow-end");
     			attr_dev(marker1, "orient", "auto");
     			attr_dev(marker1, "markerWidth", "10");
     			attr_dev(marker1, "markerHeight", "5");
     			attr_dev(marker1, "refX", "3.3333333333333");
     			attr_dev(marker1, "refY", "2.5");
-    			add_location(marker1, file$3, 80, 8, 2333);
+    			add_location(marker1, file$3, 80, 8, 2367);
     			attr_dev(path4, "d", "M0 0V5L10 2.5Z");
     			attr_dev(path4, "class", "arrow-marker");
-    			add_location(path4, file$3, 85, 12, 2667);
+    			add_location(path4, file$3, 85, 12, 2701);
     			attr_dev(marker2, "id", "arrow-inverted-start");
     			attr_dev(marker2, "orient", "auto");
     			attr_dev(marker2, "markerWidth", "10");
     			attr_dev(marker2, "markerHeight", "5");
     			attr_dev(marker2, "refX", "3.3333333333333");
     			attr_dev(marker2, "refY", "2.5");
-    			add_location(marker2, file$3, 83, 8, 2526);
+    			add_location(marker2, file$3, 83, 8, 2560);
     			attr_dev(path5, "d", "M10 0V5L0 2.5Z");
     			attr_dev(path5, "class", "arrow-marker");
-    			add_location(path5, file$3, 89, 12, 2881);
+    			add_location(path5, file$3, 89, 12, 2915);
     			attr_dev(marker3, "id", "arrow-inverted-end");
     			attr_dev(marker3, "orient", "auto");
     			attr_dev(marker3, "markerWidth", "10");
     			attr_dev(marker3, "markerHeight", "5");
     			attr_dev(marker3, "refX", "6.6666666666667");
     			attr_dev(marker3, "refY", "2.5");
-    			add_location(marker3, file$3, 87, 8, 2742);
-    			add_location(defs, file$3, 55, 4, 957);
-    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]} ${/*ttop*/ ctx[4] + 21 + 3}L${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}`);
+    			add_location(marker3, file$3, 87, 8, 2776);
+    			add_location(defs, file$3, 55, 4, 991);
+    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]} ${/*ttop*/ ctx[5] + 21 + 3}L${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}`);
     			attr_dev(path6, "class", "arrow-dimension-line");
-    			add_location(path6, file$3, 92, 4, 2964);
-    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 + /*radius*/ ctx[2]} ${/*ttop*/ ctx[4] + 21 + 3}L${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 + /*radius*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}`);
+    			add_location(path6, file$3, 92, 4, 2998);
+    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 + /*radius*/ ctx[3]} ${/*ttop*/ ctx[5] + 21 + 3}L${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 + /*radius*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}`);
     			attr_dev(path7, "class", "arrow-dimension-line");
-    			add_location(path7, file$3, 93, 4, 3085);
-    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2] + 10} ${/*ttop*/ ctx[4] + 21 + 10}h${2 * /*radius*/ ctx[2] - 2 * 10}`);
+    			add_location(path7, file$3, 93, 4, 3119);
+    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3] + 10} ${/*ttop*/ ctx[5] + 21 + 10}h${2 * /*radius*/ ctx[3] - 2 * 10}`);
     			attr_dev(path8, "class", "arrow");
-    			add_location(path8, file$3, 94, 4, 3206);
-    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(text0, "y", text0_y_value = /*ttop*/ ctx[4] + 21);
+    			add_location(path8, file$3, 94, 4, 3240);
+    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(text0, "y", text0_y_value = /*ttop*/ ctx[5] + 21);
     			attr_dev(text0, "font-size", "21");
     			attr_dev(text0, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text0, "text-anchor", "middle");
     			set_style(text0, "fill", "#999");
-    			add_location(text0, file$3, 95, 4, 3297);
-    			attr_dev(rect3, "x", /*left*/ ctx[7]);
-    			attr_dev(rect3, "y", /*top*/ ctx[3]);
-    			attr_dev(rect3, "width", /*width*/ ctx[1]);
-    			attr_dev(rect3, "height", rect3_height_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0]);
+    			add_location(text0, file$3, 95, 4, 3331);
+    			attr_dev(rect3, "x", /*left*/ ctx[8]);
+    			attr_dev(rect3, "y", /*top*/ ctx[4]);
+    			attr_dev(rect3, "width", /*width*/ ctx[2]);
+    			attr_dev(rect3, "height", rect3_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1]);
     			set_style(rect3, "clip-path", "url(#magnet-clip)");
     			attr_dev(rect3, "fill", "#36987D");
-    			add_location(rect3, file$3, 98, 8, 3496);
-    			attr_dev(rect4, "x", /*left*/ ctx[7]);
-    			attr_dev(rect4, "y", /*top*/ ctx[3]);
-    			attr_dev(rect4, "width", /*width*/ ctx[1]);
-    			attr_dev(rect4, "height", rect4_height_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0]);
+    			add_location(rect3, file$3, 98, 8, 3530);
+    			attr_dev(rect4, "x", /*left*/ ctx[8]);
+    			attr_dev(rect4, "y", /*top*/ ctx[4]);
+    			attr_dev(rect4, "width", /*width*/ ctx[2]);
+    			attr_dev(rect4, "height", rect4_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1]);
     			set_style(rect4, "clip-path", "url(#north-clip)");
     			attr_dev(rect4, "fill", "#CB5959");
-    			add_location(rect4, file$3, 99, 8, 3628);
+    			add_location(rect4, file$3, 99, 8, 3662);
     			attr_dev(g, "mask", "url(#mask-hole)");
-    			add_location(g, file$3, 97, 4, 3461);
-    			attr_dev(rect5, "x", rect5_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]);
-    			attr_dev(rect5, "y", rect5_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5]);
-    			attr_dev(rect5, "width", rect5_width_value = 2 * /*radius*/ ctx[2]);
-    			attr_dev(rect5, "height", rect5_height_value = /*height*/ ctx[6] + /*inner_y*/ ctx[5]);
+    			add_location(g, file$3, 97, 4, 3495);
+    			attr_dev(rect5, "x", rect5_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]);
+    			attr_dev(rect5, "y", rect5_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6]);
+    			attr_dev(rect5, "width", rect5_width_value = 2 * /*radius*/ ctx[3]);
+    			attr_dev(rect5, "height", rect5_height_value = /*height*/ ctx[7] + /*inner_y*/ ctx[6]);
     			attr_dev(rect5, "fill", "#356479");
     			attr_dev(rect5, "clip-path", "url(#clip-hole)");
     			attr_dev(rect5, "mask", "url(#mask-hole-bottom)");
-    			add_location(rect5, file$3, 101, 4, 3764);
-    			attr_dev(rect6, "x", rect6_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]);
-    			attr_dev(rect6, "y", rect6_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5]);
-    			attr_dev(rect6, "width", rect6_width_value = 2 * /*radius*/ ctx[2]);
+    			add_location(rect5, file$3, 101, 4, 3798);
+    			attr_dev(rect6, "x", rect6_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]);
+    			attr_dev(rect6, "y", rect6_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6]);
+    			attr_dev(rect6, "width", rect6_width_value = 2 * /*radius*/ ctx[3]);
     			attr_dev(rect6, "height", "96.596");
     			attr_dev(rect6, "fill", "#9D4D4D");
     			attr_dev(rect6, "clip-path", "url(#clip-hole)");
     			attr_dev(rect6, "mask", "url(#mask-hole-south-pole)");
-    			add_location(rect6, file$3, 103, 4, 3945);
-    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}h16`);
+    			add_location(rect6, file$3, 103, 4, 3979);
+    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}h16`);
     			attr_dev(path9, "class", "arrow-dimension-line");
-    			add_location(path9, file$3, 106, 4, 4142);
-    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6]}h16`);
+    			add_location(path9, file$3, 106, 4, 4176);
+    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7]}h16`);
     			attr_dev(path10, "class", "arrow-dimension-line");
-    			add_location(path10, file$3, 107, 4, 4223);
-    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] + 14} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + 10}v${/*height*/ ctx[6] - 2 * 10}`);
+    			add_location(path10, file$3, 107, 4, 4257);
+    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] + 14} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + 10}v${/*height*/ ctx[7] - 2 * 10}`);
     			attr_dev(path11, "class", "arrow");
-    			add_location(path11, file$3, 108, 4, 4311);
-    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] + 20);
-    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] / 2 + 21 / 2);
+    			add_location(path11, file$3, 108, 4, 4345);
+    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] + 20);
+    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] / 2 + 21 / 2);
     			attr_dev(text1, "font-size", "21");
     			attr_dev(text1, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text1, "fill", "#999");
     			set_style(text1, "text-anchor", "left");
-    			add_location(text1, file$3, 109, 4, 4393);
-    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + 3}v${/*rad_y*/ ctx[0] + 7}`);
+    			add_location(text1, file$3, 109, 4, 4427);
+    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + 3}v${/*rad_y*/ ctx[1] + 7}`);
     			attr_dev(path12, "class", "arrow-dimension-line");
-    			add_location(path12, file$3, 111, 4, 4570);
-    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + 3}v${/*rad_y*/ ctx[0] + 7}`);
+    			add_location(path12, file$3, 111, 4, 4604);
+    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + 3}v${/*rad_y*/ ctx[1] + 7}`);
     			attr_dev(path13, "class", "arrow-dimension-line");
-    			add_location(path13, file$3, 112, 4, 4660);
-    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[7] + 10} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0] + 7}h${/*width*/ ctx[1] - 2 * 10}`);
+    			add_location(path13, file$3, 112, 4, 4694);
+    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[8] + 10} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1] + 7}h${/*width*/ ctx[2] - 2 * 10}`);
     			attr_dev(path14, "class", "arrow");
-    			add_location(path14, file$3, 113, 4, 4756);
-    			attr_dev(text2, "x", text2_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(text2, "y", text2_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0] + 30);
+    			add_location(path14, file$3, 113, 4, 4790);
+    			attr_dev(text2, "x", text2_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(text2, "y", text2_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1] + 30);
     			attr_dev(text2, "font-size", "21");
     			attr_dev(text2, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text2, "fill", "#999");
     			set_style(text2, "text-anchor", "middle");
-    			add_location(text2, file$3, 114, 4, 4843);
-    			attr_dev(ellipse4, "cx", ellipse4_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse4, "cy", ellipse4_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0]);
-    			attr_dev(ellipse4, "rx", ellipse4_rx_value = /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse4, "ry", /*rad_y*/ ctx[0]);
+    			add_location(text2, file$3, 114, 4, 4877);
+    			attr_dev(ellipse4, "cx", ellipse4_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse4, "cy", ellipse4_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1]);
+    			attr_dev(ellipse4, "rx", ellipse4_rx_value = /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse4, "ry", /*rad_y*/ ctx[1]);
     			attr_dev(ellipse4, "class", "border");
     			attr_dev(ellipse4, "fill", "none");
-    			add_location(ellipse4, file$3, 116, 4, 5022);
-    			attr_dev(path15, "d", path15_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 0 ${/*width*/ ctx[1]} 0`);
+    			add_location(ellipse4, file$3, 116, 4, 5056);
+    			attr_dev(path15, "d", path15_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7]}a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 0 ${/*width*/ ctx[2]} 0`);
     			attr_dev(path15, "class", "border");
     			attr_dev(path15, "fill", "none");
-    			add_location(path15, file$3, 118, 4, 5130);
-    			attr_dev(path16, "d", path16_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}v${/*height*/ ctx[6]}`);
+    			add_location(path15, file$3, 118, 4, 5164);
+    			attr_dev(path16, "d", path16_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[7]}`);
     			attr_dev(path16, "class", "border");
-    			add_location(path16, file$3, 119, 4, 5242);
-    			attr_dev(path17, "d", path17_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}v${/*height*/ ctx[6]}`);
+    			add_location(path16, file$3, 119, 4, 5276);
+    			attr_dev(path17, "d", path17_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[7]}`);
     			attr_dev(path17, "class", "border");
-    			add_location(path17, file$3, 120, 4, 5308);
-    			attr_dev(path18, "d", path18_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5]}a${/*radius*/ ctx[2]} ${/*inner_y*/ ctx[5]} 0 0 1 ${2 * /*radius*/ ctx[2]} 0`);
+    			add_location(path17, file$3, 120, 4, 5342);
+    			attr_dev(path18, "d", path18_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6]}a${/*radius*/ ctx[3]} ${/*inner_y*/ ctx[6]} 0 0 1 ${2 * /*radius*/ ctx[3]} 0`);
     			attr_dev(path18, "class", "border");
     			attr_dev(path18, "fill", "none");
     			attr_dev(path18, "clip-path", "url(#clip-hole)");
-    			add_location(path18, file$3, 121, 4, 5380);
-    			attr_dev(ellipse5, "cx", ellipse5_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2);
-    			attr_dev(ellipse5, "cy", ellipse5_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0]);
-    			attr_dev(ellipse5, "rx", /*radius*/ ctx[2]);
-    			attr_dev(ellipse5, "ry", /*inner_y*/ ctx[5]);
+    			add_location(path18, file$3, 121, 4, 5414);
+    			attr_dev(ellipse5, "cx", ellipse5_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2);
+    			attr_dev(ellipse5, "cy", ellipse5_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1]);
+    			attr_dev(ellipse5, "rx", /*radius*/ ctx[3]);
+    			attr_dev(ellipse5, "ry", /*inner_y*/ ctx[6]);
     			attr_dev(ellipse5, "class", "border");
     			attr_dev(ellipse5, "fill", "none");
-    			add_location(ellipse5, file$3, 122, 4, 5540);
-    			attr_dev(svg, "viewBox", "0 0 500 400");
-    			attr_dev(svg, "width", "600");
+    			add_location(ellipse5, file$3, 122, 4, 5574);
+    			attr_dev(svg, "viewBox", svg_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[0].scale} ${640 / /*renderParams*/ ctx[0].scale}`);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			add_location(svg, file$3, 14, 0, 327);
     		},
@@ -3446,250 +3450,254 @@ var app = (function () {
     			append_dev(svg, ellipse5);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*left, width*/ 130 && ellipse0_cx_value !== (ellipse0_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && ellipse0_cx_value !== (ellipse0_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse0, "cx", ellipse0_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y*/ 9 && ellipse0_cy_value !== (ellipse0_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0])) {
+    			if (dirty & /*top, rad_y*/ 18 && ellipse0_cy_value !== (ellipse0_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1])) {
     				attr_dev(ellipse0, "cy", ellipse0_cy_value);
     			}
 
-    			if (dirty & /*radius*/ 4) {
-    				attr_dev(ellipse0, "rx", /*radius*/ ctx[2]);
+    			if (dirty & /*radius*/ 8) {
+    				attr_dev(ellipse0, "rx", /*radius*/ ctx[3]);
     			}
 
-    			if (dirty & /*inner_y*/ 32) {
-    				attr_dev(ellipse0, "ry", /*inner_y*/ ctx[5]);
+    			if (dirty & /*inner_y*/ 64) {
+    				attr_dev(ellipse0, "ry", /*inner_y*/ ctx[6]);
     			}
 
-    			if (dirty & /*left, width*/ 130 && ellipse1_cx_value !== (ellipse1_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && ellipse1_cx_value !== (ellipse1_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse1, "cx", ellipse1_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y*/ 9 && ellipse1_cy_value !== (ellipse1_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0])) {
+    			if (dirty & /*top, rad_y*/ 18 && ellipse1_cy_value !== (ellipse1_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1])) {
     				attr_dev(ellipse1, "cy", ellipse1_cy_value);
     			}
 
-    			if (dirty & /*radius*/ 4) {
-    				attr_dev(ellipse1, "rx", /*radius*/ ctx[2]);
+    			if (dirty & /*radius*/ 8) {
+    				attr_dev(ellipse1, "rx", /*radius*/ ctx[3]);
     			}
 
-    			if (dirty & /*inner_y*/ 32) {
-    				attr_dev(ellipse1, "ry", /*inner_y*/ ctx[5]);
+    			if (dirty & /*inner_y*/ 64) {
+    				attr_dev(ellipse1, "ry", /*inner_y*/ ctx[6]);
     			}
 
-    			if (dirty & /*left, width*/ 130 && ellipse2_cx_value !== (ellipse2_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && ellipse2_cx_value !== (ellipse2_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse2, "cx", ellipse2_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y, inner_y*/ 41 && ellipse2_cy_value !== (ellipse2_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5])) {
+    			if (dirty & /*top, rad_y, inner_y*/ 82 && ellipse2_cy_value !== (ellipse2_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6])) {
     				attr_dev(ellipse2, "cy", ellipse2_cy_value);
     			}
 
-    			if (dirty & /*radius*/ 4) {
-    				attr_dev(ellipse2, "rx", /*radius*/ ctx[2]);
+    			if (dirty & /*radius*/ 8) {
+    				attr_dev(ellipse2, "rx", /*radius*/ ctx[3]);
     			}
 
-    			if (dirty & /*inner_y*/ 32) {
-    				attr_dev(ellipse2, "ry", /*inner_y*/ ctx[5]);
+    			if (dirty & /*inner_y*/ 64) {
+    				attr_dev(ellipse2, "ry", /*inner_y*/ ctx[6]);
     			}
 
-    			if (dirty & /*left, width*/ 130 && ellipse3_cx_value !== (ellipse3_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && ellipse3_cx_value !== (ellipse3_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse3, "cx", ellipse3_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 73 && ellipse3_cy_value !== (ellipse3_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] / 2)) {
+    			if (dirty & /*top, rad_y, height*/ 146 && ellipse3_cy_value !== (ellipse3_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] / 2)) {
     				attr_dev(ellipse3, "cy", ellipse3_cy_value);
     			}
 
-    			if (dirty & /*radius*/ 4) {
-    				attr_dev(ellipse3, "rx", /*radius*/ ctx[2]);
+    			if (dirty & /*radius*/ 8) {
+    				attr_dev(ellipse3, "rx", /*radius*/ ctx[3]);
     			}
 
-    			if (dirty & /*inner_y*/ 32) {
-    				attr_dev(ellipse3, "ry", /*inner_y*/ ctx[5]);
+    			if (dirty & /*inner_y*/ 64) {
+    				attr_dev(ellipse3, "ry", /*inner_y*/ ctx[6]);
     			}
 
-    			if (dirty & /*left, top, rad_y, width, height*/ 203 && path0_d_value !== (path0_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[6]} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`)) {
+    			if (dirty & /*left, top, rad_y, width, height*/ 406 && path0_d_value !== (path0_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[2]} 0 v${/*height*/ ctx[7]} a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[2]} 0 z`)) {
     				attr_dev(path0, "d", path0_d_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, width, height*/ 203 && path1_d_value !== (path1_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[6] / 2} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`)) {
+    			if (dirty & /*left, top, rad_y, width, height*/ 406 && path1_d_value !== (path1_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[2]} 0 v${/*height*/ ctx[7] / 2} a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[2]} 0 z`)) {
     				attr_dev(path1, "d", path1_d_value);
     			}
 
-    			if (dirty & /*left, width, radius, ttop, top, rad_y*/ 159 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]} ${/*ttop*/ ctx[4] + 21 + 3}L${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}`)) {
+    			if (dirty & /*left, width, radius, ttop, top, rad_y*/ 318 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]} ${/*ttop*/ ctx[5] + 21 + 3}L${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}`)) {
     				attr_dev(path6, "d", path6_d_value);
     			}
 
-    			if (dirty & /*left, width, radius, ttop, top, rad_y*/ 159 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 + /*radius*/ ctx[2]} ${/*ttop*/ ctx[4] + 21 + 3}L${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 + /*radius*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}`)) {
+    			if (dirty & /*left, width, radius, ttop, top, rad_y*/ 318 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 + /*radius*/ ctx[3]} ${/*ttop*/ ctx[5] + 21 + 3}L${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 + /*radius*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}`)) {
     				attr_dev(path7, "d", path7_d_value);
     			}
 
-    			if (dirty & /*left, width, radius, ttop*/ 150 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2] + 10} ${/*ttop*/ ctx[4] + 21 + 10}h${2 * /*radius*/ ctx[2] - 2 * 10}`)) {
+    			if (dirty & /*left, width, radius, ttop*/ 300 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3] + 10} ${/*ttop*/ ctx[5] + 21 + 10}h${2 * /*radius*/ ctx[3] - 2 * 10}`)) {
     				attr_dev(path8, "d", path8_d_value);
     			}
 
-    			if (dirty & /*radius*/ 4 && t1_value !== (t1_value = 2 * /*radius*/ ctx[2] + "")) set_data_dev(t1, t1_value);
+    			if (dirty & /*radius*/ 8 && t1_value !== (t1_value = 2 * /*radius*/ ctx[3] + "")) set_data_dev(t1, t1_value);
 
-    			if (dirty & /*left, width*/ 130 && text0_x_value !== (text0_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && text0_x_value !== (text0_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(text0, "x", text0_x_value);
     			}
 
-    			if (dirty & /*ttop*/ 16 && text0_y_value !== (text0_y_value = /*ttop*/ ctx[4] + 21)) {
+    			if (dirty & /*ttop*/ 32 && text0_y_value !== (text0_y_value = /*ttop*/ ctx[5] + 21)) {
     				attr_dev(text0, "y", text0_y_value);
     			}
 
-    			if (dirty & /*left*/ 128) {
-    				attr_dev(rect3, "x", /*left*/ ctx[7]);
+    			if (dirty & /*left*/ 256) {
+    				attr_dev(rect3, "x", /*left*/ ctx[8]);
     			}
 
-    			if (dirty & /*top*/ 8) {
-    				attr_dev(rect3, "y", /*top*/ ctx[3]);
+    			if (dirty & /*top*/ 16) {
+    				attr_dev(rect3, "y", /*top*/ ctx[4]);
     			}
 
-    			if (dirty & /*width*/ 2) {
-    				attr_dev(rect3, "width", /*width*/ ctx[1]);
+    			if (dirty & /*width*/ 4) {
+    				attr_dev(rect3, "width", /*width*/ ctx[2]);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 73 && rect3_height_value !== (rect3_height_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0])) {
+    			if (dirty & /*top, rad_y, height*/ 146 && rect3_height_value !== (rect3_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1])) {
     				attr_dev(rect3, "height", rect3_height_value);
     			}
 
-    			if (dirty & /*left*/ 128) {
-    				attr_dev(rect4, "x", /*left*/ ctx[7]);
+    			if (dirty & /*left*/ 256) {
+    				attr_dev(rect4, "x", /*left*/ ctx[8]);
     			}
 
-    			if (dirty & /*top*/ 8) {
-    				attr_dev(rect4, "y", /*top*/ ctx[3]);
+    			if (dirty & /*top*/ 16) {
+    				attr_dev(rect4, "y", /*top*/ ctx[4]);
     			}
 
-    			if (dirty & /*width*/ 2) {
-    				attr_dev(rect4, "width", /*width*/ ctx[1]);
+    			if (dirty & /*width*/ 4) {
+    				attr_dev(rect4, "width", /*width*/ ctx[2]);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 73 && rect4_height_value !== (rect4_height_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0])) {
+    			if (dirty & /*top, rad_y, height*/ 146 && rect4_height_value !== (rect4_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1])) {
     				attr_dev(rect4, "height", rect4_height_value);
     			}
 
-    			if (dirty & /*left, width, radius*/ 134 && rect5_x_value !== (rect5_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2])) {
+    			if (dirty & /*left, width, radius*/ 268 && rect5_x_value !== (rect5_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3])) {
     				attr_dev(rect5, "x", rect5_x_value);
     			}
 
-    			if (dirty & /*top, rad_y, inner_y*/ 41 && rect5_y_value !== (rect5_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5])) {
+    			if (dirty & /*top, rad_y, inner_y*/ 82 && rect5_y_value !== (rect5_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6])) {
     				attr_dev(rect5, "y", rect5_y_value);
     			}
 
-    			if (dirty & /*radius*/ 4 && rect5_width_value !== (rect5_width_value = 2 * /*radius*/ ctx[2])) {
+    			if (dirty & /*radius*/ 8 && rect5_width_value !== (rect5_width_value = 2 * /*radius*/ ctx[3])) {
     				attr_dev(rect5, "width", rect5_width_value);
     			}
 
-    			if (dirty & /*height, inner_y*/ 96 && rect5_height_value !== (rect5_height_value = /*height*/ ctx[6] + /*inner_y*/ ctx[5])) {
+    			if (dirty & /*height, inner_y*/ 192 && rect5_height_value !== (rect5_height_value = /*height*/ ctx[7] + /*inner_y*/ ctx[6])) {
     				attr_dev(rect5, "height", rect5_height_value);
     			}
 
-    			if (dirty & /*left, width, radius*/ 134 && rect6_x_value !== (rect6_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2])) {
+    			if (dirty & /*left, width, radius*/ 268 && rect6_x_value !== (rect6_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3])) {
     				attr_dev(rect6, "x", rect6_x_value);
     			}
 
-    			if (dirty & /*top, rad_y, inner_y*/ 41 && rect6_y_value !== (rect6_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5])) {
+    			if (dirty & /*top, rad_y, inner_y*/ 82 && rect6_y_value !== (rect6_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6])) {
     				attr_dev(rect6, "y", rect6_y_value);
     			}
 
-    			if (dirty & /*radius*/ 4 && rect6_width_value !== (rect6_width_value = 2 * /*radius*/ ctx[2])) {
+    			if (dirty & /*radius*/ 8 && rect6_width_value !== (rect6_width_value = 2 * /*radius*/ ctx[3])) {
     				attr_dev(rect6, "width", rect6_width_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y*/ 139 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}h16`)) {
+    			if (dirty & /*left, width, top, rad_y*/ 278 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}h16`)) {
     				attr_dev(path9, "d", path9_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 203 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6]}h16`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 406 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7]}h16`)) {
     				attr_dev(path10, "d", path10_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 203 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] + 14} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + 10}v${/*height*/ ctx[6] - 2 * 10}`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 406 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] + 14} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + 10}v${/*height*/ ctx[7] - 2 * 10}`)) {
     				attr_dev(path11, "d", path11_d_value);
     			}
 
-    			if (dirty & /*height*/ 64) set_data_dev(t3, /*height*/ ctx[6]);
+    			if (dirty & /*height*/ 128) set_data_dev(t3, /*height*/ ctx[7]);
 
-    			if (dirty & /*left, width*/ 130 && text1_x_value !== (text1_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] + 20)) {
+    			if (dirty & /*left, width*/ 260 && text1_x_value !== (text1_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] + 20)) {
     				attr_dev(text1, "x", text1_x_value);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 73 && text1_y_value !== (text1_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] / 2 + 21 / 2)) {
+    			if (dirty & /*top, rad_y, height*/ 146 && text1_y_value !== (text1_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] / 2 + 21 / 2)) {
     				attr_dev(text1, "y", text1_y_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, height*/ 201 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + 3}v${/*rad_y*/ ctx[0] + 7}`)) {
+    			if (dirty & /*left, top, rad_y, height*/ 402 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + 3}v${/*rad_y*/ ctx[1] + 7}`)) {
     				attr_dev(path12, "d", path12_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 203 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + 3}v${/*rad_y*/ ctx[0] + 7}`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 406 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + 3}v${/*rad_y*/ ctx[1] + 7}`)) {
     				attr_dev(path13, "d", path13_d_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, height, width*/ 203 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[7] + 10} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0] + 7}h${/*width*/ ctx[1] - 2 * 10}`)) {
+    			if (dirty & /*left, top, rad_y, height, width*/ 406 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[8] + 10} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1] + 7}h${/*width*/ ctx[2] - 2 * 10}`)) {
     				attr_dev(path14, "d", path14_d_value);
     			}
 
-    			if (dirty & /*width*/ 2) set_data_dev(t5, /*width*/ ctx[1]);
+    			if (dirty & /*width*/ 4) set_data_dev(t5, /*width*/ ctx[2]);
 
-    			if (dirty & /*left, width*/ 130 && text2_x_value !== (text2_x_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && text2_x_value !== (text2_x_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(text2, "x", text2_x_value);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 73 && text2_y_value !== (text2_y_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6] + /*rad_y*/ ctx[0] + 30)) {
+    			if (dirty & /*top, rad_y, height*/ 146 && text2_y_value !== (text2_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7] + /*rad_y*/ ctx[1] + 30)) {
     				attr_dev(text2, "y", text2_y_value);
     			}
 
-    			if (dirty & /*left, width*/ 130 && ellipse4_cx_value !== (ellipse4_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && ellipse4_cx_value !== (ellipse4_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse4, "cx", ellipse4_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y*/ 9 && ellipse4_cy_value !== (ellipse4_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0])) {
+    			if (dirty & /*top, rad_y*/ 18 && ellipse4_cy_value !== (ellipse4_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1])) {
     				attr_dev(ellipse4, "cy", ellipse4_cy_value);
     			}
 
-    			if (dirty & /*width*/ 2 && ellipse4_rx_value !== (ellipse4_rx_value = /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*width*/ 4 && ellipse4_rx_value !== (ellipse4_rx_value = /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse4, "rx", ellipse4_rx_value);
     			}
 
-    			if (dirty & /*rad_y*/ 1) {
-    				attr_dev(ellipse4, "ry", /*rad_y*/ ctx[0]);
+    			if (dirty & /*rad_y*/ 2) {
+    				attr_dev(ellipse4, "ry", /*rad_y*/ ctx[1]);
     			}
 
-    			if (dirty & /*left, top, rad_y, height, width*/ 203 && path15_d_value !== (path15_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] + /*height*/ ctx[6]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[0]} 0 0 0 ${/*width*/ ctx[1]} 0`)) {
+    			if (dirty & /*left, top, rad_y, height, width*/ 406 && path15_d_value !== (path15_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[7]}a${/*width*/ ctx[2] / 2} ${/*rad_y*/ ctx[1]} 0 0 0 ${/*width*/ ctx[2]} 0`)) {
     				attr_dev(path15, "d", path15_d_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, height*/ 201 && path16_d_value !== (path16_d_value = `M${/*left*/ ctx[7]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}v${/*height*/ ctx[6]}`)) {
+    			if (dirty & /*left, top, rad_y, height*/ 402 && path16_d_value !== (path16_d_value = `M${/*left*/ ctx[8]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[7]}`)) {
     				attr_dev(path16, "d", path16_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 203 && path17_d_value !== (path17_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0]}v${/*height*/ ctx[6]}`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 406 && path17_d_value !== (path17_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[7]}`)) {
     				attr_dev(path17, "d", path17_d_value);
     			}
 
-    			if (dirty & /*left, width, radius, top, rad_y, inner_y*/ 175 && path18_d_value !== (path18_d_value = `M${/*left*/ ctx[7] + /*width*/ ctx[1] / 2 - /*radius*/ ctx[2]} ${/*top*/ ctx[3] + /*rad_y*/ ctx[0] - /*inner_y*/ ctx[5]}a${/*radius*/ ctx[2]} ${/*inner_y*/ ctx[5]} 0 0 1 ${2 * /*radius*/ ctx[2]} 0`)) {
+    			if (dirty & /*left, width, radius, top, rad_y, inner_y*/ 350 && path18_d_value !== (path18_d_value = `M${/*left*/ ctx[8] + /*width*/ ctx[2] / 2 - /*radius*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] - /*inner_y*/ ctx[6]}a${/*radius*/ ctx[3]} ${/*inner_y*/ ctx[6]} 0 0 1 ${2 * /*radius*/ ctx[3]} 0`)) {
     				attr_dev(path18, "d", path18_d_value);
     			}
 
-    			if (dirty & /*left, width*/ 130 && ellipse5_cx_value !== (ellipse5_cx_value = /*left*/ ctx[7] + /*width*/ ctx[1] / 2)) {
+    			if (dirty & /*left, width*/ 260 && ellipse5_cx_value !== (ellipse5_cx_value = /*left*/ ctx[8] + /*width*/ ctx[2] / 2)) {
     				attr_dev(ellipse5, "cx", ellipse5_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y*/ 9 && ellipse5_cy_value !== (ellipse5_cy_value = /*top*/ ctx[3] + /*rad_y*/ ctx[0])) {
+    			if (dirty & /*top, rad_y*/ 18 && ellipse5_cy_value !== (ellipse5_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1])) {
     				attr_dev(ellipse5, "cy", ellipse5_cy_value);
     			}
 
-    			if (dirty & /*radius*/ 4) {
-    				attr_dev(ellipse5, "rx", /*radius*/ ctx[2]);
+    			if (dirty & /*radius*/ 8) {
+    				attr_dev(ellipse5, "rx", /*radius*/ ctx[3]);
     			}
 
-    			if (dirty & /*inner_y*/ 32) {
-    				attr_dev(ellipse5, "ry", /*inner_y*/ ctx[5]);
+    			if (dirty & /*inner_y*/ 64) {
+    				attr_dev(ellipse5, "ry", /*inner_y*/ ctx[6]);
+    			}
+
+    			if (dirty & /*renderParams*/ 1 && svg_viewBox_value !== (svg_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[0].scale} ${640 / /*renderParams*/ ctx[0].scale}`)) {
+    				attr_dev(svg, "viewBox", svg_viewBox_value);
     			}
     		},
     		i: noop,
@@ -3728,7 +3736,7 @@ var app = (function () {
     	});
 
     	$$self.$$set = $$props => {
-    		if ('renderParams' in $$props) $$invalidate(8, renderParams = $$props.renderParams);
+    		if ('renderParams' in $$props) $$invalidate(0, renderParams = $$props.renderParams);
     	};
 
     	$$self.$capture_state = () => ({
@@ -3744,15 +3752,15 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('renderParams' in $$props) $$invalidate(8, renderParams = $$props.renderParams);
-    		if ('ttop' in $$props) $$invalidate(4, ttop = $$props.ttop);
-    		if ('rad_y' in $$props) $$invalidate(0, rad_y = $$props.rad_y);
-    		if ('inner_y' in $$props) $$invalidate(5, inner_y = $$props.inner_y);
-    		if ('width' in $$props) $$invalidate(1, width = $$props.width);
-    		if ('radius' in $$props) $$invalidate(2, radius = $$props.radius);
-    		if ('top' in $$props) $$invalidate(3, top = $$props.top);
-    		if ('height' in $$props) $$invalidate(6, height = $$props.height);
-    		if ('left' in $$props) $$invalidate(7, left = $$props.left);
+    		if ('renderParams' in $$props) $$invalidate(0, renderParams = $$props.renderParams);
+    		if ('ttop' in $$props) $$invalidate(5, ttop = $$props.ttop);
+    		if ('rad_y' in $$props) $$invalidate(1, rad_y = $$props.rad_y);
+    		if ('inner_y' in $$props) $$invalidate(6, inner_y = $$props.inner_y);
+    		if ('width' in $$props) $$invalidate(2, width = $$props.width);
+    		if ('radius' in $$props) $$invalidate(3, radius = $$props.radius);
+    		if ('top' in $$props) $$invalidate(4, top = $$props.top);
+    		if ('height' in $$props) $$invalidate(7, height = $$props.height);
+    		if ('left' in $$props) $$invalidate(8, left = $$props.left);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -3760,33 +3768,33 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*renderParams*/ 256) {
-    			$$invalidate(3, { top, left, width, height, radius } = renderParams.dim, top, ($$invalidate(7, left), $$invalidate(8, renderParams)), ($$invalidate(1, width), $$invalidate(8, renderParams)), ($$invalidate(6, height), $$invalidate(8, renderParams)), ($$invalidate(2, radius), $$invalidate(8, renderParams)));
+    		if ($$self.$$.dirty & /*renderParams*/ 1) {
+    			$$invalidate(4, { top, left, width, height, radius } = renderParams.dim, top, ($$invalidate(8, left), $$invalidate(0, renderParams)), ($$invalidate(2, width), $$invalidate(0, renderParams)), ($$invalidate(7, height), $$invalidate(0, renderParams)), ($$invalidate(3, radius), $$invalidate(0, renderParams)));
     		}
 
-    		if ($$self.$$.dirty & /*renderParams, top*/ 264) {
+    		if ($$self.$$.dirty & /*renderParams, top*/ 17) {
     			if (renderParams) {
-    				$$invalidate(4, ttop = top);
-    				$$invalidate(3, top += 21 + 20);
+    				$$invalidate(5, ttop = top);
+    				$$invalidate(4, top += 21 + 20);
     			}
     		}
 
-    		if ($$self.$$.dirty & /*width, renderParams*/ 258) {
-    			$$invalidate(0, rad_y = width * renderParams.perspective);
+    		if ($$self.$$.dirty & /*width, renderParams*/ 5) {
+    			$$invalidate(1, rad_y = width * renderParams.perspective);
     		}
 
-    		if ($$self.$$.dirty & /*rad_y, radius, width*/ 7) {
-    			$$invalidate(5, inner_y = rad_y * 2 * radius / width);
+    		if ($$self.$$.dirty & /*rad_y, radius, width*/ 14) {
+    			$$invalidate(6, inner_y = rad_y * 2 * radius / width);
     		}
     	};
 
-    	return [rad_y, width, radius, top, ttop, inner_y, height, left, renderParams];
+    	return [renderParams, rad_y, width, radius, top, ttop, inner_y, height, left];
     }
 
     class Ring extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { renderParams: 8 });
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, { renderParams: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -3798,7 +3806,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*renderParams*/ ctx[8] === undefined && !('renderParams' in props)) {
+    		if (/*renderParams*/ ctx[0] === undefined && !('renderParams' in props)) {
     			console.warn("<Ring> was created without expected prop 'renderParams'");
     		}
     	}
@@ -3872,6 +3880,7 @@ var app = (function () {
     	let path13_d_value;
     	let path14;
     	let path14_d_value;
+    	let svg_viewBox_value;
 
     	const block = {
     		c: function create() {
@@ -3898,134 +3907,133 @@ var app = (function () {
     			path7 = svg_element("path");
     			path8 = svg_element("path");
     			text0 = svg_element("text");
-    			t1 = text(/*height*/ ctx[2]);
+    			t1 = text(/*height*/ ctx[3]);
     			t2 = text(" mm");
     			path9 = svg_element("path");
     			path10 = svg_element("path");
     			path11 = svg_element("path");
     			text1 = svg_element("text");
-    			t3 = text(/*width*/ ctx[0]);
+    			t3 = text(/*width*/ ctx[1]);
     			t4 = text(" mm");
     			ellipse = svg_element("ellipse");
     			path12 = svg_element("path");
     			path13 = svg_element("path");
     			path14 = svg_element("path");
-    			add_location(style, file$2, 8, 4, 250);
-    			attr_dev(path0, "d", path0_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[0]} 0 v${/*height*/ ctx[2]} a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[0]} 0 z`);
-    			add_location(path0, file$2, 46, 12, 822);
+    			add_location(style, file$2, 8, 4, 284);
+    			attr_dev(path0, "d", path0_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[3]} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`);
+    			add_location(path0, file$2, 46, 12, 856);
     			attr_dev(clipPath0, "id", "magnet-clip");
-    			add_location(clipPath0, file$2, 45, 8, 782);
-    			attr_dev(path1, "d", path1_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[0]} 0 v${/*height*/ ctx[2] / 2} a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[0]} 0 z`);
-    			add_location(path1, file$2, 50, 12, 1031);
+    			add_location(clipPath0, file$2, 45, 8, 816);
+    			attr_dev(path1, "d", path1_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[3] / 2} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`);
+    			add_location(path1, file$2, 50, 12, 1065);
     			attr_dev(clipPath1, "id", "north-clip");
-    			add_location(clipPath1, file$2, 49, 8, 992);
+    			add_location(clipPath1, file$2, 49, 8, 1026);
     			attr_dev(path2, "d", "M10 0V5L0 2.5Z");
     			attr_dev(path2, "class", "arrow-marker");
-    			add_location(path2, file$2, 54, 12, 1323);
+    			add_location(path2, file$2, 54, 12, 1357);
     			attr_dev(marker0, "id", "arrow-start");
     			attr_dev(marker0, "orient", "auto");
     			attr_dev(marker0, "markerWidth", "10");
     			attr_dev(marker0, "markerHeight", "5");
     			attr_dev(marker0, "refX", "6.6666666666667");
     			attr_dev(marker0, "refY", "2.5");
-    			add_location(marker0, file$2, 53, 8, 1203);
+    			add_location(marker0, file$2, 53, 8, 1237);
     			attr_dev(path3, "d", "M0 0V5L10 2.5Z");
     			attr_dev(path3, "class", "arrow-marker");
-    			add_location(path3, file$2, 57, 12, 1516);
+    			add_location(path3, file$2, 57, 12, 1550);
     			attr_dev(marker1, "id", "arrow-end");
     			attr_dev(marker1, "orient", "auto");
     			attr_dev(marker1, "markerWidth", "10");
     			attr_dev(marker1, "markerHeight", "5");
     			attr_dev(marker1, "refX", "3.3333333333333");
     			attr_dev(marker1, "refY", "2.5");
-    			add_location(marker1, file$2, 56, 8, 1398);
+    			add_location(marker1, file$2, 56, 8, 1432);
     			attr_dev(path4, "d", "M0 0V5L10 2.5Z");
     			attr_dev(path4, "class", "arrow-marker");
-    			add_location(path4, file$2, 61, 12, 1732);
+    			add_location(path4, file$2, 61, 12, 1766);
     			attr_dev(marker2, "id", "arrow-inverted-start");
     			attr_dev(marker2, "orient", "auto");
     			attr_dev(marker2, "markerWidth", "10");
     			attr_dev(marker2, "markerHeight", "5");
     			attr_dev(marker2, "refX", "3.3333333333333");
     			attr_dev(marker2, "refY", "2.5");
-    			add_location(marker2, file$2, 59, 8, 1591);
+    			add_location(marker2, file$2, 59, 8, 1625);
     			attr_dev(path5, "d", "M10 0V5L0 2.5Z");
     			attr_dev(path5, "class", "arrow-marker");
-    			add_location(path5, file$2, 65, 12, 1946);
+    			add_location(path5, file$2, 65, 12, 1980);
     			attr_dev(marker3, "id", "arrow-inverted-end");
     			attr_dev(marker3, "orient", "auto");
     			attr_dev(marker3, "markerWidth", "10");
     			attr_dev(marker3, "markerHeight", "5");
     			attr_dev(marker3, "refX", "6.6666666666667");
     			attr_dev(marker3, "refY", "2.5");
-    			add_location(marker3, file$2, 63, 8, 1807);
-    			add_location(defs, file$2, 44, 4, 767);
-    			attr_dev(rect0, "x", /*left*/ ctx[3]);
-    			attr_dev(rect0, "y", /*top*/ ctx[4]);
-    			attr_dev(rect0, "width", /*width*/ ctx[0]);
-    			attr_dev(rect0, "height", rect0_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1]);
+    			add_location(marker3, file$2, 63, 8, 1841);
+    			add_location(defs, file$2, 44, 4, 801);
+    			attr_dev(rect0, "x", /*left*/ ctx[4]);
+    			attr_dev(rect0, "y", /*top*/ ctx[5]);
+    			attr_dev(rect0, "width", /*width*/ ctx[1]);
+    			attr_dev(rect0, "height", rect0_height_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2]);
     			set_style(rect0, "clip-path", "url(#magnet-clip)");
     			set_style(rect0, "fill", "#36987D");
-    			add_location(rect0, file$2, 69, 8, 2041);
-    			attr_dev(rect1, "x", /*left*/ ctx[3]);
-    			attr_dev(rect1, "y", /*top*/ ctx[4]);
-    			attr_dev(rect1, "width", /*width*/ ctx[0]);
-    			attr_dev(rect1, "height", rect1_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1]);
+    			add_location(rect0, file$2, 69, 8, 2075);
+    			attr_dev(rect1, "x", /*left*/ ctx[4]);
+    			attr_dev(rect1, "y", /*top*/ ctx[5]);
+    			attr_dev(rect1, "width", /*width*/ ctx[1]);
+    			attr_dev(rect1, "height", rect1_height_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2]);
     			set_style(rect1, "clip-path", "url(#north-clip)");
     			set_style(rect1, "fill", "#CB5959");
-    			add_location(rect1, file$2, 70, 8, 2170);
-    			add_location(g, file$2, 68, 4, 2029);
-    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}h16`);
+    			add_location(rect1, file$2, 70, 8, 2204);
+    			add_location(g, file$2, 68, 4, 2063);
+    			attr_dev(path6, "d", path6_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}h16`);
     			attr_dev(path6, "class", "arrow-dimension-line");
-    			add_location(path6, file$2, 72, 4, 2303);
-    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2]}h16`);
+    			add_location(path6, file$2, 72, 4, 2337);
+    			attr_dev(path7, "d", path7_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3]}h16`);
     			attr_dev(path7, "class", "arrow-dimension-line");
-    			add_location(path7, file$2, 73, 4, 2384);
-    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0] + 14} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + 10}v${/*height*/ ctx[2] - 2 * 10}`);
+    			add_location(path7, file$2, 73, 4, 2418);
+    			attr_dev(path8, "d", path8_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1] + 14} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + 10}v${/*height*/ ctx[3] - 2 * 10}`);
     			attr_dev(path8, "class", "arrow");
-    			add_location(path8, file$2, 74, 4, 2472);
-    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[3] + /*width*/ ctx[0] + 20);
-    			attr_dev(text0, "y", text0_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] / 2 - 10);
+    			add_location(path8, file$2, 74, 4, 2506);
+    			attr_dev(text0, "x", text0_x_value = /*left*/ ctx[4] + /*width*/ ctx[1] + 20);
+    			attr_dev(text0, "y", text0_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] / 2 - 10);
     			attr_dev(text0, "font-size", "21");
     			attr_dev(text0, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text0, "fill", "#999");
     			set_style(text0, "text-anchor", "left");
-    			add_location(text0, file$2, 75, 4, 2554);
-    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + 3}v${/*rad_y*/ ctx[1] + 7}`);
+    			add_location(text0, file$2, 75, 4, 2588);
+    			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + 3}v${/*rad_y*/ ctx[2] + 7}`);
     			attr_dev(path9, "class", "arrow-dimension-line");
-    			add_location(path9, file$2, 77, 4, 2729);
-    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + 3}v${/*rad_y*/ ctx[1] + 7}`);
+    			add_location(path9, file$2, 77, 4, 2763);
+    			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + 3}v${/*rad_y*/ ctx[2] + 7}`);
     			attr_dev(path10, "class", "arrow-dimension-line");
-    			add_location(path10, file$2, 78, 4, 2819);
-    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[3] + 10} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1] + 7}h${/*width*/ ctx[0] - 2 * 10}`);
+    			add_location(path10, file$2, 78, 4, 2853);
+    			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[4] + 10} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2] + 7}h${/*width*/ ctx[1] - 2 * 10}`);
     			attr_dev(path11, "class", "arrow");
-    			add_location(path11, file$2, 79, 4, 2915);
-    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[3] + /*width*/ ctx[0] / 2);
-    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1] + 30);
+    			add_location(path11, file$2, 79, 4, 2949);
+    			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[4] + /*width*/ ctx[1] / 2);
+    			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2] + 30);
     			attr_dev(text1, "font-size", "21");
     			attr_dev(text1, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text1, "fill", "#999");
     			set_style(text1, "text-anchor", "middle");
-    			add_location(text1, file$2, 80, 4, 3002);
-    			attr_dev(ellipse, "cx", ellipse_cx_value = /*left*/ ctx[3] + /*width*/ ctx[0] / 2);
-    			attr_dev(ellipse, "cy", ellipse_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1]);
-    			attr_dev(ellipse, "rx", ellipse_rx_value = /*width*/ ctx[0] / 2);
-    			attr_dev(ellipse, "ry", /*rad_y*/ ctx[1]);
+    			add_location(text1, file$2, 80, 4, 3036);
+    			attr_dev(ellipse, "cx", ellipse_cx_value = /*left*/ ctx[4] + /*width*/ ctx[1] / 2);
+    			attr_dev(ellipse, "cy", ellipse_cy_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2]);
+    			attr_dev(ellipse, "rx", ellipse_rx_value = /*width*/ ctx[1] / 2);
+    			attr_dev(ellipse, "ry", /*rad_y*/ ctx[2]);
     			attr_dev(ellipse, "class", "border");
     			attr_dev(ellipse, "fill", "none");
-    			add_location(ellipse, file$2, 82, 4, 3181);
-    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2]}a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 0 ${/*width*/ ctx[0]} 0`);
+    			add_location(ellipse, file$2, 82, 4, 3215);
+    			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 0 ${/*width*/ ctx[1]} 0`);
     			attr_dev(path12, "class", "border");
     			attr_dev(path12, "fill", "none");
-    			add_location(path12, file$2, 84, 4, 3289);
-    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[2]}`);
+    			add_location(path12, file$2, 84, 4, 3323);
+    			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}v${/*height*/ ctx[3]}`);
     			attr_dev(path13, "class", "border");
-    			add_location(path13, file$2, 85, 4, 3401);
-    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[2]}`);
+    			add_location(path13, file$2, 85, 4, 3435);
+    			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}v${/*height*/ ctx[3]}`);
     			attr_dev(path14, "class", "border");
-    			add_location(path14, file$2, 86, 4, 3467);
-    			attr_dev(svg, "viewBox", "0 0 462 500");
-    			attr_dev(svg, "width", "600");
+    			add_location(path14, file$2, 86, 4, 3501);
+    			attr_dev(svg, "viewBox", svg_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[0].scale} ${640 / /*renderParams*/ ctx[0].scale}`);
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			add_location(svg, file$2, 7, 0, 171);
     		},
@@ -4070,116 +4078,120 @@ var app = (function () {
     			append_dev(svg, path14);
     		},
     		p: function update(ctx, [dirty]) {
-    			if (dirty & /*left, top, rad_y, width, height*/ 31 && path0_d_value !== (path0_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[0]} 0 v${/*height*/ ctx[2]} a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[0]} 0 z`)) {
+    			if (dirty & /*left, top, rad_y, width, height*/ 62 && path0_d_value !== (path0_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[3]} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`)) {
     				attr_dev(path0, "d", path0_d_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, width, height*/ 31 && path1_d_value !== (path1_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${/*width*/ ctx[0]} 0 v${/*height*/ ctx[2] / 2} a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 1 ${-/*width*/ ctx[0]} 0 z`)) {
+    			if (dirty & /*left, top, rad_y, width, height*/ 62 && path1_d_value !== (path1_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${/*width*/ ctx[1]} 0 v${/*height*/ ctx[3] / 2} a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 1 ${-/*width*/ ctx[1]} 0 z`)) {
     				attr_dev(path1, "d", path1_d_value);
     			}
 
-    			if (dirty & /*left*/ 8) {
-    				attr_dev(rect0, "x", /*left*/ ctx[3]);
+    			if (dirty & /*left*/ 16) {
+    				attr_dev(rect0, "x", /*left*/ ctx[4]);
     			}
 
-    			if (dirty & /*top*/ 16) {
-    				attr_dev(rect0, "y", /*top*/ ctx[4]);
+    			if (dirty & /*top*/ 32) {
+    				attr_dev(rect0, "y", /*top*/ ctx[5]);
     			}
 
-    			if (dirty & /*width*/ 1) {
-    				attr_dev(rect0, "width", /*width*/ ctx[0]);
+    			if (dirty & /*width*/ 2) {
+    				attr_dev(rect0, "width", /*width*/ ctx[1]);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 22 && rect0_height_value !== (rect0_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1])) {
+    			if (dirty & /*top, rad_y, height*/ 44 && rect0_height_value !== (rect0_height_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2])) {
     				attr_dev(rect0, "height", rect0_height_value);
     			}
 
-    			if (dirty & /*left*/ 8) {
-    				attr_dev(rect1, "x", /*left*/ ctx[3]);
+    			if (dirty & /*left*/ 16) {
+    				attr_dev(rect1, "x", /*left*/ ctx[4]);
     			}
 
-    			if (dirty & /*top*/ 16) {
-    				attr_dev(rect1, "y", /*top*/ ctx[4]);
+    			if (dirty & /*top*/ 32) {
+    				attr_dev(rect1, "y", /*top*/ ctx[5]);
     			}
 
-    			if (dirty & /*width*/ 1) {
-    				attr_dev(rect1, "width", /*width*/ ctx[0]);
+    			if (dirty & /*width*/ 2) {
+    				attr_dev(rect1, "width", /*width*/ ctx[1]);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 22 && rect1_height_value !== (rect1_height_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1])) {
+    			if (dirty & /*top, rad_y, height*/ 44 && rect1_height_value !== (rect1_height_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2])) {
     				attr_dev(rect1, "height", rect1_height_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y*/ 27 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}h16`)) {
+    			if (dirty & /*left, width, top, rad_y*/ 54 && path6_d_value !== (path6_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}h16`)) {
     				attr_dev(path6, "d", path6_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 31 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0] + 3} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2]}h16`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 62 && path7_d_value !== (path7_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1] + 3} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3]}h16`)) {
     				attr_dev(path7, "d", path7_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 31 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0] + 14} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + 10}v${/*height*/ ctx[2] - 2 * 10}`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 62 && path8_d_value !== (path8_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1] + 14} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + 10}v${/*height*/ ctx[3] - 2 * 10}`)) {
     				attr_dev(path8, "d", path8_d_value);
     			}
 
-    			if (dirty & /*height*/ 4) set_data_dev(t1, /*height*/ ctx[2]);
+    			if (dirty & /*height*/ 8) set_data_dev(t1, /*height*/ ctx[3]);
 
-    			if (dirty & /*left, width*/ 9 && text0_x_value !== (text0_x_value = /*left*/ ctx[3] + /*width*/ ctx[0] + 20)) {
+    			if (dirty & /*left, width*/ 18 && text0_x_value !== (text0_x_value = /*left*/ ctx[4] + /*width*/ ctx[1] + 20)) {
     				attr_dev(text0, "x", text0_x_value);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 22 && text0_y_value !== (text0_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] / 2 - 10)) {
+    			if (dirty & /*top, rad_y, height*/ 44 && text0_y_value !== (text0_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] / 2 - 10)) {
     				attr_dev(text0, "y", text0_y_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, height*/ 30 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + 3}v${/*rad_y*/ ctx[1] + 7}`)) {
+    			if (dirty & /*left, top, rad_y, height*/ 60 && path9_d_value !== (path9_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + 3}v${/*rad_y*/ ctx[2] + 7}`)) {
     				attr_dev(path9, "d", path9_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 31 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + 3}v${/*rad_y*/ ctx[1] + 7}`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 62 && path10_d_value !== (path10_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + 3}v${/*rad_y*/ ctx[2] + 7}`)) {
     				attr_dev(path10, "d", path10_d_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, height, width*/ 31 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[3] + 10} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1] + 7}h${/*width*/ ctx[0] - 2 * 10}`)) {
+    			if (dirty & /*left, top, rad_y, height, width*/ 62 && path11_d_value !== (path11_d_value = `M${/*left*/ ctx[4] + 10} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2] + 7}h${/*width*/ ctx[1] - 2 * 10}`)) {
     				attr_dev(path11, "d", path11_d_value);
     			}
 
-    			if (dirty & /*width*/ 1) set_data_dev(t3, /*width*/ ctx[0]);
+    			if (dirty & /*width*/ 2) set_data_dev(t3, /*width*/ ctx[1]);
 
-    			if (dirty & /*left, width*/ 9 && text1_x_value !== (text1_x_value = /*left*/ ctx[3] + /*width*/ ctx[0] / 2)) {
+    			if (dirty & /*left, width*/ 18 && text1_x_value !== (text1_x_value = /*left*/ ctx[4] + /*width*/ ctx[1] / 2)) {
     				attr_dev(text1, "x", text1_x_value);
     			}
 
-    			if (dirty & /*top, rad_y, height*/ 22 && text1_y_value !== (text1_y_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2] + /*rad_y*/ ctx[1] + 30)) {
+    			if (dirty & /*top, rad_y, height*/ 44 && text1_y_value !== (text1_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3] + /*rad_y*/ ctx[2] + 30)) {
     				attr_dev(text1, "y", text1_y_value);
     			}
 
-    			if (dirty & /*left, width*/ 9 && ellipse_cx_value !== (ellipse_cx_value = /*left*/ ctx[3] + /*width*/ ctx[0] / 2)) {
+    			if (dirty & /*left, width*/ 18 && ellipse_cx_value !== (ellipse_cx_value = /*left*/ ctx[4] + /*width*/ ctx[1] / 2)) {
     				attr_dev(ellipse, "cx", ellipse_cx_value);
     			}
 
-    			if (dirty & /*top, rad_y*/ 18 && ellipse_cy_value !== (ellipse_cy_value = /*top*/ ctx[4] + /*rad_y*/ ctx[1])) {
+    			if (dirty & /*top, rad_y*/ 36 && ellipse_cy_value !== (ellipse_cy_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2])) {
     				attr_dev(ellipse, "cy", ellipse_cy_value);
     			}
 
-    			if (dirty & /*width*/ 1 && ellipse_rx_value !== (ellipse_rx_value = /*width*/ ctx[0] / 2)) {
+    			if (dirty & /*width*/ 2 && ellipse_rx_value !== (ellipse_rx_value = /*width*/ ctx[1] / 2)) {
     				attr_dev(ellipse, "rx", ellipse_rx_value);
     			}
 
-    			if (dirty & /*rad_y*/ 2) {
-    				attr_dev(ellipse, "ry", /*rad_y*/ ctx[1]);
+    			if (dirty & /*rad_y*/ 4) {
+    				attr_dev(ellipse, "ry", /*rad_y*/ ctx[2]);
     			}
 
-    			if (dirty & /*left, top, rad_y, height, width*/ 31 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1] + /*height*/ ctx[2]}a${/*width*/ ctx[0] / 2} ${/*rad_y*/ ctx[1]} 0 0 0 ${/*width*/ ctx[0]} 0`)) {
+    			if (dirty & /*left, top, rad_y, height, width*/ 62 && path12_d_value !== (path12_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[3]}a${/*width*/ ctx[1] / 2} ${/*rad_y*/ ctx[2]} 0 0 0 ${/*width*/ ctx[1]} 0`)) {
     				attr_dev(path12, "d", path12_d_value);
     			}
 
-    			if (dirty & /*left, top, rad_y, height*/ 30 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[3]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[2]}`)) {
+    			if (dirty & /*left, top, rad_y, height*/ 60 && path13_d_value !== (path13_d_value = `M${/*left*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}v${/*height*/ ctx[3]}`)) {
     				attr_dev(path13, "d", path13_d_value);
     			}
 
-    			if (dirty & /*left, width, top, rad_y, height*/ 31 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[3] + /*width*/ ctx[0]} ${/*top*/ ctx[4] + /*rad_y*/ ctx[1]}v${/*height*/ ctx[2]}`)) {
+    			if (dirty & /*left, width, top, rad_y, height*/ 62 && path14_d_value !== (path14_d_value = `M${/*left*/ ctx[4] + /*width*/ ctx[1]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}v${/*height*/ ctx[3]}`)) {
     				attr_dev(path14, "d", path14_d_value);
+    			}
+
+    			if (dirty & /*renderParams*/ 1 && svg_viewBox_value !== (svg_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[0].scale} ${640 / /*renderParams*/ ctx[0].scale}`)) {
+    				attr_dev(svg, "viewBox", svg_viewBox_value);
     			}
     		},
     		i: noop,
@@ -4216,7 +4228,7 @@ var app = (function () {
     	});
 
     	$$self.$$set = $$props => {
-    		if ('renderParams' in $$props) $$invalidate(5, renderParams = $$props.renderParams);
+    		if ('renderParams' in $$props) $$invalidate(0, renderParams = $$props.renderParams);
     	};
 
     	$$self.$capture_state = () => ({
@@ -4229,12 +4241,12 @@ var app = (function () {
     	});
 
     	$$self.$inject_state = $$props => {
-    		if ('renderParams' in $$props) $$invalidate(5, renderParams = $$props.renderParams);
-    		if ('rad_y' in $$props) $$invalidate(1, rad_y = $$props.rad_y);
-    		if ('width' in $$props) $$invalidate(0, width = $$props.width);
-    		if ('height' in $$props) $$invalidate(2, height = $$props.height);
-    		if ('left' in $$props) $$invalidate(3, left = $$props.left);
-    		if ('top' in $$props) $$invalidate(4, top = $$props.top);
+    		if ('renderParams' in $$props) $$invalidate(0, renderParams = $$props.renderParams);
+    		if ('rad_y' in $$props) $$invalidate(2, rad_y = $$props.rad_y);
+    		if ('width' in $$props) $$invalidate(1, width = $$props.width);
+    		if ('height' in $$props) $$invalidate(3, height = $$props.height);
+    		if ('left' in $$props) $$invalidate(4, left = $$props.left);
+    		if ('top' in $$props) $$invalidate(5, top = $$props.top);
     	};
 
     	if ($$props && "$$inject" in $$props) {
@@ -4242,22 +4254,22 @@ var app = (function () {
     	}
 
     	$$self.$$.update = () => {
-    		if ($$self.$$.dirty & /*renderParams*/ 32) {
-    			$$invalidate(4, { top, left, width, height } = renderParams.dim, top, ($$invalidate(3, left), $$invalidate(5, renderParams)), ($$invalidate(0, width), $$invalidate(5, renderParams)), ($$invalidate(2, height), $$invalidate(5, renderParams)));
+    		if ($$self.$$.dirty & /*renderParams*/ 1) {
+    			$$invalidate(5, { top, left, width, height } = renderParams.dim, top, ($$invalidate(4, left), $$invalidate(0, renderParams)), ($$invalidate(1, width), $$invalidate(0, renderParams)), ($$invalidate(3, height), $$invalidate(0, renderParams)));
     		}
 
-    		if ($$self.$$.dirty & /*width, renderParams*/ 33) {
-    			$$invalidate(1, rad_y = width * renderParams.perspective);
+    		if ($$self.$$.dirty & /*width, renderParams*/ 3) {
+    			$$invalidate(2, rad_y = width * renderParams.perspective);
     		}
     	};
 
-    	return [width, rad_y, height, left, top, renderParams];
+    	return [renderParams, width, rad_y, height, left, top];
     }
 
     class Cylinder extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { renderParams: 5 });
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { renderParams: 0 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -4269,7 +4281,7 @@ var app = (function () {
     		const { ctx } = this.$$;
     		const props = options.props || {};
 
-    		if (/*renderParams*/ ctx[5] === undefined && !('renderParams' in props)) {
+    		if (/*renderParams*/ ctx[0] === undefined && !('renderParams' in props)) {
     			console.warn("<Cylinder> was created without expected prop 'renderParams'");
     		}
     	}
@@ -4664,19 +4676,19 @@ var app = (function () {
     			t4 = space();
     			div2 = element("div");
     			create_component(preview.$$.fragment);
-    			add_location(h1, file, 176314, 4, 4040012);
+    			add_location(h1, file, 176314, 4, 4040013);
     			attr_dev(div0, "class", "container text-center");
-    			add_location(div0, file, 176313, 3, 4039972);
+    			add_location(div0, file, 176313, 3, 4039973);
     			attr_dev(div1, "id", "left");
     			attr_dev(div1, "class", "flex flex-col flex-wrap space-y-6 md:w-1/2");
-    			add_location(div1, file, 176312, 2, 4039902);
+    			add_location(div1, file, 176312, 2, 4039903);
     			attr_dev(div2, "id", "right");
     			attr_dev(div2, "class", "md:w-1/2 pl-2");
-    			add_location(div2, file, 176318, 2, 4040119);
+    			add_location(div2, file, 176318, 2, 4040120);
     			attr_dev(div3, "class", "container flex flex-col md:flex-row flex-wrap md:flex-nowrap");
-    			add_location(div3, file, 176311, 1, 4039825);
+    			add_location(div3, file, 176311, 1, 4039826);
     			attr_dev(main, "class", "h-full");
-    			add_location(main, file, 176310, 0, 4039802);
+    			add_location(main, file, 176310, 0, 4039803);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -4764,7 +4776,7 @@ var app = (function () {
     			depth: 120,
     			radius: 77.9
     		},
-    		perspective: 0.2,
+    		perspective: 0.19,
     		scale: 1,
     		fileName: '',
     		fileType: ''

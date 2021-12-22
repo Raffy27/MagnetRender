@@ -21,7 +21,7 @@
 			depth: 120,
 			radius: 77.9,
 		},
-		perspective: 0.2,
+		perspective: 0.19,
 		scale: 1,
 
 		fileName: '',

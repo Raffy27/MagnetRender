@@ -11,7 +11,7 @@
     $: ll_w = 16 * Math.sin(alpha);
 </script>
 
-<svg viewBox="0 0 500 191" width="600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;
@@ -87,7 +87,7 @@
     <path d={`M${left+top_width+width+3} ${top+height+3}l${ll_w} ${ll_h}`} class="arrow-dimension-line" />
     <path d={`M${left+width+ll_w/2+3+Math.cos(alpha)*10} ${top_height+height+ll_h/2+3-Math.sin(alpha)*10}L${left+top_width+width+ll_w/2+3-Math.cos(alpha)*10} ${top+height+ll_h/2+3+Math.sin(alpha)*10}`} class="arrow"/>
     <text x={left+width+top_width/2} y={top+height+top_height/2+21} font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:left;" transform="translate(10, 10)">{depth} mm</text>
+        style="fill:#999;text-anchor:left;" transform="translate(15, 15)">{depth} mm</text>
     <path d={`M${left} ${top_height}H${left+width}V${top_height+height}H${left}Z`} fill="none" class="border" />
     <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}`} fill="none"
         class="border" />

@@ -12,7 +12,7 @@
     $: inner_y = rad_y * 2 * radius / width;
 </script>
 
-<svg viewBox="0 0 500 400" width="600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         :root {
             --line-color: brown;

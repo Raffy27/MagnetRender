@@ -5,7 +5,7 @@
     $: rad_y = width * renderParams.perspective;
 </script>
 
-<svg viewBox="0 0 462 500" width="600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;
