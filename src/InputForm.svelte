@@ -3,6 +3,7 @@
 	import Input from './components/Input.svelte';
 	import NumInput from './components/NumInput.svelte';
 	import RangeInput from './components/RangeInput.svelte';
+	import ColorInput from './components/ColorInput.svelte';
 	import { createEventDispatcher } from 'svelte';
 
 	const dispatch = createEventDispatcher();
@@ -40,10 +41,19 @@
 
 	<div class="flex flex-wrap -mx-2 mb-2">
 		<div class="w-full md:w-1/2 px-2">
-			<NumInput label="Left margin" unit="px" hint="10" bind:value={rp.dim.left} />
+			<NumInput label="Left Margin" unit="px" hint="10" bind:value={rp.dim.left} />
 		</div>
 		<div class="w-full md:w-1/2 px-2">
 			<NumInput label="Top Margin" unit="px" hint="10" bind:value={rp.dim.top} />
+		</div>
+	</div>
+
+	<div class="flex flex-wrap -mx-2 mb-2">
+		<div class="w-full md:w-1/2 px-2">
+			<ColorInput label="First Color" unit="hex" bind:value={rp.colors.first} />
+		</div>
+		<div class="w-full md:w-1/2 px-2">
+			<ColorInput label="Second Color" unit="hex" hint="10" bind:value={rp.colors.second} />
 		</div>
 	</div>
 

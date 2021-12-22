@@ -37,13 +37,13 @@ ipcMain.on('save-rp', async (e, data) => {
     data = JSON.stringify(data);
     let r = await dialog.showSaveDialog(mainWindow, {
         title: 'Save Preset As',
-        defaultPath: '',
+        defaultPath: path.join(os.homedir(), 'Documents', 'Preset.json'),
         filters: [{
             name: 'JSON Files',
-            extensions: ['*.json']
+            extensions: ['json']
         }, {
             name: 'All Files',
-            extensions: ['*.*']
+            extensions: ['*']
         }]
     });
     if(r.canceled) return;

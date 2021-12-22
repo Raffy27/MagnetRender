@@ -2,6 +2,8 @@
     export let svg;
     export let renderParams;
     $: ({ top, left, width, height, depth } = renderParams.dim);
+    let colors;
+    $: ({ colors } = renderParams);
 
     let alpha, top_height, top_width, ll_h, ll_w;
     $: alpha = renderParams.perspective * Math.PI/2 /0.3;
@@ -67,13 +69,13 @@
         </marker>
         <clipPath id="north-clip">
             <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height/2}L${left+width} ${top_height+height/2}H${left}Z`}
-                fill="#CB5959" />
+                fill={colors.first} />
         </clipPath>
     </defs>
     <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
-        fill="#36987D" />
+        fill={colors.second} />
     <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
-        fill="#CB5959" clip-path="url(#north-clip)" />
+        fill={colors.first} clip-path="url(#north-clip)" />
     <path d={`M${left} ${top_height+height+3}v16`} class="arrow-dimension-line" />
     <path d={`M${left+width} ${top_height+height+3}v16`} class="arrow-dimension-line" />
     <path d={`M${left+10} ${top_height+height+14}h${width-2*10}`} class="arrow" />

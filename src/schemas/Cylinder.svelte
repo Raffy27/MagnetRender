@@ -2,6 +2,8 @@
     export let svg;
     export let renderParams;
     $: ({ top, left, width, height } = renderParams.dim);
+    let colors;
+    $: ({ colors } = renderParams);
     let rad_y;
     $: rad_y = width * renderParams.perspective;
 </script>
@@ -69,13 +71,13 @@
         </marker>
     </defs>
     <g>
-        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#magnet-clip);fill:#36987D" />
-        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#north-clip);fill:#CB5959" />
+        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style={`clip-path:url(#magnet-clip);fill:${colors.second}`} />
+        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style={`clip-path:url(#north-clip);fill:${colors.first}`} />
     </g>
     <path d={`M${left+width+3} ${top+rad_y}h16`} class="arrow-dimension-line" />
     <path d={`M${left+width+3} ${top+rad_y+height}h16`} class="arrow-dimension-line" />
     <path d={`M${left+width+14} ${top+rad_y+10}v${height-2*10}`} class="arrow" />
-    <text x={left+width+20} y={top+rad_y+height/2-10} font-size="21" font-family="Arial, Helvetica, sans-serif"
+    <text x={left+width+20} y={top+rad_y+height/2+21/2} font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:left;">{height} mm</text>
     <path d={`M${left} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
     <path d={`M${left+width} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />

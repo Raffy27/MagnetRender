@@ -7,10 +7,29 @@
         ttop = top;
         top += 21 + 20;
     }
+    let colors;
+    $: ({ colors } = renderParams);
 
     let rad_y, inner_y;
     $: rad_y = width * renderParams.perspective;
     $: inner_y = rad_y * 2 * radius / width;
+
+    function darken(hex, lum) {
+        hex = String(hex).replace(/[^0-9a-f]/gi, '');
+        if (hex.length < 6) {
+            hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2];
+        }
+        lum = lum || 0;
+
+        var rgb = "#", c, i;
+        for (i = 0; i < 3; i++) {
+            c = parseInt(hex.substr(i * 2, 2), 16);
+            c = Math.round(Math.min(Math.max(0, c + (c * lum)), 255)).toString(16);
+            rgb += ("00" + c).substr(c.length);
+        }
+
+        return rgb;
+    }
 </script>
 
 <svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
@@ -98,12 +117,12 @@
     <text x={left+width/2} y={ttop+21} font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="text-anchor:middle;fill:#999;">{2*radius} mm</text>
     <g mask="url(#mask-hole)">
-        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#magnet-clip);" fill="#36987D" />
-        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#north-clip);" fill="#CB5959" />
+        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#magnet-clip);" fill={colors.second} />
+        <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#north-clip);" fill={colors.first} />
     </g>
-    <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height={height+inner_y} fill="#356479" clip-path="url(#clip-hole)"
+    <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height={height+inner_y} fill={darken(colors.second, -1/4)} clip-path="url(#clip-hole)"
         mask="url(#mask-hole-bottom)" />
-    <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height="96.596" fill="#9D4D4D" clip-path="url(#clip-hole)"
+    <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height="96.596" fill={darken(colors.first, -1/4)} clip-path="url(#clip-hole)"
         mask="url(#mask-hole-south-pole)" />
     <!-- Arrows -->
     <path d={`M${left+width+3} ${top+rad_y}h16`} class="arrow-dimension-line" />

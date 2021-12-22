@@ -23,6 +23,10 @@
 				depth: 120,
 				radius: 77.9,
 			},
+			colors: {
+				first: '#CB5959',
+				second: '#36987D'
+			},
 			perspective: 0.19,
 			scale: 1,
 
@@ -39,6 +43,10 @@
 				height: 60,
 				depth: 120,
 				radius: 77.9,
+			},
+			colors: {
+				first: '#CB5959',
+				second: '#36987D'
 			},
 			perspective: 0.19,
 			scale: 1,
@@ -57,10 +65,14 @@
 				depth: 120,
 				radius: 77.9,
 			},
+			colors: {
+				first: '#CB5959',
+				second: '#36987D'
+			},
 			perspective: 0.19,
 			scale: 1,
 
-			fileName: '',
+			fileName: 'Magnet-neodim-disc-{w}x{h}',
 			fileType: 0
 		}
 	];
