@@ -27,7 +27,7 @@
 			scale: 1,
 
 			fileName: '',
-			fileType: ''
+			fileType: 0
 		},
 		{
 			type: 1,
@@ -44,7 +44,7 @@
 			scale: 1,
 
 			fileName: '',
-			fileType: ''
+			fileType: 0
 		},
 		{
 			type: 2,
@@ -61,21 +61,22 @@
 			scale: 1,
 
 			fileName: '',
-			fileType: ''
+			fileType: 0
 		}
 	];
 
+	let svg = '';
 	let renderParams = renderPresets[0];
 
 	function save(){
-		console.log('Render params = ');
-		console.log(renderParams);
-		const data = JSON.stringify(renderParams);
-		ipcRenderer.send('save-rp', data);
+		ipcRenderer.send('save-rp', renderParams);
 	}
 
-	function exportImg(svg){
-		ipcRenderer.send('export-img', svg);
+	function exportImg(){
+		ipcRenderer.send('export-img', {
+			renderParams,
+			svg: svg.outerHTML
+		});
 	}
 </script>
 
@@ -85,10 +86,10 @@
 			<div class="container text-center">
 				<h1>{name} v{version}</h1>
 			</div>
-			<InputForm bind:rp={renderParams} on:save={save} />
+			<InputForm bind:rp={renderParams} on:save={save} on:exportimg={exportImg} />
 		</div>
 		<div id="right" class="md:w-1/2 pl-2">
-			<Preview bind:renderParams={renderParams} />
+			<Preview bind:renderParams={renderParams} bind:svg={svg} />
 		</div>
 	</div>
 </main>

@@ -1,4 +1,5 @@
 <script>
+    export let svg;
     export let renderParams;
     $: ({ top, left, width, height, depth } = renderParams.dim);
 
@@ -11,7 +12,7 @@
     $: ll_w = 16 * Math.sin(alpha);
 </script>
 
-<svg viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
+<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;

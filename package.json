@@ -24,9 +24,11 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "jimp": "^0.16.1",
     "postcss": "^7.0.39",
     "sirv-cli": "^1.0.0",
     "svelte-preprocess": "^4.9.8",
+    "svg-render": "^1.2.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
   }
 }

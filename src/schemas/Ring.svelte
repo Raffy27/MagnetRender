@@ -1,4 +1,5 @@
 <script>
+    export let svg;
     export let renderParams;
     let ttop = 0;
     $: ({ top, left, width, height, radius } = renderParams.dim);
@@ -12,7 +13,7 @@
     $: inner_y = rad_y * 2 * radius / width;
 </script>
 
-<svg viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
+<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         :root {
             --line-color: brown;

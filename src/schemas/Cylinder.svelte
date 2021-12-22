@@ -1,11 +1,12 @@
 <script>
+    export let svg;
     export let renderParams;
     $: ({ top, left, width, height } = renderParams.dim);
     let rad_y;
     $: rad_y = width * renderParams.perspective;
 </script>
 
-<svg viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
+<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;
