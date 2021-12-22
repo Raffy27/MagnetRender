@@ -1,14 +1,17 @@
 <script>
     export let renderParams;
+    let ttop = 0;
     $: ({ top, left, width, height, radius } = renderParams.dim);
+    $: if(renderParams){
+        ttop = top;
+        top += 21 + 20;
+    }
 
     let rad_y, inner_y;
     $: rad_y = width * renderParams.perspective;
     $: inner_y = rad_y * 2 * radius / width;
 </script>
 
-<div class="my-12"></div>
-<div class="w-full h-full">
 <svg viewBox="0 0 500 400" width="600" xmlns="http://www.w3.org/2000/svg">
     <style>
         :root {
@@ -88,6 +91,11 @@
             <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
         </marker>
     </defs>
+    <path d={`M${left+width/2-radius} ${ttop+21+3}L${left+width/2-radius} ${top+rad_y}`} class="arrow-dimension-line" />
+    <path d={`M${left+width/2+radius} ${ttop+21+3}L${left+width/2+radius} ${top+rad_y}`} class="arrow-dimension-line" />
+    <path d={`M${left+width/2-radius+10} ${ttop+21+10}h${2*radius-2*10}`} class="arrow" />
+    <text x={left+width/2} y={ttop+21} font-size="21" font-family="Arial, Helvetica, sans-serif"
+        style="text-anchor:middle;fill:#999;">{2*radius} mm</text>
     <g mask="url(#mask-hole)">
         <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#magnet-clip);" fill="#36987D" />
         <rect x={left} y={top} width={width} height={top+rad_y+height+rad_y} style="clip-path:url(#north-clip);" fill="#CB5959" />
@@ -97,15 +105,10 @@
     <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height="96.596" fill="#9D4D4D" clip-path="url(#clip-hole)"
         mask="url(#mask-hole-south-pole)" />
     <!-- Arrows -->
-    <path d={`M${left+width/2-radius} 58.153817739847v-23.153817739847`} class="arrow-dimension-line" />
-    <path d={`M${left+width/2+radius} 58.153817739847v-23.153817739847`} class="arrow-dimension-line" />
-    <path d={`M${left+width/2-radius+10} 40h${2*radius-2*10}`} class="arrow" />
-    <text x={width/2} y="34" font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="text-anchor:middle;fill:#999;">{2*radius} mm</text>
     <path d={`M${left+width+3} ${top+rad_y}h16`} class="arrow-dimension-line" />
     <path d={`M${left+width+3} ${top+rad_y+height}h16`} class="arrow-dimension-line" />
     <path d={`M${left+width+14} ${top+rad_y+10}v${height-2*10}`} class="arrow" />
-    <text x={left+width+20} y={top+rad_y+height/2-10} font-size="21" font-family="Arial, Helvetica, sans-serif"
+    <text x={left+width+20} y={top+rad_y+height/2+21/2} font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:left;">{height} mm</text>
     <path d={`M${left} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
     <path d={`M${left+width} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
@@ -120,4 +123,3 @@
     <path d={`M${left+width/2-radius} ${top+rad_y-inner_y}a${radius} ${inner_y} 0 0 1 ${2*radius} 0`} class="border" fill="none" clip-path="url(#clip-hole)" />
     <ellipse cx={left+width/2} cy={top+rad_y} rx={radius} ry={inner_y} class="border" fill="none" />
 </svg>
-</div>

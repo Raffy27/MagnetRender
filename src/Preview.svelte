@@ -12,7 +12,7 @@
         <Prism renderParams={renderParams} />
     {:else if renderParams.type == 1}
         <Ring renderParams={renderParams} />
-    {:else if renderParams.type == 3}
+    {:else if renderParams.type == 2}
         <Cylinder renderParams={renderParams} />
     {/if}
 </div>
