@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs/promises');
 const os = require('os');
 const render = require('svg-render');
+const jimp = require('jimp');
 const isDev = require('electron-is-dev');
 
 let mainWindow;
@@ -63,18 +64,17 @@ function parseFileName(tmp, rp){
 ipcMain.on('export-img', async (e, data) => {
     let { renderParams, svg } = data;
     renderParams.fileName = parseFileName(renderParams.fileName, renderParams);
-    console.log(renderParams);
 
-    let filters = [{ name: 'All Files', extensions: ['*.*'] }];
+    let filters = [{ name: 'All Files', extensions: ['*'] }];
     switch(renderParams.fileType) {
         case 0:
-            filters.unshift({ name: 'Scalable Vector Graphics', extensions: ['*.svg', '*.xml'] });
+            filters.unshift({ name: 'Scalable Vector Graphics', extensions: ['svg', 'xml'] });
             break;
         case 1:
-            filters.unshift({ name: 'JPEG', extensions: ['*.jpg'] });
+            filters.unshift({ name: 'JPEG Images', extensions: ['jpg'] });
             break;
         case 2:
-            filters.unshift({ name: 'Portable Network Grapics', extensions: ['*.png'] });
+            filters.unshift({ name: 'Portable Network Grapics', extensions: ['png'] });
     }
     let r = await dialog.showSaveDialog(mainWindow, {
         title: 'Export Image As',
@@ -86,12 +86,13 @@ ipcMain.on('export-img', async (e, data) => {
     if(renderParams.fileType == 0) {
         await fs.writeFile(file, svg);
     } else {
-        let buf = await render({
+        const buf = await render({
             buffer: Buffer.from(svg)
         });
         if(renderParams.fileType == 1) {
-            buf.toJpeg().toFile(file);
-        }
-        await fs.writeFile(file, buf);
+            let img = (await jimp.read(buf))
+                .background(0xFFFFFFFF);
+            img.write(file);
+        } else await fs.writeFile(file, buf);
     }
 });
