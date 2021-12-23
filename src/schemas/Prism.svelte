@@ -68,31 +68,31 @@
             <path d="M10 0V5L0 2.5Z" class="arrow-marker" />
         </marker>
         <clipPath id="north-clip">
-            <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height/2}L${left+width} ${top_height+height/2}H${left}Z`}
+            <path d={`M${left} ${top+top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height/2}L${left+width} ${top+top_height+height/2}H${left}Z`}
                 fill={colors.first} />
         </clipPath>
     </defs>
-    <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
+    <path d={`M${left} ${top+top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top+top_height+height}H${left}Z`}
         fill={colors.second} />
-    <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}H${left}Z`}
+    <path d={`M${left} ${top+top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top+top_height+height}H${left}Z`}
         fill={colors.first} clip-path="url(#north-clip)" />
-    <path d={`M${left} ${top_height+height+3}v16`} class="arrow-dimension-line" />
-    <path d={`M${left+width} ${top_height+height+3}v16`} class="arrow-dimension-line" />
-    <path d={`M${left+10} ${top_height+height+14}h${width-2*10}`} class="arrow" />
-    <text x={left+width/2} y={top_height+height+34} font-size="21" font-family="Arial, Helvetica, sans-serif"
+    <path d={`M${left} ${top+top_height+height+3}v16`} class="arrow-dimension-line" />
+    <path d={`M${left+width} ${top+top_height+height+3}v16`} class="arrow-dimension-line" />
+    <path d={`M${left+10} ${top+top_height+height+14}h${width-2*10}`} class="arrow" />
+    <text x={left+width/2} y={top+top_height+height+34} font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:middle;">{width} mm</text>
     <path d={`M${left+top_width+width+3} ${top}h16`} class="arrow-dimension-line" />
     <path d={`M${left+top_width+width+3} ${top+height}h16`} class="arrow-dimension-line" />
-    <path d={`M${left+top_width+width+14} ${top+10}v${height-2*10}`} class="arrow" />
+    <path d={`M${left+top_width+width+11} ${top+10}v${height-2*10}`} class="arrow" />
     <text x={left+top_width+width+24} y={top+height/2+10} font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:left;">{height} mm</text>
-    <path d={`M${left+width+3} ${top_height+height+3}l${ll_w} ${ll_h}`} class="arrow-dimension-line" />
+    <path d={`M${left+width+3} ${top+top_height+height+3}l${ll_w} ${ll_h}`} class="arrow-dimension-line" />
     <path d={`M${left+top_width+width+3} ${top+height+3}l${ll_w} ${ll_h}`} class="arrow-dimension-line" />
-    <path d={`M${left+width+ll_w/2+3+Math.cos(alpha)*10} ${top_height+height+ll_h/2+3-Math.sin(alpha)*10}L${left+top_width+width+ll_w/2+3-Math.cos(alpha)*10} ${top+height+ll_h/2+3+Math.sin(alpha)*10}`} class="arrow"/>
+    <path d={`M${left+width+ll_w/2+3+Math.cos(alpha)*10} ${top+top_height+height+ll_h/2+3-Math.sin(alpha)*10}L${left+top_width+width+ll_w/2+3-Math.cos(alpha)*10} ${top+height+ll_h/2+3+Math.sin(alpha)*10}`} class="arrow"/>
     <text x={left+width+top_width/2} y={top+height+top_height/2+21} font-size="21" font-family="Arial, Helvetica, sans-serif"
         style="fill:#999;text-anchor:left;" transform="translate(15, 15)">{depth} mm</text>
-    <path d={`M${left} ${top_height}H${left+width}V${top_height+height}H${left}Z`} fill="none" class="border" />
-    <path d={`M${left} ${top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top_height+height}`} fill="none"
+    <path d={`M${left} ${top+top_height}H${left+width}V${top+top_height+height}H${left}Z`} fill="none" class="border" />
+    <path d={`M${left} ${top+top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top+top_height+height}`} fill="none"
         class="border" />
-    <path d={`M${left+width} ${top_height}L${left+top_width+width} ${top}`} class="border" />
+    <path d={`M${left+width} ${top+top_height}L${left+top_width+width} ${top}`} class="border" />
 </svg>
