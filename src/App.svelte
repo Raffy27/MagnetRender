@@ -114,10 +114,30 @@
 		renderParams = args;
 	});
 
-	function exportImg(){
+	function svg2png(svg, width, height){
+		const canvas = document.createElement('canvas');
+		canvas.width = width;
+		canvas.height = height;
+		const ctx = canvas.getContext('2d');
+		const img = new Image();
+		img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svg)));
+		return new Promise((resolve, reject) => {
+			img.onload = () => {
+				ctx.drawImage(img, 0, 0);
+				resolve(canvas.toDataURL('image/png'));
+			};
+			img.onerror = reject;
+		});
+	}
+
+	async function exportImg(){
+		let data = svg.outerHTML;
+		if(renderParams.fileType != 0){
+			data = await svg2png(data, 640, 640);
+		}
 		ipcRenderer.send('export-img', {
 			renderParams,
-			svg: svg.outerHTML
+			svg: data
 		});
 	}
 

@@ -11,7 +11,7 @@
 	export let rp;
 </script>
 
-<form class="w-full min-w-sm">
+<form class="w-full min-w-sm" id="atomic" >
 	<Select label="Magnet Type" bind:value={rp.type} onchange={() => dispatch('newtype')}>
 		<option value={0}>Prism</option>
 		<option value={1}>Ring</option>
