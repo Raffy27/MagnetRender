@@ -1,13 +1,18 @@
 {
-  "name": "svelte-app",
-  "version": "1.0.0",
+  "name": "MagnetRender",
+  "version": "0.0.3",
   "private": true,
+  "description": "A program to generate 2D magnet images and vectors",
+  "author": {
+    "name": "Raffy E.",
+    "email": "raffy27@pm.me"
+  },
   "main": "index.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
     "start": "electron .",
-    "dist": "npm run build && electron-builder"
+    "dist": "npm run build && electron-builder --win --x64"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
