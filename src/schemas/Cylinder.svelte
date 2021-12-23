@@ -1,14 +1,14 @@
 <script>
     export let svg;
     export let renderParams;
-    $: ({ top, left, width, height } = renderParams.dim);
+    $: ({ top, left, width, height } = renderParams.normalDim);
     let colors;
     $: ({ colors } = renderParams);
     let rad_y;
     $: rad_y = width * renderParams.perspective;
 </script>
 
-<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
+<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${440/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;
@@ -78,12 +78,12 @@
     <path d={`M${left+width+3} ${top+rad_y+height}h16`} class="arrow-dimension-line" />
     <path d={`M${left+width+14} ${top+rad_y+10}v${height-2*10}`} class="arrow" />
     <text x={left+width+20} y={top+rad_y+height/2+21/2} font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:left;">{height} mm</text>
+        style="fill:#999;text-anchor:left;">{renderParams.dim.height} mm</text>
     <path d={`M${left} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
     <path d={`M${left+width} ${top+rad_y+height+3}v${rad_y+7}`} class="arrow-dimension-line" />
     <path d={`M${left+10} ${top+rad_y+height+rad_y+7}h${width-2*10}`} class="arrow" />
     <text x={left+width/2} y={top+rad_y+height+rad_y+30} font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:middle;">{width} mm</text>
+        style="fill:#999;text-anchor:middle;">{renderParams.dim.width} mm</text>
     <ellipse cx={left+width/2} cy={top+rad_y} rx={width/2} ry={rad_y} class="border"
         fill="none" />
     <path d={`M${left} ${top+rad_y+height}a${width/2} ${rad_y} 0 0 0 ${width} 0`} class="border" fill="none" />

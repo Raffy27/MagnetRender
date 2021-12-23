@@ -16,6 +16,8 @@ if(isDev) {
 
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
+        width: 1200,
+        height: 870,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false
@@ -34,7 +36,7 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('save-rp', async (e, data) => {
-    data = JSON.stringify(data);
+    data = JSON.stringify(data, null, '\t');
     let r = await dialog.showSaveDialog(mainWindow, {
         title: 'Save Preset As',
         defaultPath: path.join(os.homedir(), 'Documents', 'Preset.json'),

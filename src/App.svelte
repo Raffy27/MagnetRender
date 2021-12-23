@@ -11,6 +11,19 @@
 	export let name;
 	export let version;
 
+	function normalizeDimensions(rp, max) {
+		let dim = Object.assign({}, rp.dim);
+		const maxVal = Object.keys(dim).reduce((acc, cur) => {
+			return Math.max(acc, dim[cur]);
+		}, 0);
+		console.log('Max =', maxVal);
+		for(const prop in dim){
+			console.log(prop, dim[prop]);
+			dim[prop] = dim[prop] / maxVal * max;
+		}
+		rp.normalDim = dim;
+	}
+
 	const renderPresets = [
 		{
 			type: 0,
@@ -79,6 +92,8 @@
 
 	let svg = '';
 	let renderParams = renderPresets[0];
+
+	$: normalizeDimensions(renderParams, 350);
 
 	function save(){
 		ipcRenderer.send('save-rp', renderParams);

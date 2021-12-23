@@ -1,7 +1,7 @@
 <script>
     export let svg;
     export let renderParams;
-    $: ({ top, left, width, height, depth } = renderParams.dim);
+    $: ({ top, left, width, height, depth } = renderParams.normalDim);
     let colors;
     $: ({ colors } = renderParams);
 
@@ -14,7 +14,7 @@
     $: ll_w = 16 * Math.sin(alpha);
 </script>
 
-<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${640/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
+<svg bind:this={svg} viewBox={`0 0 ${640/renderParams.scale} ${440/renderParams.scale}`} xmlns="http://www.w3.org/2000/svg">
     <style>
         .arrow-marker {
             fill: #999;
@@ -80,17 +80,17 @@
     <path d={`M${left+width} ${top+top_height+height+3}v16`} class="arrow-dimension-line" />
     <path d={`M${left+10} ${top+top_height+height+14}h${width-2*10}`} class="arrow" />
     <text x={left+width/2} y={top+top_height+height+34} font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:middle;">{width} mm</text>
+        style="fill:#999;text-anchor:middle;">{renderParams.dim.width} mm</text>
     <path d={`M${left+top_width+width+3} ${top}h16`} class="arrow-dimension-line" />
     <path d={`M${left+top_width+width+3} ${top+height}h16`} class="arrow-dimension-line" />
     <path d={`M${left+top_width+width+11} ${top+10}v${height-2*10}`} class="arrow" />
     <text x={left+top_width+width+24} y={top+height/2+10} font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:left;">{height} mm</text>
+        style="fill:#999;text-anchor:left;">{renderParams.dim.height} mm</text>
     <path d={`M${left+width+3} ${top+top_height+height+3}l${ll_w} ${ll_h}`} class="arrow-dimension-line" />
     <path d={`M${left+top_width+width+3} ${top+height+3}l${ll_w} ${ll_h}`} class="arrow-dimension-line" />
     <path d={`M${left+width+ll_w/2+3+Math.cos(alpha)*10} ${top+top_height+height+ll_h/2+3-Math.sin(alpha)*10}L${left+top_width+width+ll_w/2+3-Math.cos(alpha)*10} ${top+height+ll_h/2+3+Math.sin(alpha)*10}`} class="arrow"/>
     <text x={left+width+top_width/2} y={top+height+top_height/2+21} font-size="21" font-family="Arial, Helvetica, sans-serif"
-        style="fill:#999;text-anchor:left;" transform="translate(15, 15)">{depth} mm</text>
+        style="fill:#999;text-anchor:left;" transform="translate(15, 15)">{renderParams.dim.depth} mm</text>
     <path d={`M${left} ${top+top_height}H${left+width}V${top+top_height+height}H${left}Z`} fill="none" class="border" />
     <path d={`M${left} ${top+top_height}L${left+top_width} ${top}H${left+top_width+width}V${top+height}L${left+width} ${top+top_height+height}`} fill="none"
         class="border" />
