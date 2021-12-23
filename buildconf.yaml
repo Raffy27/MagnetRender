@@ -1,6 +1,0 @@
-directories:
-  output: dist
-  buildResources: build
-files: []
-electronVersion: 15.3.4
-npmRebuild: false

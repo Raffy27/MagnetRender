@@ -2,7 +2,7 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs/promises');
 const os = require('os');
-const render = require('svg-render');
+const svg2png = require('svg2png');
 const jimp = require('jimp');
 const isDev = require('electron-is-dev');
 
@@ -25,7 +25,7 @@ app.on('ready', () => {
     });
     mainWindow.loadFile(path.join(__dirname, 'public/index.html'));
     if(isDev){
-        // mainWindow.webContents.openDevTools();
+        mainWindow.webContents.openDevTools();
     }
 });
 
@@ -137,9 +137,7 @@ ipcMain.on('export-img', async (e, data) => {
         if(renderParams.fileType == 0) {
             await fs.writeFile(file, svg);
         } else {
-            const buf = await render({
-                buffer: Buffer.from(svg)
-            });
+            const buf = await svg2png(Buffer.from(svg), { width: 640, height: 640 });
             if(renderParams.fileType == 1) {
                 let img = (await jimp.read(buf))
                     .background(0xFFFFFFFF);
