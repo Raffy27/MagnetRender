@@ -16,15 +16,13 @@
 		const maxVal = Object.keys(dim).reduce((acc, cur) => {
 			return Math.max(acc, dim[cur]);
 		}, 0);
-		console.log('Max =', maxVal);
 		for(const prop in dim){
-			console.log(prop, dim[prop]);
 			dim[prop] = dim[prop] / maxVal * max;
 		}
 		rp.normalDim = dim;
 	}
 
-	const renderPresets = [
+	let renderPresets = [
 		{
 			type: 0,
 
@@ -113,6 +111,12 @@
 			svg: svg.outerHTML
 		});
 	}
+
+	function newType(){
+		console.log('New type', renderParams.type);
+		console.log('Render params', renderParams);
+		renderParams = renderPresets[renderParams.type];
+	}
 </script>
 
 <main class="h-full">
@@ -121,7 +125,7 @@
 			<div class="container text-center">
 				<h1>{name} v{version}</h1>
 			</div>
-			<InputForm bind:rp={renderParams} on:save={save} on:exportimg={exportImg} on:load={load} />
+			<InputForm bind:rp={renderParams} on:save={save} on:exportimg={exportImg} on:load={load} on:newtype={newType} />
 		</div>
 		<div id="right" class="md:w-2/3 pl-2">
 			<Preview bind:renderParams={renderParams} bind:svg={svg} />

@@ -12,7 +12,7 @@
 </script>
 
 <form class="w-full min-w-sm">
-	<Select label="Magnet Type" bind:value={rp.type}>
+	<Select label="Magnet Type" bind:value={rp.type} onchange={() => dispatch('newtype')}>
 		<option value={0}>Prism</option>
 		<option value={1}>Ring</option>
 		<option value={2}>Cylinder</option>

@@ -36,41 +36,69 @@ app.on('window-all-closed', () => {
 });
 
 ipcMain.on('save-rp', async (e, data) => {
-    data = JSON.stringify(data, null, '\t');
-    let r = await dialog.showSaveDialog(mainWindow, {
-        title: 'Save Preset As',
-        defaultPath: path.join(os.homedir(), 'Documents', 'Preset.json'),
-        filters: [{
-            name: 'JSON Files',
-            extensions: ['json']
-        }, {
-            name: 'All Files',
-            extensions: ['*']
-        }]
+    try {
+        data = JSON.stringify(data, null, '\t');
+        let r = await dialog.showSaveDialog(mainWindow, {
+            title: 'Save Preset As',
+            defaultPath: path.join(os.homedir(), 'Documents', 'Preset.json'),
+            filters: [{
+                name: 'JSON Files',
+                extensions: ['json']
+            }, {
+                name: 'All Files',
+                extensions: ['*']
+            }]
+        });
+        if(r.canceled) return;
+        let file = r.filePath;
+        await fs.writeFile(file, data);
+    } catch(e) {
+        await dialog.showMessageBox(mainWindow, {
+            type: 'error',
+            message: 'Error',
+            detail: e.message
+        });
+        return;
+    }
+    await dialog.showMessageBox(mainWindow, {
+        type: 'info',
+        message: 'Success',
+        detail: 'Preset saved successfully'
     });
-    if(r.canceled) return;
-    let file = r.filePath;
-    await fs.writeFile(file, data);
 });
 
 ipcMain.on('load-rp', async e => {
-    let r = await dialog.showOpenDialog(mainWindow, {
-        title: 'Load Preset',
-        defaultPath: path.join(os.homedir(), 'Documents'),
-        filters: [{
-            name: 'JSON Files',
-            extensions: ['json']
-        }, {
-            name: 'All Files',
-            extensions: ['*']
-        }],
-        properties: ['openFile']
+    try {
+        let r = await dialog.showOpenDialog(mainWindow, {
+            title: 'Load Preset',
+            defaultPath: path.join(os.homedir(), 'Documents'),
+            filters: [{
+                name: 'JSON Files',
+                extensions: ['json']
+            }, {
+                name: 'All Files',
+                extensions: ['*']
+            }],
+            properties: ['openFile']
+        });
+        if(r.canceled) return;
+        if(!r.filePaths) return;
+        let file = r.filePaths[0];
+        let data = await fs.readFile(file, 'utf-8');
+        e.sender.send('rp', JSON.parse(data));
+    } catch(e) {
+        await dialog.showMessageBox(mainWindow, {
+            type: 'error',
+            message: 'Error',
+            detail: e.message
+        });
+        return;
+    }
+    await dialog.showMessageBox(mainWindow, {
+        type: 'info',
+        message: 'Success',
+        detail: 'Preset loaded successfully'
     });
-    if(r.canceled) return;
-    if(!r.filePaths) return;
-    let file = r.filePaths[0];
-    let data = await fs.readFile(file, 'utf-8');
-    e.sender.send('rp', JSON.parse(data));
 });
 
 function parseFileName(tmp, rp){
@@ -84,37 +112,51 @@ function parseFileName(tmp, rp){
 }
 
 ipcMain.on('export-img', async (e, data) => {
-    let { renderParams, svg } = data;
-    renderParams.fileName = parseFileName(renderParams.fileName, renderParams);
+    try {
+        let { renderParams, svg } = data;
+        renderParams.fileName = parseFileName(renderParams.fileName, renderParams);
 
-    let filters = [{ name: 'All Files', extensions: ['*'] }];
-    switch(renderParams.fileType) {
-        case 0:
-            filters.unshift({ name: 'Scalable Vector Graphics', extensions: ['svg', 'xml'] });
-            break;
-        case 1:
-            filters.unshift({ name: 'JPEG Images', extensions: ['jpg'] });
-            break;
-        case 2:
-            filters.unshift({ name: 'Portable Network Grapics', extensions: ['png'] });
-    }
-    let r = await dialog.showSaveDialog(mainWindow, {
-        title: 'Export Image As',
-        defaultPath: path.join(os.homedir(), 'Documents', renderParams.fileName),
-        filters
-    });
-    if(r.canceled) return;
-    let file = r.filePath;
-    if(renderParams.fileType == 0) {
-        await fs.writeFile(file, svg);
-    } else {
-        const buf = await render({
-            buffer: Buffer.from(svg)
+        let filters = [{ name: 'All Files', extensions: ['*'] }];
+        switch(renderParams.fileType) {
+            case 0:
+                filters.unshift({ name: 'Scalable Vector Graphics', extensions: ['svg', 'xml'] });
+                break;
+            case 1:
+                filters.unshift({ name: 'JPEG Images', extensions: ['jpg'] });
+                break;
+            case 2:
+                filters.unshift({ name: 'Portable Network Grapics', extensions: ['png'] });
+        }
+        let r = await dialog.showSaveDialog(mainWindow, {
+            title: 'Export Image As',
+            defaultPath: path.join(os.homedir(), 'Documents', renderParams.fileName),
+            filters
         });
-        if(renderParams.fileType == 1) {
-            let img = (await jimp.read(buf))
-                .background(0xFFFFFFFF);
-            img.write(file);
-        } else await fs.writeFile(file, buf);
+        if(r.canceled) return;
+        let file = r.filePath;
+        if(renderParams.fileType == 0) {
+            await fs.writeFile(file, svg);
+        } else {
+            const buf = await render({
+                buffer: Buffer.from(svg)
+            });
+            if(renderParams.fileType == 1) {
+                let img = (await jimp.read(buf))
+                    .background(0xFFFFFFFF);
+                img.write(file);
+            } else await fs.writeFile(file, buf);
+        }
+    } catch(e) {
+        await dialog.showMessageBox(mainWindow, {
+            type: 'error',
+            message: 'Error',
+            detail: e.message
+        });
+        return;
     }
+    await dialog.showMessageBox(mainWindow, {
+        type: 'info',
+        message: 'Success',
+        detail: 'Image exported successfully'
+    });
 });

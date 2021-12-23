@@ -118,7 +118,7 @@
     </g>
     <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height={height+inner_y} fill={darken(colors.second, -1/4)} clip-path="url(#clip-hole)"
         mask="url(#mask-hole-bottom)" />
-    <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height="96.596" fill={darken(colors.first, -1/4)} clip-path="url(#clip-hole)"
+    <rect x={left+width/2-radius} y={top+rad_y-inner_y} width={2*radius} height={height/2+inner_y} fill={darken(colors.first, -1/4)} clip-path="url(#clip-hole)"
         mask="url(#mask-hole-south-pole)" />
     <!-- Arrows -->
     <path d={`M${left+width+3} ${top+rad_y}h16`} class="arrow-dimension-line" />

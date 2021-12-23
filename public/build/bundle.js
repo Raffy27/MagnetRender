@@ -505,8 +505,8 @@ var app = (function () {
     	let current;
     	let mounted;
     	let dispose;
-    	const default_slot_template = /*#slots*/ ctx[3].default;
-    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[2], null);
+    	const default_slot_template = /*#slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
 
     	const block = {
     		c: function create() {
@@ -522,20 +522,20 @@ var app = (function () {
     			path = svg_element("path");
     			attr_dev(label_1, "class", "block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2");
     			attr_dev(label_1, "for", "grid-state");
-    			add_location(label_1, file$a, 5, 0, 62);
+    			add_location(label_1, file$a, 6, 0, 91);
     			attr_dev(select, "class", "block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500");
-    			if (/*value*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[4].call(select));
-    			add_location(select, file$a, 9, 1, 209);
+    			if (/*value*/ ctx[0] === void 0) add_render_callback(() => /*select_change_handler*/ ctx[5].call(select));
+    			add_location(select, file$a, 10, 1, 238);
     			attr_dev(path, "d", "M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z");
-    			add_location(path, file$a, 14, 90, 629);
+    			add_location(path, file$a, 15, 90, 679);
     			attr_dev(svg, "class", "fill-current h-4 w-4");
     			attr_dev(svg, "xmlns", "http://www.w3.org/2000/svg");
     			attr_dev(svg, "viewBox", "0 0 20 20");
-    			add_location(svg, file$a, 14, 1, 540);
+    			add_location(svg, file$a, 15, 1, 590);
     			attr_dev(div0, "class", "pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700");
-    			add_location(div0, file$a, 13, 1, 441);
+    			add_location(div0, file$a, 14, 1, 491);
     			attr_dev(div1, "class", "relative mb-2");
-    			add_location(div1, file$a, 8, 0, 180);
+    			add_location(div1, file$a, 9, 0, 209);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -559,23 +559,37 @@ var app = (function () {
     			current = true;
 
     			if (!mounted) {
-    				dispose = listen_dev(select, "change", /*select_change_handler*/ ctx[4]);
+    				dispose = [
+    					listen_dev(select, "change", /*select_change_handler*/ ctx[5]),
+    					listen_dev(
+    						select,
+    						"change",
+    						function () {
+    							if (is_function(/*onchange*/ ctx[2])) /*onchange*/ ctx[2].apply(this, arguments);
+    						},
+    						false,
+    						false,
+    						false
+    					)
+    				];
+
     				mounted = true;
     			}
     		},
-    		p: function update(ctx, [dirty]) {
+    		p: function update(new_ctx, [dirty]) {
+    			ctx = new_ctx;
     			if (!current || dirty & /*label*/ 2) set_data_dev(t0, /*label*/ ctx[1]);
 
     			if (default_slot) {
-    				if (default_slot.p && (!current || dirty & /*$$scope*/ 4)) {
+    				if (default_slot.p && (!current || dirty & /*$$scope*/ 8)) {
     					update_slot_base(
     						default_slot,
     						default_slot_template,
     						ctx,
-    						/*$$scope*/ ctx[2],
+    						/*$$scope*/ ctx[3],
     						!current
-    						? get_all_dirty_from_scope(/*$$scope*/ ctx[2])
-    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[2], dirty, null),
+    						? get_all_dirty_from_scope(/*$$scope*/ ctx[3])
+    						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[3], dirty, null),
     						null
     					);
     				}
@@ -600,7 +614,7 @@ var app = (function () {
     			if (detaching) detach_dev(div1);
     			if (default_slot) default_slot.d(detaching);
     			mounted = false;
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -620,7 +634,8 @@ var app = (function () {
     	validate_slots('Select', slots, ['default']);
     	let { label } = $$props;
     	let { value = 0 } = $$props;
-    	const writable_props = ['label', 'value'];
+    	let { onchange = null } = $$props;
+    	const writable_props = ['label', 'value', 'onchange'];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<Select> was created with unknown prop '${key}'`);
@@ -634,27 +649,29 @@ var app = (function () {
     	$$self.$$set = $$props => {
     		if ('label' in $$props) $$invalidate(1, label = $$props.label);
     		if ('value' in $$props) $$invalidate(0, value = $$props.value);
-    		if ('$$scope' in $$props) $$invalidate(2, $$scope = $$props.$$scope);
+    		if ('onchange' in $$props) $$invalidate(2, onchange = $$props.onchange);
+    		if ('$$scope' in $$props) $$invalidate(3, $$scope = $$props.$$scope);
     	};
 
-    	$$self.$capture_state = () => ({ label, value });
+    	$$self.$capture_state = () => ({ label, value, onchange });
 
     	$$self.$inject_state = $$props => {
     		if ('label' in $$props) $$invalidate(1, label = $$props.label);
     		if ('value' in $$props) $$invalidate(0, value = $$props.value);
+    		if ('onchange' in $$props) $$invalidate(2, onchange = $$props.onchange);
     	};
 
     	if ($$props && "$$inject" in $$props) {
     		$$self.$inject_state($$props.$$inject);
     	}
 
-    	return [value, label, $$scope, slots, select_change_handler];
+    	return [value, label, onchange, $$scope, slots, select_change_handler];
     }
 
     class Select extends SvelteComponentDev {
     	constructor(options) {
     		super(options);
-    		init(this, options, instance$a, create_fragment$a, safe_not_equal, { label: 1, value: 0 });
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, { label: 1, value: 0, onchange: 2 });
 
     		dispatch_dev("SvelteRegisterComponent", {
     			component: this,
@@ -684,6 +701,14 @@ var app = (function () {
     	}
 
     	set value(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get onchange() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set onchange(value) {
     		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
     	}
     }
@@ -1629,7 +1654,7 @@ var app = (function () {
     /* src/InputForm.svelte generated by Svelte v3.44.0 */
     const file$5 = "src/InputForm.svelte";
 
-    // (15:1) <Select label="Magnet Type" bind:value={rp.type}>
+    // (15:1) <Select label="Magnet Type" bind:value={rp.type} onchange={() => dispatch('newtype')}>
     function create_default_slot_1(ctx) {
     	let option0;
     	let t1;
@@ -1649,13 +1674,13 @@ var app = (function () {
     			option2.textContent = "Cylinder";
     			option0.__value = 0;
     			option0.value = option0.__value;
-    			add_location(option0, file$5, 15, 2, 482);
+    			add_location(option0, file$5, 15, 2, 519);
     			option1.__value = 1;
     			option1.value = option1.__value;
-    			add_location(option1, file$5, 16, 2, 517);
+    			add_location(option1, file$5, 16, 2, 554);
     			option2.__value = 2;
     			option2.value = option2.__value;
-    			add_location(option2, file$5, 17, 2, 551);
+    			add_location(option2, file$5, 17, 2, 588);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -1677,7 +1702,7 @@ var app = (function () {
     		block,
     		id: create_default_slot_1.name,
     		type: "slot",
-    		source: "(15:1) <Select label=\\\"Magnet Type\\\" bind:value={rp.type}>",
+    		source: "(15:1) <Select label=\\\"Magnet Type\\\" bind:value={rp.type} onchange={() => dispatch('newtype')}>",
     		ctx
     	});
 
@@ -1694,7 +1719,7 @@ var app = (function () {
     	let current;
 
     	function numinput0_value_binding_2(value) {
-    		/*numinput0_value_binding_2*/ ctx[9](value);
+    		/*numinput0_value_binding_2*/ ctx[10](value);
     	}
 
     	let numinput0_props = { label: "Width", unit: "mm", hint: "300" };
@@ -1707,7 +1732,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput0, 'value', numinput0_value_binding_2));
 
     	function numinput1_value_binding_2(value) {
-    		/*numinput1_value_binding_2*/ ctx[10](value);
+    		/*numinput1_value_binding_2*/ ctx[11](value);
     	}
 
     	let numinput1_props = { label: "Height", unit: "mm", hint: "300" };
@@ -1793,7 +1818,7 @@ var app = (function () {
     	let current;
 
     	function numinput0_value_binding_1(value) {
-    		/*numinput0_value_binding_1*/ ctx[6](value);
+    		/*numinput0_value_binding_1*/ ctx[7](value);
     	}
 
     	let numinput0_props = { label: "Width", unit: "mm", hint: "5" };
@@ -1806,7 +1831,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput0, 'value', numinput0_value_binding_1));
 
     	function numinput1_value_binding_1(value) {
-    		/*numinput1_value_binding_1*/ ctx[7](value);
+    		/*numinput1_value_binding_1*/ ctx[8](value);
     	}
 
     	let numinput1_props = { label: "Height", unit: "mm", hint: "10" };
@@ -1819,7 +1844,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput1, 'value', numinput1_value_binding_1));
 
     	function numinput2_value_binding_1(value) {
-    		/*numinput2_value_binding_1*/ ctx[8](value);
+    		/*numinput2_value_binding_1*/ ctx[9](value);
     	}
 
     	let numinput2_props = {
@@ -1926,7 +1951,7 @@ var app = (function () {
     	let current;
 
     	function numinput0_value_binding(value) {
-    		/*numinput0_value_binding*/ ctx[3](value);
+    		/*numinput0_value_binding*/ ctx[4](value);
     	}
 
     	let numinput0_props = { label: "Height", unit: "mm", hint: "10" };
@@ -1939,7 +1964,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput0, 'value', numinput0_value_binding));
 
     	function numinput1_value_binding(value) {
-    		/*numinput1_value_binding*/ ctx[4](value);
+    		/*numinput1_value_binding*/ ctx[5](value);
     	}
 
     	let numinput1_props = { label: "Width", unit: "mm", hint: "10" };
@@ -1952,7 +1977,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput1, 'value', numinput1_value_binding));
 
     	function numinput2_value_binding(value) {
-    		/*numinput2_value_binding*/ ctx[5](value);
+    		/*numinput2_value_binding*/ ctx[6](value);
     	}
 
     	let numinput2_props = { label: "Depth", unit: "mm", hint: "10" };
@@ -2062,13 +2087,13 @@ var app = (function () {
     			option2.textContent = "PNG";
     			option0.__value = 0;
     			option0.value = option0.__value;
-    			add_location(option0, file$5, 65, 4, 2456);
+    			add_location(option0, file$5, 65, 4, 2493);
     			option1.__value = 1;
     			option1.value = option1.__value;
-    			add_location(option1, file$5, 66, 4, 2491);
+    			add_location(option1, file$5, 66, 4, 2528);
     			option2.__value = 2;
     			option2.value = option2.__value;
-    			add_location(option2, file$5, 67, 4, 2526);
+    			add_location(option2, file$5, 67, 4, 2563);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -2152,11 +2177,12 @@ var app = (function () {
     	let dispose;
 
     	function select0_value_binding(value) {
-    		/*select0_value_binding*/ ctx[2](value);
+    		/*select0_value_binding*/ ctx[3](value);
     	}
 
     	let select0_props = {
     		label: "Magnet Type",
+    		onchange: /*func*/ ctx[2],
     		$$slots: { default: [create_default_slot_1] },
     		$$scope: { ctx }
     	};
@@ -2182,7 +2208,7 @@ var app = (function () {
     	}
 
     	function rangeinput0_value_binding(value) {
-    		/*rangeinput0_value_binding*/ ctx[11](value);
+    		/*rangeinput0_value_binding*/ ctx[12](value);
     	}
 
     	let rangeinput0_props = {
@@ -2200,7 +2226,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(rangeinput0, 'value', rangeinput0_value_binding));
 
     	function rangeinput1_value_binding(value) {
-    		/*rangeinput1_value_binding*/ ctx[12](value);
+    		/*rangeinput1_value_binding*/ ctx[13](value);
     	}
 
     	let rangeinput1_props = {
@@ -2218,7 +2244,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(rangeinput1, 'value', rangeinput1_value_binding));
 
     	function numinput0_value_binding_3(value) {
-    		/*numinput0_value_binding_3*/ ctx[13](value);
+    		/*numinput0_value_binding_3*/ ctx[14](value);
     	}
 
     	let numinput0_props = {
@@ -2235,7 +2261,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput0, 'value', numinput0_value_binding_3));
 
     	function numinput1_value_binding_3(value) {
-    		/*numinput1_value_binding_3*/ ctx[14](value);
+    		/*numinput1_value_binding_3*/ ctx[15](value);
     	}
 
     	let numinput1_props = {
@@ -2252,7 +2278,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(numinput1, 'value', numinput1_value_binding_3));
 
     	function colorinput0_value_binding(value) {
-    		/*colorinput0_value_binding*/ ctx[15](value);
+    		/*colorinput0_value_binding*/ ctx[16](value);
     	}
 
     	let colorinput0_props = { label: "First Color", unit: "hex" };
@@ -2265,7 +2291,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(colorinput0, 'value', colorinput0_value_binding));
 
     	function colorinput1_value_binding(value) {
-    		/*colorinput1_value_binding*/ ctx[16](value);
+    		/*colorinput1_value_binding*/ ctx[17](value);
     	}
 
     	let colorinput1_props = { label: "Second Color", unit: "hex" };
@@ -2278,7 +2304,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(colorinput1, 'value', colorinput1_value_binding));
 
     	function input_value_binding(value) {
-    		/*input_value_binding*/ ctx[17](value);
+    		/*input_value_binding*/ ctx[18](value);
     	}
 
     	let input_props = { label: "File Name" };
@@ -2291,7 +2317,7 @@ var app = (function () {
     	binding_callbacks.push(() => bind(input, 'value', input_value_binding));
 
     	function select1_value_binding(value) {
-    		/*select1_value_binding*/ ctx[18](value);
+    		/*select1_value_binding*/ ctx[19](value);
     	}
 
     	let select1_props = {
@@ -2352,37 +2378,37 @@ var app = (function () {
     			button2 = element("button");
     			button2.textContent = "Load Preset";
     			attr_dev(div0, "class", "w-full md:w-1/2 px-2");
-    			add_location(div0, file$5, 33, 2, 1328);
+    			add_location(div0, file$5, 33, 2, 1365);
     			attr_dev(div1, "class", "w-full md:w-1/2 px-2");
-    			add_location(div1, file$5, 36, 2, 1475);
+    			add_location(div1, file$5, 36, 2, 1512);
     			attr_dev(div2, "class", "flex flex-wrap -mx-2");
-    			add_location(div2, file$5, 32, 1, 1291);
+    			add_location(div2, file$5, 32, 1, 1328);
     			attr_dev(div3, "class", "w-full md:w-1/2 px-2");
-    			add_location(div3, file$5, 42, 2, 1658);
+    			add_location(div3, file$5, 42, 2, 1695);
     			attr_dev(div4, "class", "w-full md:w-1/2 px-2");
-    			add_location(div4, file$5, 45, 2, 1785);
+    			add_location(div4, file$5, 45, 2, 1822);
     			attr_dev(div5, "class", "flex flex-wrap -mx-2 mb-2");
-    			add_location(div5, file$5, 41, 1, 1616);
+    			add_location(div5, file$5, 41, 1, 1653);
     			attr_dev(div6, "class", "w-full md:w-1/2 px-2");
-    			add_location(div6, file$5, 51, 2, 1960);
+    			add_location(div6, file$5, 51, 2, 1997);
     			attr_dev(div7, "class", "w-full md:w-1/2 px-2");
-    			add_location(div7, file$5, 54, 2, 2084);
+    			add_location(div7, file$5, 54, 2, 2121);
     			attr_dev(div8, "class", "flex flex-wrap -mx-2 mb-2");
-    			add_location(div8, file$5, 50, 1, 1918);
+    			add_location(div8, file$5, 50, 1, 1955);
     			attr_dev(div9, "class", "w-full md:w-2/3 px-2");
-    			add_location(div9, file$5, 60, 2, 2260);
+    			add_location(div9, file$5, 60, 2, 2297);
     			attr_dev(div10, "class", "w-full md:w-1/3 px-2");
-    			add_location(div10, file$5, 63, 2, 2362);
+    			add_location(div10, file$5, 63, 2, 2399);
     			attr_dev(div11, "class", "flex flex-wrap -mx-2 mb-2");
-    			add_location(div11, file$5, 59, 1, 2218);
+    			add_location(div11, file$5, 59, 1, 2255);
     			attr_dev(button0, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button0, file$5, 73, 2, 2640);
+    			add_location(button0, file$5, 73, 2, 2677);
     			attr_dev(button1, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button1, file$5, 77, 2, 2858);
+    			add_location(button1, file$5, 77, 2, 2895);
     			attr_dev(button2, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button2, file$5, 81, 2, 3076);
+    			add_location(button2, file$5, 81, 2, 3113);
     			attr_dev(div12, "class", "flex justify-center space-x-2 mb-2");
-    			add_location(div12, file$5, 72, 1, 2589);
+    			add_location(div12, file$5, 72, 1, 2626);
     			attr_dev(form, "class", "w-full min-w-sm");
     			add_location(form, file$5, 13, 0, 398);
     		},
@@ -2437,9 +2463,9 @@ var app = (function () {
 
     			if (!mounted) {
     				dispose = [
-    					listen_dev(button0, "click", prevent_default(/*click_handler*/ ctx[19]), false, true, false),
-    					listen_dev(button1, "click", prevent_default(/*click_handler_1*/ ctx[20]), false, true, false),
-    					listen_dev(button2, "click", prevent_default(/*click_handler_2*/ ctx[21]), false, true, false)
+    					listen_dev(button0, "click", prevent_default(/*click_handler*/ ctx[20]), false, true, false),
+    					listen_dev(button1, "click", prevent_default(/*click_handler_1*/ ctx[21]), false, true, false),
+    					listen_dev(button2, "click", prevent_default(/*click_handler_2*/ ctx[22]), false, true, false)
     				];
 
     				mounted = true;
@@ -2448,7 +2474,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const select0_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				select0_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2559,7 +2585,7 @@ var app = (function () {
     			input.$set(input_changes);
     			const select1_changes = {};
 
-    			if (dirty & /*$$scope*/ 4194304) {
+    			if (dirty & /*$$scope*/ 8388608) {
     				select1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2640,6 +2666,8 @@ var app = (function () {
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== '$$' && key !== 'slot') console.warn(`<InputForm> was created with unknown prop '${key}'`);
     	});
+
+    	const func = () => dispatch('newtype');
 
     	function select0_value_binding(value) {
     		if ($$self.$$.not_equal(rp.type, value)) {
@@ -2790,6 +2818,7 @@ var app = (function () {
     	return [
     		rp,
     		dispatch,
+    		func,
     		select0_value_binding,
     		numinput0_value_binding,
     		numinput1_value_binding,
@@ -3469,6 +3498,7 @@ var app = (function () {
     	let rect6_x_value;
     	let rect6_y_value;
     	let rect6_width_value;
+    	let rect6_height_value;
     	let rect6_fill_value;
     	let path9;
     	let path9_d_value;
@@ -3705,72 +3735,72 @@ var app = (function () {
     			attr_dev(rect6, "x", rect6_x_value = /*left*/ ctx[10] + /*width*/ ctx[3] / 2 - /*radius*/ ctx[4]);
     			attr_dev(rect6, "y", rect6_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] - /*inner_y*/ ctx[8]);
     			attr_dev(rect6, "width", rect6_width_value = 2 * /*radius*/ ctx[4]);
-    			attr_dev(rect6, "height", "96.596");
+    			attr_dev(rect6, "height", rect6_height_value = /*height*/ ctx[9] / 2 + /*inner_y*/ ctx[8]);
     			attr_dev(rect6, "fill", rect6_fill_value = darken(/*colors*/ ctx[7].first, -1 / 4));
     			attr_dev(rect6, "clip-path", "url(#clip-hole)");
     			attr_dev(rect6, "mask", "url(#mask-hole-south-pole)");
     			add_location(rect6, file$3, 119, 4, 4594);
     			attr_dev(path9, "d", path9_d_value = `M${/*left*/ ctx[10] + /*width*/ ctx[3] + 3} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}h16`);
     			attr_dev(path9, "class", "arrow-dimension-line");
-    			add_location(path9, file$3, 122, 4, 4810);
+    			add_location(path9, file$3, 122, 4, 4820);
     			attr_dev(path10, "d", path10_d_value = `M${/*left*/ ctx[10] + /*width*/ ctx[3] + 3} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9]}h16`);
     			attr_dev(path10, "class", "arrow-dimension-line");
-    			add_location(path10, file$3, 123, 4, 4891);
+    			add_location(path10, file$3, 123, 4, 4901);
     			attr_dev(path11, "d", path11_d_value = `M${/*left*/ ctx[10] + /*width*/ ctx[3] + 14} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + 10}v${/*height*/ ctx[9] - 2 * 10}`);
     			attr_dev(path11, "class", "arrow");
-    			add_location(path11, file$3, 124, 4, 4979);
+    			add_location(path11, file$3, 124, 4, 4989);
     			attr_dev(text1, "x", text1_x_value = /*left*/ ctx[10] + /*width*/ ctx[3] + 20);
     			attr_dev(text1, "y", text1_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9] / 2 + 21 / 2);
     			attr_dev(text1, "font-size", "21");
     			attr_dev(text1, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text1, "fill", "#999");
     			set_style(text1, "text-anchor", "left");
-    			add_location(text1, file$3, 125, 4, 5061);
+    			add_location(text1, file$3, 125, 4, 5071);
     			attr_dev(path12, "d", path12_d_value = `M${/*left*/ ctx[10]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9] + 3}v${/*rad_y*/ ctx[2] + 7}`);
     			attr_dev(path12, "class", "arrow-dimension-line");
-    			add_location(path12, file$3, 127, 4, 5255);
+    			add_location(path12, file$3, 127, 4, 5265);
     			attr_dev(path13, "d", path13_d_value = `M${/*left*/ ctx[10] + /*width*/ ctx[3]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9] + 3}v${/*rad_y*/ ctx[2] + 7}`);
     			attr_dev(path13, "class", "arrow-dimension-line");
-    			add_location(path13, file$3, 128, 4, 5345);
+    			add_location(path13, file$3, 128, 4, 5355);
     			attr_dev(path14, "d", path14_d_value = `M${/*left*/ ctx[10] + 10} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9] + /*rad_y*/ ctx[2] + 7}h${/*width*/ ctx[3] - 2 * 10}`);
     			attr_dev(path14, "class", "arrow");
-    			add_location(path14, file$3, 129, 4, 5441);
+    			add_location(path14, file$3, 129, 4, 5451);
     			attr_dev(text2, "x", text2_x_value = /*left*/ ctx[10] + /*width*/ ctx[3] / 2);
     			attr_dev(text2, "y", text2_y_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9] + /*rad_y*/ ctx[2] + 30);
     			attr_dev(text2, "font-size", "21");
     			attr_dev(text2, "font-family", "Arial, Helvetica, sans-serif");
     			set_style(text2, "fill", "#999");
     			set_style(text2, "text-anchor", "middle");
-    			add_location(text2, file$3, 130, 4, 5528);
+    			add_location(text2, file$3, 130, 4, 5538);
     			attr_dev(ellipse4, "cx", ellipse4_cx_value = /*left*/ ctx[10] + /*width*/ ctx[3] / 2);
     			attr_dev(ellipse4, "cy", ellipse4_cy_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2]);
     			attr_dev(ellipse4, "rx", ellipse4_rx_value = /*width*/ ctx[3] / 2);
     			attr_dev(ellipse4, "ry", /*rad_y*/ ctx[2]);
     			attr_dev(ellipse4, "class", "border");
     			attr_dev(ellipse4, "fill", "none");
-    			add_location(ellipse4, file$3, 132, 4, 5724);
+    			add_location(ellipse4, file$3, 132, 4, 5734);
     			attr_dev(path15, "d", path15_d_value = `M${/*left*/ ctx[10]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] + /*height*/ ctx[9]}a${/*width*/ ctx[3] / 2} ${/*rad_y*/ ctx[2]} 0 0 0 ${/*width*/ ctx[3]} 0`);
     			attr_dev(path15, "class", "border");
     			attr_dev(path15, "fill", "none");
-    			add_location(path15, file$3, 134, 4, 5832);
+    			add_location(path15, file$3, 134, 4, 5842);
     			attr_dev(path16, "d", path16_d_value = `M${/*left*/ ctx[10]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}v${/*height*/ ctx[9]}`);
     			attr_dev(path16, "class", "border");
-    			add_location(path16, file$3, 135, 4, 5944);
+    			add_location(path16, file$3, 135, 4, 5954);
     			attr_dev(path17, "d", path17_d_value = `M${/*left*/ ctx[10] + /*width*/ ctx[3]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2]}v${/*height*/ ctx[9]}`);
     			attr_dev(path17, "class", "border");
-    			add_location(path17, file$3, 136, 4, 6010);
+    			add_location(path17, file$3, 136, 4, 6020);
     			attr_dev(path18, "d", path18_d_value = `M${/*left*/ ctx[10] + /*width*/ ctx[3] / 2 - /*radius*/ ctx[4]} ${/*top*/ ctx[5] + /*rad_y*/ ctx[2] - /*inner_y*/ ctx[8]}a${/*radius*/ ctx[4]} ${/*inner_y*/ ctx[8]} 0 0 1 ${2 * /*radius*/ ctx[4]} 0`);
     			attr_dev(path18, "class", "border");
     			attr_dev(path18, "fill", "none");
     			attr_dev(path18, "clip-path", "url(#clip-hole)");
-    			add_location(path18, file$3, 137, 4, 6082);
+    			add_location(path18, file$3, 137, 4, 6092);
     			attr_dev(ellipse5, "cx", ellipse5_cx_value = /*left*/ ctx[10] + /*width*/ ctx[3] / 2);
     			attr_dev(ellipse5, "cy", ellipse5_cy_value = /*top*/ ctx[5] + /*rad_y*/ ctx[2]);
     			attr_dev(ellipse5, "rx", /*radius*/ ctx[4]);
     			attr_dev(ellipse5, "ry", /*inner_y*/ ctx[8]);
     			attr_dev(ellipse5, "class", "border");
     			attr_dev(ellipse5, "fill", "none");
-    			add_location(ellipse5, file$3, 138, 4, 6242);
+    			add_location(ellipse5, file$3, 138, 4, 6252);
     			attr_dev(svg_1, "viewBox", svg_1_viewBox_value = `0 0 ${640 / /*renderParams*/ ctx[1].scale} ${440 / /*renderParams*/ ctx[1].scale}`);
     			attr_dev(svg_1, "xmlns", "http://www.w3.org/2000/svg");
     			add_location(svg_1, file$3, 34, 0, 912);
@@ -4002,6 +4032,10 @@ var app = (function () {
 
     			if (dirty & /*radius*/ 16 && rect6_width_value !== (rect6_width_value = 2 * /*radius*/ ctx[4])) {
     				attr_dev(rect6, "width", rect6_width_value);
+    			}
+
+    			if (dirty & /*height, inner_y*/ 768 && rect6_height_value !== (rect6_height_value = /*height*/ ctx[9] / 2 + /*inner_y*/ ctx[8])) {
+    				attr_dev(rect6, "height", rect6_height_value);
     			}
 
     			if (dirty & /*colors*/ 128 && rect6_fill_value !== (rect6_fill_value = darken(/*colors*/ ctx[7].first, -1 / 4))) {
@@ -5224,7 +5258,7 @@ var app = (function () {
     	let current;
 
     	function inputform_rp_binding(value) {
-    		/*inputform_rp_binding*/ ctx[7](value);
+    		/*inputform_rp_binding*/ ctx[8](value);
     	}
 
     	let inputform_props = {};
@@ -5238,13 +5272,14 @@ var app = (function () {
     	inputform.$on("save", /*save*/ ctx[4]);
     	inputform.$on("exportimg", /*exportImg*/ ctx[6]);
     	inputform.$on("load", /*load*/ ctx[5]);
+    	inputform.$on("newtype", /*newType*/ ctx[7]);
 
     	function preview_renderParams_binding(value) {
-    		/*preview_renderParams_binding*/ ctx[8](value);
+    		/*preview_renderParams_binding*/ ctx[9](value);
     	}
 
     	function preview_svg_binding(value) {
-    		/*preview_svg_binding*/ ctx[9](value);
+    		/*preview_svg_binding*/ ctx[10](value);
     	}
 
     	let preview_props = {};
@@ -5276,19 +5311,19 @@ var app = (function () {
     			t4 = space();
     			div2 = element("div");
     			create_component(preview.$$.fragment);
-    			add_location(h1, file, 176395, 4, 4041332);
+    			add_location(h1, file, 176399, 4, 4041433);
     			attr_dev(div0, "class", "container text-center");
-    			add_location(div0, file, 176394, 3, 4041292);
+    			add_location(div0, file, 176398, 3, 4041393);
     			attr_dev(div1, "id", "left");
     			attr_dev(div1, "class", "flex flex-col flex-wrap space-y-6 md:w-1/3");
-    			add_location(div1, file, 176393, 2, 4041222);
+    			add_location(div1, file, 176397, 2, 4041323);
     			attr_dev(div2, "id", "right");
     			attr_dev(div2, "class", "md:w-2/3 pl-2");
-    			add_location(div2, file, 176399, 2, 4041475);
+    			add_location(div2, file, 176403, 2, 4041597);
     			attr_dev(div3, "class", "flex flex-col md:flex-row flex-wrap md:flex-nowrap");
-    			add_location(div3, file, 176392, 1, 4041155);
+    			add_location(div3, file, 176396, 1, 4041256);
     			attr_dev(main, "class", "h-full");
-    			add_location(main, file, 176391, 0, 4041132);
+    			add_location(main, file, 176395, 0, 4041233);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5376,10 +5411,7 @@ var app = (function () {
     		0
     	);
 
-    	console.log('Max =', maxVal);
-
     	for (const prop in dim) {
-    		console.log(prop, dim[prop]);
     		dim[prop] = dim[prop] / maxVal * max;
     	}
 
@@ -5393,7 +5425,7 @@ var app = (function () {
     	let { name } = $$props;
     	let { version } = $$props;
 
-    	const renderPresets = [
+    	let renderPresets = [
     		{
     			type: 0,
     			dim: {
@@ -5463,6 +5495,12 @@ var app = (function () {
     		ipcRenderer.send('export-img', { renderParams, svg: svg.outerHTML });
     	}
 
+    	function newType() {
+    		console.log('New type', renderParams.type);
+    		console.log('Render params', renderParams);
+    		$$invalidate(2, renderParams = renderPresets[renderParams.type]);
+    	}
+
     	const writable_props = ['name', 'version'];
 
     	Object_1.keys($$props).forEach(key => {
@@ -5501,12 +5539,14 @@ var app = (function () {
     		renderParams,
     		save,
     		load,
-    		exportImg
+    		exportImg,
+    		newType
     	});
 
     	$$self.$inject_state = $$props => {
     		if ('name' in $$props) $$invalidate(0, name = $$props.name);
     		if ('version' in $$props) $$invalidate(1, version = $$props.version);
+    		if ('renderPresets' in $$props) renderPresets = $$props.renderPresets;
     		if ('svg' in $$props) $$invalidate(3, svg = $$props.svg);
     		if ('renderParams' in $$props) $$invalidate(2, renderParams = $$props.renderParams);
     	};
@@ -5529,6 +5569,7 @@ var app = (function () {
     		save,
     		load,
     		exportImg,
+    		newType,
     		inputform_rp_binding,
     		preview_renderParams_binding,
     		preview_svg_binding
