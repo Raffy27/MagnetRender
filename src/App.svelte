@@ -101,14 +101,14 @@
 </script>
 
 <main class="h-full">
-	<div class="container flex flex-col md:flex-row flex-wrap md:flex-nowrap">
-		<div id="left" class="flex flex-col flex-wrap space-y-6 md:w-1/2">
+	<div class="flex flex-col md:flex-row flex-wrap md:flex-nowrap">
+		<div id="left" class="flex flex-col flex-wrap space-y-6 md:w-1/3">
 			<div class="container text-center">
 				<h1>{name} v{version}</h1>
 			</div>
 			<InputForm bind:rp={renderParams} on:save={save} on:exportimg={exportImg} on:load={load} />
 		</div>
-		<div id="right" class="md:w-1/2 pl-2">
+		<div id="right" class="md:w-2/3 pl-2">
 			<Preview bind:renderParams={renderParams} bind:svg={svg} />
 		</div>
 	</div>

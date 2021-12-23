@@ -2056,13 +2056,13 @@ var app = (function () {
     			option2.textContent = "PNG";
     			option0.__value = 0;
     			option0.value = option0.__value;
-    			add_location(option0, file$5, 65, 4, 2466);
+    			add_location(option0, file$5, 65, 4, 2456);
     			option1.__value = 1;
     			option1.value = option1.__value;
-    			add_location(option1, file$5, 66, 4, 2501);
+    			add_location(option1, file$5, 66, 4, 2491);
     			option2.__value = 2;
     			option2.value = option2.__value;
-    			add_location(option2, file$5, 67, 4, 2536);
+    			add_location(option2, file$5, 67, 4, 2526);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option0, anchor);
@@ -2262,11 +2262,7 @@ var app = (function () {
     		/*colorinput1_value_binding*/ ctx[16](value);
     	}
 
-    	let colorinput1_props = {
-    		label: "Second Color",
-    		unit: "hex",
-    		hint: "10"
-    	};
+    	let colorinput1_props = { label: "Second Color", unit: "hex" };
 
     	if (/*rp*/ ctx[0].colors.second !== void 0) {
     		colorinput1_props.value = /*rp*/ ctx[0].colors.second;
@@ -2368,19 +2364,19 @@ var app = (function () {
     			attr_dev(div8, "class", "flex flex-wrap -mx-2 mb-2");
     			add_location(div8, file$5, 50, 1, 1918);
     			attr_dev(div9, "class", "w-full md:w-2/3 px-2");
-    			add_location(div9, file$5, 60, 2, 2270);
+    			add_location(div9, file$5, 60, 2, 2260);
     			attr_dev(div10, "class", "w-full md:w-1/3 px-2");
-    			add_location(div10, file$5, 63, 2, 2372);
+    			add_location(div10, file$5, 63, 2, 2362);
     			attr_dev(div11, "class", "flex flex-wrap -mx-2 mb-2");
-    			add_location(div11, file$5, 59, 1, 2228);
+    			add_location(div11, file$5, 59, 1, 2218);
     			attr_dev(button0, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button0, file$5, 73, 2, 2650);
+    			add_location(button0, file$5, 73, 2, 2640);
     			attr_dev(button1, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button1, file$5, 77, 2, 2868);
+    			add_location(button1, file$5, 77, 2, 2858);
     			attr_dev(button2, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
-    			add_location(button2, file$5, 81, 2, 3086);
+    			add_location(button2, file$5, 81, 2, 3076);
     			attr_dev(div12, "class", "flex justify-center space-x-2 mb-2");
-    			add_location(div12, file$5, 72, 1, 2599);
+    			add_location(div12, file$5, 72, 1, 2589);
     			attr_dev(form, "class", "w-full min-w-sm");
     			add_location(form, file$5, 13, 0, 398);
     		},
@@ -5020,7 +5016,7 @@ var app = (function () {
     			if (if_block) if_block.c();
     			attr_dev(div0, "class", "my-12");
     			add_location(div0, file$1, 9, 0, 218);
-    			attr_dev(div1, "class", "w-full h-full");
+    			attr_dev(div1, "class", "min-w-full h-full border-2 border-dashed rounded-md");
     			add_location(div1, file$1, 10, 0, 244);
     		},
     		l: function claim(nodes) {
@@ -5265,16 +5261,16 @@ var app = (function () {
     			t4 = space();
     			div2 = element("div");
     			create_component(preview.$$.fragment);
-    			add_location(h1, file, 176380, 4, 4040954);
+    			add_location(h1, file, 176380, 4, 4040944);
     			attr_dev(div0, "class", "container text-center");
-    			add_location(div0, file, 176379, 3, 4040914);
+    			add_location(div0, file, 176379, 3, 4040904);
     			attr_dev(div1, "id", "left");
-    			attr_dev(div1, "class", "flex flex-col flex-wrap space-y-6 md:w-1/2");
-    			add_location(div1, file, 176378, 2, 4040844);
+    			attr_dev(div1, "class", "flex flex-col flex-wrap space-y-6 md:w-1/3");
+    			add_location(div1, file, 176378, 2, 4040834);
     			attr_dev(div2, "id", "right");
-    			attr_dev(div2, "class", "md:w-1/2 pl-2");
-    			add_location(div2, file, 176384, 2, 4041097);
-    			attr_dev(div3, "class", "container flex flex-col md:flex-row flex-wrap md:flex-nowrap");
+    			attr_dev(div2, "class", "md:w-2/3 pl-2");
+    			add_location(div2, file, 176384, 2, 4041087);
+    			attr_dev(div3, "class", "flex flex-col md:flex-row flex-wrap md:flex-nowrap");
     			add_location(div3, file, 176377, 1, 4040767);
     			attr_dev(main, "class", "h-full");
     			add_location(main, file, 176376, 0, 4040744);

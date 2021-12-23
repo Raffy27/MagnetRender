@@ -53,7 +53,7 @@
 			<ColorInput label="First Color" unit="hex" bind:value={rp.colors.first} />
 		</div>
 		<div class="w-full md:w-1/2 px-2">
-			<ColorInput label="Second Color" unit="hex" hint="10" bind:value={rp.colors.second} />
+			<ColorInput label="Second Color" unit="hex" bind:value={rp.colors.second} />
 		</div>
 	</div>
 

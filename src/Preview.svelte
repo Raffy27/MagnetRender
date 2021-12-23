@@ -8,7 +8,7 @@
 </script>
 
 <div class="my-12"></div>
-<div class="w-full h-full">
+<div class="min-w-full h-full border-2 border-dashed rounded-md">
     {#if renderParams.type == 0}
         <Prism renderParams={renderParams} bind:svg={svg} />
     {:else if renderParams.type == 1}
