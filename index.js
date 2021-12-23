@@ -51,6 +51,26 @@ ipcMain.on('save-rp', async (e, data) => {
     await fs.writeFile(file, data);
 });
 
+ipcMain.on('load-rp', async e => {
+    let r = await dialog.showOpenDialog(mainWindow, {
+        title: 'Load Preset',
+        defaultPath: path.join(os.homedir(), 'Documents'),
+        filters: [{
+            name: 'JSON Files',
+            extensions: ['json']
+        }, {
+            name: 'All Files',
+            extensions: ['*']
+        }],
+        properties: ['openFile']
+    });
+    if(r.canceled) return;
+    if(!r.filePaths) return;
+    let file = r.filePaths[0];
+    let data = await fs.readFile(file, 'utf-8');
+    e.sender.send('rp', JSON.parse(data));
+});
+
 function parseFileName(tmp, rp){
     tmp = tmp.replace(/{type}/g, rp.type == 0 ? 'Prism' : (rp.type == 1 ? 'Ring' : 'Cylinder'))
         .replace(/{w}/g, rp.dim.width?.toString())

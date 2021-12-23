@@ -2139,6 +2139,8 @@ var app = (function () {
     	let button0;
     	let t11;
     	let button1;
+    	let t13;
+    	let button2;
     	let current;
     	let mounted;
     	let dispose;
@@ -2344,6 +2346,9 @@ var app = (function () {
     			t11 = space();
     			button1 = element("button");
     			button1.textContent = "Save Preset";
+    			t13 = space();
+    			button2 = element("button");
+    			button2.textContent = "Load Preset";
     			attr_dev(div0, "class", "w-full md:w-1/2 px-2");
     			add_location(div0, file$5, 33, 2, 1328);
     			attr_dev(div1, "class", "w-full md:w-1/2 px-2");
@@ -2372,6 +2377,8 @@ var app = (function () {
     			add_location(button0, file$5, 73, 2, 2650);
     			attr_dev(button1, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
     			add_location(button1, file$5, 77, 2, 2868);
+    			attr_dev(button2, "class", "shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded");
+    			add_location(button2, file$5, 81, 2, 3086);
     			attr_dev(div12, "class", "flex justify-center space-x-2 mb-2");
     			add_location(div12, file$5, 72, 1, 2599);
     			attr_dev(form, "class", "w-full min-w-sm");
@@ -2422,12 +2429,15 @@ var app = (function () {
     			append_dev(div12, button0);
     			append_dev(div12, t11);
     			append_dev(div12, button1);
+    			append_dev(div12, t13);
+    			append_dev(div12, button2);
     			current = true;
 
     			if (!mounted) {
     				dispose = [
     					listen_dev(button0, "click", prevent_default(/*click_handler*/ ctx[19]), false, true, false),
-    					listen_dev(button1, "click", prevent_default(/*click_handler_1*/ ctx[20]), false, true, false)
+    					listen_dev(button1, "click", prevent_default(/*click_handler_1*/ ctx[20]), false, true, false),
+    					listen_dev(button2, "click", prevent_default(/*click_handler_2*/ ctx[21]), false, true, false)
     				];
 
     				mounted = true;
@@ -2436,7 +2446,7 @@ var app = (function () {
     		p: function update(ctx, [dirty]) {
     			const select0_changes = {};
 
-    			if (dirty & /*$$scope*/ 2097152) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				select0_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2547,7 +2557,7 @@ var app = (function () {
     			input.$set(input_changes);
     			const select1_changes = {};
 
-    			if (dirty & /*$$scope*/ 2097152) {
+    			if (dirty & /*$$scope*/ 4194304) {
     				select1_changes.$$scope = { dirty, ctx };
     			}
 
@@ -2750,6 +2760,7 @@ var app = (function () {
 
     	const click_handler = () => dispatch('exportimg');
     	const click_handler_1 = () => dispatch('save');
+    	const click_handler_2 = () => dispatch('load');
 
     	$$self.$$set = $$props => {
     		if ('rp' in $$props) $$invalidate(0, rp = $$props.rp);
@@ -2795,7 +2806,8 @@ var app = (function () {
     		input_value_binding,
     		select1_value_binding,
     		click_handler,
-    		click_handler_1
+    		click_handler_1,
+    		click_handler_2
     	];
     }
 
@@ -5201,7 +5213,7 @@ var app = (function () {
     	let current;
 
     	function inputform_rp_binding(value) {
-    		/*inputform_rp_binding*/ ctx[6](value);
+    		/*inputform_rp_binding*/ ctx[7](value);
     	}
 
     	let inputform_props = {};
@@ -5213,14 +5225,15 @@ var app = (function () {
     	inputform = new InputForm({ props: inputform_props, $$inline: true });
     	binding_callbacks.push(() => bind(inputform, 'rp', inputform_rp_binding));
     	inputform.$on("save", /*save*/ ctx[4]);
-    	inputform.$on("exportimg", /*exportImg*/ ctx[5]);
+    	inputform.$on("exportimg", /*exportImg*/ ctx[6]);
+    	inputform.$on("load", /*load*/ ctx[5]);
 
     	function preview_renderParams_binding(value) {
-    		/*preview_renderParams_binding*/ ctx[7](value);
+    		/*preview_renderParams_binding*/ ctx[8](value);
     	}
 
     	function preview_svg_binding(value) {
-    		/*preview_svg_binding*/ ctx[8](value);
+    		/*preview_svg_binding*/ ctx[9](value);
     	}
 
     	let preview_props = {};
@@ -5252,19 +5265,19 @@ var app = (function () {
     			t4 = space();
     			div2 = element("div");
     			create_component(preview.$$.fragment);
-    			add_location(h1, file, 176372, 4, 4040835);
+    			add_location(h1, file, 176380, 4, 4040954);
     			attr_dev(div0, "class", "container text-center");
-    			add_location(div0, file, 176371, 3, 4040795);
+    			add_location(div0, file, 176379, 3, 4040914);
     			attr_dev(div1, "id", "left");
     			attr_dev(div1, "class", "flex flex-col flex-wrap space-y-6 md:w-1/2");
-    			add_location(div1, file, 176370, 2, 4040725);
+    			add_location(div1, file, 176378, 2, 4040844);
     			attr_dev(div2, "id", "right");
     			attr_dev(div2, "class", "md:w-1/2 pl-2");
-    			add_location(div2, file, 176376, 2, 4040963);
+    			add_location(div2, file, 176384, 2, 4041097);
     			attr_dev(div3, "class", "container flex flex-col md:flex-row flex-wrap md:flex-nowrap");
-    			add_location(div3, file, 176369, 1, 4040648);
+    			add_location(div3, file, 176377, 1, 4040767);
     			attr_dev(main, "class", "h-full");
-    			add_location(main, file, 176368, 0, 4040625);
+    			add_location(main, file, 176376, 0, 4040744);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -5407,6 +5420,14 @@ var app = (function () {
     		ipcRenderer.send('save-rp', renderParams);
     	}
 
+    	function load() {
+    		ipcRenderer.send('load-rp');
+    	}
+
+    	ipcRenderer.on('rp', (e, args) => {
+    		$$invalidate(3, renderParams = args);
+    	});
+
     	function exportImg() {
     		ipcRenderer.send('export-img', { renderParams, svg: svg.outerHTML });
     	}
@@ -5447,6 +5468,7 @@ var app = (function () {
     		svg,
     		renderParams,
     		save,
+    		load,
     		exportImg
     	});
 
@@ -5467,6 +5489,7 @@ var app = (function () {
     		svg,
     		renderParams,
     		save,
+    		load,
     		exportImg,
     		inputform_rp_binding,
     		preview_renderParams_binding,

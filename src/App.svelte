@@ -84,6 +84,14 @@
 		ipcRenderer.send('save-rp', renderParams);
 	}
 
+	function load(){
+		ipcRenderer.send('load-rp');
+	}
+
+	ipcRenderer.on('rp', (e, args) => {
+		renderParams = args;
+	});
+
 	function exportImg(){
 		ipcRenderer.send('export-img', {
 			renderParams,
@@ -98,7 +106,7 @@
 			<div class="container text-center">
 				<h1>{name} v{version}</h1>
 			</div>
-			<InputForm bind:rp={renderParams} on:save={save} on:exportimg={exportImg} />
+			<InputForm bind:rp={renderParams} on:save={save} on:exportimg={exportImg} on:load={load} />
 		</div>
 		<div id="right" class="md:w-1/2 pl-2">
 			<Preview bind:renderParams={renderParams} bind:svg={svg} />
