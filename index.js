@@ -17,7 +17,7 @@ if(isDev) {
 app.on('ready', () => {
     mainWindow = new BrowserWindow({
         width: 1200,
-        height: 870,
+        height: 785,
         webPreferences: {
             nodeIntegration: true,
             contextIsolation: false

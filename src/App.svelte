@@ -13,6 +13,10 @@
 
 	function normalizeDimensions(rp, max) {
 		let dim = Object.assign({}, rp.dim);
+		// Save invariant properties
+		let _top = dim.top, _left = dim.left;
+		delete dim.top;
+		delete dim.left;
 		const maxVal = Object.keys(dim).reduce((acc, cur) => {
 			return Math.max(acc, dim[cur]);
 		}, 0);
@@ -20,6 +24,11 @@
 			dim[prop] = dim[prop] / maxVal * max;
 		}
 		rp.normalDim = dim;
+		// Restore invariant properties
+		rp.normalDim.top = _top;
+		rp.normalDim.left = _left;
+		console.log('RP', rp);
+		console.log('DIM', dim);
 	}
 
 	let renderPresets = [
@@ -27,21 +36,20 @@
 			type: 0,
 
 			dim: {
-				top: 10,
+				top: 30,
 				left: 30,
-				width: 330,
-				height: 60,
-				depth: 120,
-				radius: 77.9,
+				width: 10,
+				height: 2,
+				depth: 3
 			},
 			colors: {
-				first: '#CB5959',
-				second: '#36987D'
+				first: '#d64c4c',
+				second: '#4f4f4f'
 			},
 			perspective: 0.19,
 			scale: 1,
 
-			fileName: '',
+			fileName: 'Magnet-neodim-{type}-{w}x{h}x{d}',
 			fileType: 0
 		},
 		{
@@ -50,19 +58,18 @@
 			dim: {
 				top: 30,
 				left: 30,
-				width: 330,
-				height: 60,
-				depth: 120,
-				radius: 77.9,
+				width: 15,
+				height: 6,
+				radius: 3,
 			},
 			colors: {
-				first: '#CB5959',
-				second: '#36987D'
+				first: '#d64c4c',
+				second: '#4f4f4f'
 			},
 			perspective: 0.19,
 			scale: 1,
 
-			fileName: '',
+			fileName: 'Magnet-neodim-{type}-{w}x{h}-{r}',
 			fileType: 0
 		},
 		{
@@ -71,27 +78,29 @@
 			dim: {
 				top: 30,
 				left: 30,
-				width: 330,
-				height: 60,
-				depth: 120,
-				radius: 77.9,
+				width: 15,
+				height: 6,
+				radius: 6,
 			},
 			colors: {
-				first: '#CB5959',
-				second: '#36987D'
+				first: '#d64c4c',
+				second: '#4f4f4f'
 			},
 			perspective: 0.19,
 			scale: 1,
 
-			fileName: 'Magnet-neodim-disc-{w}x{h}',
+			fileName: 'Magnet-neodim-{type}-{w}x{h}',
 			fileType: 0
 		}
 	];
 
 	let svg = '';
-	let renderParams = renderPresets[0];
+	let renderParams = Object.assign({}, renderPresets[0]);
 
-	$: normalizeDimensions(renderParams, 350);
+	$: {
+		console.log('Reactive normalization');
+		normalizeDimensions(renderParams, 350);
+	}
 
 	function save(){
 		ipcRenderer.send('save-rp', renderParams);
@@ -114,8 +123,9 @@
 
 	function newType(){
 		console.log('New type', renderParams.type);
+		console.log('Render presets', renderPresets);
+		renderParams = Object.assign({}, renderPresets[renderParams.type]);
 		console.log('Render params', renderParams);
-		renderParams = renderPresets[renderParams.type];
 	}
 </script>
 

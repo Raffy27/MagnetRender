@@ -7,7 +7,6 @@
     export let svg;
 </script>
 
-<div class="my-12"></div>
 <div class="min-w-full h-full border-2 border-dashed rounded-md">
     {#if renderParams.type == 0}
         <Prism renderParams={renderParams} bind:svg={svg} />
