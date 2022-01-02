@@ -37,6 +37,7 @@ Make sure to update the target specifications in the package.json file to match 
     * [Official Template](https://github.com/sveltejs/template)
 * [Electron](https://electronjs.org/) v15.3.4
 * [Jimp](https://github.com/oliver-moran/jimp) v0.16.1
+* [Tailwind CSS](https://tailwindcss.com/) v2.2.17
 * [Node.js](https://nodejs.org/) v16.4.2
 
 For other modules used, please refer to the [Dependency graph](https://github.com/Raffy27/MagnetRender/network/dependencies).
@@ -52,6 +53,10 @@ You will also need Node.js and a package manager, such as npm.
 Most parameters can be modified on the fly, and the application will update the preview accordingly. For constants and strings, see the appropriate files (check `InputForm.svelte` for ranges and individual schemas for previews).
 
 Live reloading is enabled by default.
+
+## Releases
+
+For active releases and pre-compiled binaries, see [Releases](https://github.com/Raffy27/MagnetRender/releases).
 
 ## License
 
